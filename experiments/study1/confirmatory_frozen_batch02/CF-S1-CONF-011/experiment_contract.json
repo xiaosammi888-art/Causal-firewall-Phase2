@@ -1,0 +1,207 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-011",
+    "source_study_id": "OBHDP_6_3",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 499-502; Journal=OBHDP, Essay=6, Study=3",
+    "source_article": "Newman, Fast, and Harmon (2020), When eliminating bias isn’t fair: Algorithmic reductionism and procedural justice in human resource decisions",
+    "source_article_url": "https://doi.org/10.1016/j.obhdp.2020.03.008",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and reason-generation requests.",
+      "Separated the shared end-of-year bonus setting from the four decision procedures.",
+      "Restored the omitted list number before potential for productivity in the human-with-algorithmic-option arm.",
+      "Locked the four fairness items as primary; retained quantitative and qualitative consideration groups as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "1dc5c754669c0987a40ebb6b09509704500b4bad9f2ff2c1213831dc23c95e34"
+  },
+  "design": {
+    "type": "four_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "procedural_fairness",
+    "primary_estimand": "0.5*[E(Y|human_with_algorithmic_option)+E(Y|human_only)] - 0.5*[E(Y|algorithm_only)+E(Y|algorithm_with_human_adjustment)]"
+  },
+  "population": {
+    "source_population": "Adults recruited on MTurk",
+    "simulation_target": "Adult evaluating an employee-bonus allocation procedure",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult participant evaluating Company X's bonus-allocation process. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "Company X is determining the size of each employee's end-of-year bonus. The company uses the decision process described below and considers a variety of factors.",
+    "arms": {
+      "algorithm_only": {
+        "label": "Algorithm only",
+        "stimulus": "Company X relied on an algorithm, a computerized decision-making tool. After a series of computations, the algorithm determined how employee bonuses should be allocated."
+      },
+      "algorithm_with_human_adjustment": {
+        "label": "Algorithm with human adjustment",
+        "stimulus": "Company X relied on an algorithm. After its computations determined the allocation, the human resources team could adjust the algorithm's determinations up or down within a margin of 10%."
+      },
+      "human_with_algorithmic_option": {
+        "label": "Human with algorithmic option",
+        "stimulus": "Company X relied on its human resources team. After deliberation, the team determined the allocation and had the option to consider recommendations from an algorithm."
+      },
+      "human_only": {
+        "label": "Human only",
+        "stimulus": "Company X relied on its human resources team. After a series of deliberations, the team determined how employee bonuses should be allocated."
+      }
+    },
+    "response_instruction": "Rate every item from 1 to 7 using the anchors stated in the question and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "procedural_fairness": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "fair_way",
+          "text": "The way this company determined how to allocate employee bonuses seems fair.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "fair_process",
+          "text": "This company's process for deciding which employees receive bonuses was fair.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "fair_decision",
+          "text": "This decision regarding which employees received bonuses was fair.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "fair_outcome",
+          "text": "The outcome of this decision was fair.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "quantitative_considerations": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "profitability",
+          "text": "To what degree was profitability to the company part of the decision process? Use 1 for not part of the process and 7 for essential.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "hours_worked",
+          "text": "To what degree was number of hours worked part of the decision process? Use 1 for not part of the process and 7 for essential.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "client_billing",
+          "text": "To what degree was client billing part of the decision process? Use 1 for not part of the process and 7 for essential.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "qualitative_considerations": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "leadership_skills",
+          "text": "To what degree were leadership skills part of the decision process? Use 1 for not part of the process and 7 for essential.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "client_attitude",
+          "text": "To what degree was attitude toward clients part of the decision process? Use 1 for not part of the process and 7 for essential.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "productivity_potential",
+          "text": "To what degree was potential for productivity part of the decision process? Use 1 for not part of the process and 7 for essential.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Human-primary bonus procedures are judged fairer than algorithm-primary bonus procedures.",
+    "reversed_hypothesis_text": "Algorithm-primary bonus procedures are judged fairer than human-primary bonus procedures.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

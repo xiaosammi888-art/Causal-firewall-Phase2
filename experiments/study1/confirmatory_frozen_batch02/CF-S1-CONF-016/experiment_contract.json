@@ -1,0 +1,152 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-016",
+    "source_study_id": "JPSP_9_1",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 391-394; Journal=JPSP, Essay=9, Study=1",
+    "source_article": "Ames and Mason (2015), Tandem anchoring: Informational and politeness effects of range offers in social exchange",
+    "source_article_url": "https://doi.org/10.1037/pspi0000016",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and all reason-generation requests.",
+      "Corrected the source-verifiable archival typo 'to pend restaurant' to 'top-end restaurant'.",
+      "Separated the shared catering-negotiation scenario from the four opening offers.",
+      "Required nonnegative numeric dollar responses without imposing an arbitrary upper bound.",
+      "Locked bolstering-minus-point and backdown-minus-point counteroffer contrasts as co-primary analysis metadata."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "51ec38506c3b8da13f18042abc9e7db28916bf6e428ffcd3e877ff9dc18c121c"
+  },
+  "design": {
+    "type": "four_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "counteroffer",
+    "primary_estimand": "Co-primary counteroffer contrasts: E[Y|bolstering_range]-E[Y|point_offer] and E[Y|backdown_range]-E[Y|point_offer], tested with Holm familywise correction across the two contrasts at alpha=0.05; bracketing-minus-point is secondary"
+  },
+  "population": {
+    "source_population": "U.S. adults recruited on MTurk",
+    "simulation_target": "U.S. adult responding to a caterer's opening offer in a fundraising-event negotiation",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one U.S. adult leading a nonprofit fundraising dinner and negotiating with a caterer. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "You are arranging catering for a nonprofit fundraising dinner with several hundred guests. The event must be elegant and high quality, but you want to minimize catering cost. The menu is fixed and only price is negotiable. You expect the per-person cost to be near a meal and drinks at a top-end restaurant in a major city. The caterer has reviewed the menu.",
+    "arms": {
+      "point_offer": {
+        "label": "$100 point offer",
+        "stimulus": "The caterer says: ‘We could cater this event for $100 per person.’"
+      },
+      "backdown_range": {
+        "label": "$80-$100 backdown range",
+        "stimulus": "The caterer says: ‘We could cater this event for $80 to $100 per person.’"
+      },
+      "bracketing_range": {
+        "label": "$90-$110 bracketing range",
+        "stimulus": "The caterer says: ‘We could cater this event for $90 to $110 per person.’"
+      },
+      "bolstering_range": {
+        "label": "$100-$120 bolstering range",
+        "stimulus": "The caterer says: ‘We could cater this event for $100 to $120 per person.’"
+      }
+    },
+    "response_instruction": "Return only three nonnegative numeric dollar amounts per person in the required JSON structure. Do not include currency symbols, ranges, explanations, or reasons."
+  },
+  "outcomes": {
+    "counteroffer": {
+      "role": "primary",
+      "type": "bounded_number",
+      "items": [
+        {
+          "item_id": "counteroffer_dollars",
+          "text": "If you had to respond with an offer of a single price, what offer in dollars per person would you give the caterer?",
+          "minimum": 0,
+          "maximum": null,
+          "integer_only": false,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "reservation_price": {
+      "role": "secondary",
+      "type": "bounded_number",
+      "items": [
+        {
+          "item_id": "reservation_price_dollars",
+          "text": "What is the least amount in dollars per person that you think the caterer would agree to?",
+          "minimum": 0,
+          "maximum": null,
+          "integer_only": false,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "anticipated_final_price": {
+      "role": "secondary",
+      "type": "bounded_number",
+      "items": [
+        {
+          "item_id": "anticipated_final_price_dollars",
+          "text": "What final price in dollars per person would you and the caterer most likely agree on if you reached an agreement?",
+          "minimum": 0,
+          "maximum": null,
+          "integer_only": false,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The bolstering range increases counteroffers relative to the point offer, while the backdown range decreases counteroffers relative to the point offer.",
+    "reversed_hypothesis_text": "The bolstering range decreases counteroffers relative to the point offer, while the backdown range increases counteroffers relative to the point offer.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

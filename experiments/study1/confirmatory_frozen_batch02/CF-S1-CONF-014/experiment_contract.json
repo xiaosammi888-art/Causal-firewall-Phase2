@@ -1,0 +1,287 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-014",
+    "source_study_id": "JPSP_1_2",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 294-297; Journal=JPSP, Essay=1, Study=2",
+    "source_article": "O’Connor, Effron, and Lucas (2020), Moral cleansing as hypocrisy: When private acts of charity make you feel better than you deserve",
+    "source_article_url": "https://doi.org/10.1037/pspa0000195",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper, browser-behavior instruction, and all reason-generation requests.",
+      "Separated the common TaylorGroup and Joseph Larson frame from the tobacco/gambling business and volunteering combinations.",
+      "Locked items 15-19 as the primary hypocrisy composite and deterministic reverse-scoring of the genuine item.",
+      "Retained all 19 source items; praise, employment/harm, and character judgments remain secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "835a55e020bec1b2f94b22c0e4384291a63d98de68ae8b93d1bd290e82cdbe38"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "hypocrisy",
+    "primary_estimand": "0.5*[E(Y|inconsistent_tobacco)+E(Y|inconsistent_gambling)] - 0.5*[E(Y|unrelated_tobacco_business_gambling_virtue)+E(Y|unrelated_gambling_business_tobacco_virtue)]"
+  },
+  "population": {
+    "source_population": "U.S. undergraduate students",
+    "simulation_target": "U.S. undergraduate evaluating an executive's private volunteering and business conduct",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one U.S. undergraduate participant evaluating Joseph Larson. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "The TaylorGroup is a Houston consulting organization. Joseph Larson is its executive vice-president of accounting. The company's business and Larson's anonymous pro-bono volunteering and donations are described below.",
+    "arms": {
+      "inconsistent_tobacco": {
+        "label": "Inconsistent virtue: tobacco",
+        "stimulus": "The TaylorGroup helps tobacco companies increase tobacco sales and consumer growth, including in targeted communities. Larson privately works 10 pro-bono hours each weekend on anti-tobacco campaigns and anonymously donates $1,000 annually to organizations treating tobacco addiction and health effects."
+      },
+      "inconsistent_gambling": {
+        "label": "Inconsistent virtue: gambling",
+        "stimulus": "The TaylorGroup helps casinos increase gambling revenue and patron growth, including in lower-income target markets. Larson privately works 10 pro-bono hours each weekend on anti-gambling campaigns and anonymously donates $1,000 annually to organizations treating gambling addiction and adverse outcomes."
+      },
+      "unrelated_tobacco_business_gambling_virtue": {
+        "label": "Unrelated virtue: tobacco business and gambling volunteering",
+        "stimulus": "The TaylorGroup helps tobacco companies increase tobacco sales and consumer growth, including in targeted communities. Larson privately works 10 pro-bono hours each weekend on anti-gambling campaigns and anonymously donates $1,000 annually to organizations treating gambling addiction and adverse outcomes."
+      },
+      "unrelated_gambling_business_tobacco_virtue": {
+        "label": "Unrelated virtue: gambling business and tobacco volunteering",
+        "stimulus": "The TaylorGroup helps casinos increase gambling revenue and patron growth, including in lower-income target markets. Larson privately works 10 pro-bono hours each weekend on anti-tobacco campaigns and anonymously donates $1,000 annually to organizations treating tobacco addiction and health effects."
+      }
+    },
+    "response_instruction": "Rate all 19 items from 1 to 7 using their stated anchors and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "praise": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "honorable",
+          "text": "Larson's volunteering behavior was honorable.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "volunteering_moral",
+          "text": "Larson's volunteering behavior was moral.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "praiseworthy",
+          "text": "Larson's volunteering behavior was praiseworthy.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "employment_and_harm": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "should_not_hire",
+          "text": "If Larson were looking for another job, organizations definitely should not hire him.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "harmed_company",
+          "text": "Larson's actions harmed the TaylorGroup.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "character_judgments": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "cruel_kind",
+          "text": "How do you view Larson? Use 1 for cruel and 7 for kind.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "nice_awful",
+          "text": "How do you view Larson? Use 1 for nice and 7 for awful.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "cold_warm",
+          "text": "How do you view Larson? Use 1 for cold and 7 for warm.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "honest_dishonest",
+          "text": "How do you view Larson? Use 1 for honest and 7 for dishonest.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "unfair_fair",
+          "text": "How do you view Larson? Use 1 for unfair and 7 for fair.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "moral_immoral",
+          "text": "How do you view Larson? Use 1 for moral and 7 for immoral.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "arrogant_humble",
+          "text": "How do you view Larson? Use 1 for arrogant and 7 for humble.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "good_bad",
+          "text": "How do you view Larson? Use 1 for good and 7 for bad.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "likable_dislikable",
+          "text": "How do you view Larson? Use 1 for likable and 7 for dislikable.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "hypocrisy": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "hypocritical",
+          "text": "Larson was hypocritical.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "two_faced",
+          "text": "Larson was two-faced.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "phony",
+          "text": "Larson was phony.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "genuine",
+          "text": "Larson was genuine.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": true
+        },
+        {
+          "item_id": "insincere",
+          "text": "Larson was insincere.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Inconsistent moral cleansing produces higher hypocrisy judgments than unrelated private virtue, averaging across tobacco and gambling domains.",
+    "reversed_hypothesis_text": "Unrelated private virtue produces higher hypocrisy judgments than inconsistent moral cleansing, averaging across tobacco and gambling domains.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-015",
+    "source_study_id": "JPSP_4_4",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 327-328; Journal=JPSP, Essay=4, Study=4",
+    "source_article": "Kim, Campbell, Shepherd, and Kay (2020), Understanding contemporary forms of exploitation: Attributions of passion serve to legitimize the poor treatment of workers",
+    "source_article_url": "https://doi.org/10.1037/pspi0000190",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and reason-generation requests.",
+      "Separated the common Duke research proposal from the weak- and strong-passion participant descriptions.",
+      "Standardized archival line-break and hyphenation artifacts without changing experimental content.",
+      "Locked the two legitimacy items as primary and retained liking and enjoyment as secondary checks."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "79fbbd9bf9065bdb4a90b9c3c43ff8835f3d49647374ba42eb369b76f2940750"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "exploitation_legitimacy",
+    "primary_estimand": "E[Y|strong_passion] - E[Y|weak_passion]"
+  },
+  "population": {
+    "source_population": "Students recruited on a university campus",
+    "simulation_target": "Student evaluating proposed Duke University research practices",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one student participant evaluating a proposed Duke University experiment. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "Duke University proposes a paid 30-minute experiment about individual differences in learning. Participants will solve SAT-like math problems. The proposal asks whether an experimenter may require 15 minutes of unpaid overtime or an unannounced mildly uncomfortable ice-water task.",
+    "arms": {
+      "weak_passion": {
+        "label": "Weak presumed passion",
+        "stimulus": "Participants would be Duke University undergraduates from various majors. Some people enjoy the math task and some do not."
+      },
+      "strong_passion": {
+        "label": "Strong presumed passion",
+        "stimulus": "Participants would be Duke University undergraduates from a mathematics club. Although they have various majors, they share a love of mathematics and regularly meet for mathematics activities."
+      }
+    },
+    "response_instruction": "Rate every item from 1 (not at all) to 7 (extremely) using the stated question and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "exploitation_legitimacy": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "overtime_legitimacy",
+          "text": "How legitimate is it for the experimenter to require participants to stay 15 minutes beyond the scheduled 30 minutes so the study can be completed?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "ice_water_legitimacy",
+          "text": "How legitimate is it for the experimenter to require participants to submerge their hands in ice water while solving math problems when this mildly uncomfortable task was not disclosed at sign-up?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "presumed_task_enjoyment": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "task_liking",
+          "text": "How much would participants like doing the experimental tasks?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "experiment_enjoyment",
+          "text": "How much would participants enjoy the experiment?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Strong presumed passion increases the judged legitimacy of the two exploitative research requests relative to weak presumed passion.",
+    "reversed_hypothesis_text": "Strong presumed passion decreases the judged legitimacy of the two exploitative research requests relative to weak presumed passion.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

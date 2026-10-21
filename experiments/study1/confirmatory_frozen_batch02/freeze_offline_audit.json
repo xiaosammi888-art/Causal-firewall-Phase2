@@ -1,0 +1,271 @@
+{
+  "audit_id": "CF-S1-CONF-B02-FREEZE-AUDIT-20260927-01",
+  "status": "offline_freeze_audit",
+  "network_calls": 0,
+  "model_called": false,
+  "contracts": 8,
+  "compiled_arm_packets": 26,
+  "all_checks_passed": true,
+  "rows": [
+    {
+      "contract_id": "CF-S1-CONF-009",
+      "arm": "high_power_stable",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-009",
+      "arm": "low_power_stable",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-009",
+      "arm": "high_power_unstable",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-009",
+      "arm": "low_power_unstable",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-010",
+      "arm": "passion",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-010",
+      "arm": "control",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-011",
+      "arm": "algorithm_only",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-011",
+      "arm": "algorithm_with_human_adjustment",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-011",
+      "arm": "human_with_algorithmic_option",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-011",
+      "arm": "human_only",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-012",
+      "arm": "ephemeral_luxury",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-012",
+      "arm": "iconic_luxury",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-012",
+      "arm": "generic_luxury_control",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-013",
+      "arm": "communicator",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-013",
+      "arm": "third_party",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-013",
+      "arm": "target",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-014",
+      "arm": "inconsistent_tobacco",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-014",
+      "arm": "inconsistent_gambling",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-014",
+      "arm": "unrelated_tobacco_business_gambling_virtue",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-014",
+      "arm": "unrelated_gambling_business_tobacco_virtue",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-015",
+      "arm": "weak_passion",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-015",
+      "arm": "strong_passion",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-016",
+      "arm": "point_offer",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-016",
+      "arm": "backdown_range",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-016",
+      "arm": "bracketing_range",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-016",
+      "arm": "bolstering_range",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    }
+  ]
+}

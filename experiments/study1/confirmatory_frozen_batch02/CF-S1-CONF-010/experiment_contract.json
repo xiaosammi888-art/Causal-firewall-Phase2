@@ -1,0 +1,182 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-010",
+    "source_study_id": "OBHDP_5_2",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 481-482; Journal=OBHDP, Essay=5, Study=2",
+    "source_article": "Jachimowicz, To, Agasi, Côté, and Galinsky (2019), The gravitational pull of expressing passion: When and how expressing passion elicits status conferral and support from others",
+    "source_article_url": "https://doi.org/10.1016/j.obhdp.2019.06.002",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and reason-generation request.",
+      "Separated the coworker-conversation frame from the passion versus control text.",
+      "Locked admiration/status conferral as primary and support and acceptance/connection as secondary composites."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "70df77d810bc05e49cdefd19ed8e003babc6746b84c461c4ef0e528eb4d8d7ad"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "admiration_status_conferral",
+    "primary_estimand": "E[Y|passion] - E[Y|control]"
+  },
+  "population": {
+    "source_population": "Adults recruited on MTurk",
+    "simulation_target": "Adult evaluating a coworker after a conversation",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult participant recalling a conversation with a male coworker. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "You recently had a conversation with a coworker. During that conversation, he made the statement described below.",
+    "arms": {
+      "passion": {
+        "label": "Passion expression",
+        "stimulus": "Your coworker said how important it is for him to engage in activities at work that reflect what is important to him: ‘I feel excited that this job allows me to work on things that are significant to me.’ Clearly, he is passionate about his job."
+      },
+      "control": {
+        "label": "Morning-routine control",
+        "stimulus": "Your coworker described his morning. He left early for work but encountered heavy traffic on the local highway and arrived just on time. Clearly, he cares about getting to work at a sensible time."
+      }
+    },
+    "response_instruction": "Rate every item from 1 (strongly disagree) to 7 (strongly agree) and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "admiration_status_conferral": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "admire",
+          "text": "I admire my coworker.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "wish_to_be_like",
+          "text": "I wish I could be like my coworker.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "high_regard",
+          "text": "I hold my coworker in high regard.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "support": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "give_advice",
+          "text": "I am willing to give him advice when he comes to me for a work problem.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "give_help",
+          "text": "I am willing to help him when he comes to me for a work problem.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "acceptance_connection": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "get_along",
+          "text": "I get along well with him.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "connected",
+          "text": "I feel connected to him.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "close",
+          "text": "I feel close to him.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "A coworker's passion expression increases admiration and status conferral relative to the control statement.",
+    "reversed_hypothesis_text": "A coworker's passion expression decreases admiration and status conferral relative to the control statement.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

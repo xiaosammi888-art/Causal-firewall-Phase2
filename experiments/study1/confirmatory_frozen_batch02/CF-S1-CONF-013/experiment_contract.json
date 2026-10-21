@@ -1,0 +1,163 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-013",
+    "source_study_id": "JEP_3_1",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 202-204; Journal=JEP, Essay=3, Study=1",
+    "source_article": "Levine (2022), Community standards of deception: Deception is perceived to be ethical when it prevents unnecessary harm",
+    "source_article_url": "https://doi.org/10.1037/xge0001081",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and reason-generation requests.",
+      "Recoded the source response from 1=truth and 2=lie to 0=truth and 1=lie without changing the binary choice.",
+      "Preserved the four fixed scenario classes and arm-specific communicator, third-party, and target wording.",
+      "Locked the immediate-harm and instrumental-value contrast vectors as co-primary analysis metadata."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "c47dae0723a5b76d4795b6f162551a90d08d0d608228012dd7c115e62e6a8715"
+  },
+  "design": {
+    "type": "three_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "lie_choice_vector",
+    "primary_estimand": "Co-primary contrasts with lie=1: harm = 0.5*(Y3+Y4)-0.5*(Y1+Y2); instrumental value = 0.5*(Y1+Y4)-0.5*(Y2+Y3), estimated within perspective and tested with Holm familywise correction across the two contrasts at alpha=0.05"
+  },
+  "population": {
+    "source_population": "Adults in U.S. laboratory and MTurk samples",
+    "simulation_target": "Adult making lie-versus-truth judgments from one assigned perspective",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult participant assigned to one perspective. Make each lie-versus-truth choice for yourself from that perspective, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "You will judge whether truthful disclosure or lying is appropriate in four fixed scenarios that vary immediate harm and instrumental value.",
+    "arms": {
+      "communicator": {
+        "label": "Communicator perspective",
+        "stimulus": "Scenario 1: You have a negative opinion of another person that would not be particularly hurtful to share now; it is important and can influence future behavior. Scenario 2: The opinion would not be particularly hurtful; it is not important and cannot influence future behavior. Scenario 3: The opinion would be incredibly hurtful; it is not important and cannot influence future behavior. Scenario 4: The opinion would be incredibly hurtful; it is important and can influence future behavior."
+      },
+      "third_party": {
+        "label": "Third-party perspective",
+        "stimulus": "Scenario 1: Person A has negative information relevant to Person B that would not be particularly hurtful to share now; it is important and can influence Person B's future behavior. Scenario 2: It would not be particularly hurtful; it is not important and cannot influence future behavior. Scenario 3: It would be incredibly hurtful; it is not important and cannot influence future behavior. Scenario 4: It would be incredibly hurtful; it is important and can influence future behavior."
+      },
+      "target": {
+        "label": "Target perspective",
+        "stimulus": "Scenario 1: Person A has negative information relevant to you that would not be particularly hurtful to share now; it is important and can influence your future behavior. Scenario 2: It would not be particularly hurtful; it is not important and cannot influence future behavior. Scenario 3: It would be incredibly hurtful; it is not important and cannot influence future behavior. Scenario 4: It would be incredibly hurtful; it is important and can influence future behavior."
+      }
+    },
+    "response_instruction": "For each scenario, return 0 for truthfully share and 1 for lie. Return only the four integer responses in the required JSON structure."
+  },
+  "outcomes": {
+    "lie_choice_vector": {
+      "role": "primary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "scenario_1_lie",
+          "text": "Scenario 1: choose truthfully share (0) or lie (1).",
+          "minimum": 0,
+          "maximum": 1,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "communicator": "In Scenario 1, should you truthfully share the information or lie to the person? Use 0 for truthfully share and 1 for lie.",
+            "third_party": "In Scenario 1, should Person A truthfully share the information with Person B or lie to Person B? Use 0 for truthfully share and 1 for lie.",
+            "target": "In Scenario 1, should Person A truthfully share the information with you or lie to you? Use 0 for truthfully share and 1 for lie."
+          },
+          "analysis_group": "scenario_1"
+        },
+        {
+          "item_id": "scenario_2_lie",
+          "text": "Scenario 2: choose truthfully share (0) or lie (1).",
+          "minimum": 0,
+          "maximum": 1,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "communicator": "In Scenario 2, should you truthfully share the information or lie to the person? Use 0 for truthfully share and 1 for lie.",
+            "third_party": "In Scenario 2, should Person A truthfully share the information with Person B or lie to Person B? Use 0 for truthfully share and 1 for lie.",
+            "target": "In Scenario 2, should Person A truthfully share the information with you or lie to you? Use 0 for truthfully share and 1 for lie."
+          },
+          "analysis_group": "scenario_2"
+        },
+        {
+          "item_id": "scenario_3_lie",
+          "text": "Scenario 3: choose truthfully share (0) or lie (1).",
+          "minimum": 0,
+          "maximum": 1,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "communicator": "In Scenario 3, should you truthfully share the information or lie to the person? Use 0 for truthfully share and 1 for lie.",
+            "third_party": "In Scenario 3, should Person A truthfully share the information with Person B or lie to Person B? Use 0 for truthfully share and 1 for lie.",
+            "target": "In Scenario 3, should Person A truthfully share the information with you or lie to you? Use 0 for truthfully share and 1 for lie."
+          },
+          "analysis_group": "scenario_3"
+        },
+        {
+          "item_id": "scenario_4_lie",
+          "text": "Scenario 4: choose truthfully share (0) or lie (1).",
+          "minimum": 0,
+          "maximum": 1,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "communicator": "In Scenario 4, should you truthfully share the information or lie to the person? Use 0 for truthfully share and 1 for lie.",
+            "third_party": "In Scenario 4, should Person A truthfully share the information with Person B or lie to Person B? Use 0 for truthfully share and 1 for lie.",
+            "target": "In Scenario 4, should Person A truthfully share the information with you or lie to you? Use 0 for truthfully share and 1 for lie."
+          },
+          "analysis_group": "scenario_4"
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Immediate harm increases lie choice while instrumental value decreases lie choice, using the prespecified scenario contrasts.",
+    "reversed_hypothesis_text": "Immediate harm decreases lie choice while instrumental value increases lie choice, using the prespecified scenario contrasts.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

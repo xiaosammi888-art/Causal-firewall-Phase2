@@ -1,0 +1,182 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-009",
+    "source_study_id": "OBHDP_2_1",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 437-440; Journal=OBHDP, Essay=2, Study=1",
+    "source_article": "Mooijman, van Dijk, van Dijk, and Ellemers (2019), Leader power, power stability, and interpersonal trust",
+    "source_article_url": "https://doi.org/10.1016/j.obhdp.2019.03.009",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and all reason-generation requests.",
+      "Separated the common vice-president role from the power and stability manipulations.",
+      "Locked the three trust items as the primary composite and retained five source checks as secondary outcomes."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "b2ca6fc15d408ffb86306dfd4f855d97efdb4596de33f36f469de83e3127d523"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "interpersonal_trust",
+    "primary_estimand": "[E(Y|high_power, unstable) - E(Y|high_power, stable)] - [E(Y|low_power, unstable) - E(Y|low_power, stable)]"
+  },
+  "population": {
+    "source_population": "Adults recruited on MTurk",
+    "simulation_target": "Adult imagining the role of a vice-president of sales",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult participant placed in the role of a vice-president of sales at a medium-sized firm. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "You are a vice-president of sales at a medium-sized firm. Your position, division, budget, resources, and the firm's division-rotation policy are described below.",
+    "arms": {
+      "high_power_stable": {
+        "label": "High and stable power",
+        "stimulus": "You are recognized as one of the most powerful people in the company. Your division is one of the most important, has one of the largest budgets, and gives you control over unusually large resources. Managers almost never change divisions."
+      },
+      "low_power_stable": {
+        "label": "Low and stable power",
+        "stimulus": "You are recognized as one of the least powerful people in the company. Your division is one of the least important, has one of the smallest budgets, and gives you control over unusually small resources. Managers almost never change divisions."
+      },
+      "high_power_unstable": {
+        "label": "High and unstable power",
+        "stimulus": "You are recognized as one of the most powerful people in the company. Your division is one of the most important, has one of the largest budgets, and gives you control over unusually large resources. Managers regularly change divisions so that other managers can take their place."
+      },
+      "low_power_unstable": {
+        "label": "Low and unstable power",
+        "stimulus": "You are recognized as one of the least powerful people in the company. Your division is one of the least important, has one of the smallest budgets, and gives you control over unusually small resources. Managers regularly change divisions so that other managers can take their place."
+      }
+    },
+    "response_instruction": "Rate every item from 1 (disagree completely) to 7 (agree completely) and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "interpersonal_trust": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "trust_1",
+          "text": "I think that I can fully trust other managers at the firm.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "trust_2",
+          "text": "Other managers at the firm can be trusted.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "trust_3",
+          "text": "Other managers at the firm always take my interests into account.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "power_stability_check": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "position_unstable",
+          "text": "My position at the firm is unstable.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "feel_powerful",
+          "text": "As a manager, I feel powerful.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "feel_influential",
+          "text": "As a manager, I feel influential.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "feel_in_power",
+          "text": "As a manager, I feel in power.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "position_legitimate",
+          "text": "I feel like my position as a manager is legitimate.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Power instability decreases interpersonal trust more under high power than under low power.",
+    "reversed_hypothesis_text": "Power instability decreases interpersonal trust more under low power than under high power.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

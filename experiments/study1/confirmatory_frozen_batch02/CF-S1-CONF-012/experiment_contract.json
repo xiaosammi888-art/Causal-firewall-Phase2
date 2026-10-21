@@ -1,0 +1,250 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-012",
+    "source_study_id": "OBHDP_7_2a",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 509-511; Journal=OBHDP, Essay=7, Study=2a",
+    "source_article": "Desmichel, Ordabayeva, and Kocher (2020), What if diamonds did not last forever? Signaling status achievement through ephemeral versus iconic luxury goods",
+    "source_article_url": "https://doi.org/10.1016/j.obhdp.2020.01.002",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and reason-generation request.",
+      "Separated the shared dinner-and-wine recommendation frame from the three wine descriptions.",
+      "Locked the two achieved-status items as primary and retained ascribed status, general status, and creativity as secondary outcomes."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "b6459810273c4869deda9e2592d12cc3ead528e52dec283ae932b4a78975b6d0"
+  },
+  "design": {
+    "type": "three_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "achieved_status",
+    "primary_estimand": "E[Y|ephemeral_luxury] - E[Y|iconic_luxury]"
+  },
+  "population": {
+    "source_population": "Adults recruited on MTurk",
+    "simulation_target": "Adult evaluating a colleague from a wine recommendation",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult participant evaluating a colleague who recommends a prestigious wine. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "You are chatting with a colleague and mention that you invited guests to dinner next week whom you want to impress. You ask for advice about an appropriate bottle of wine. The colleague recommends a prestigious, excellent wine worth its price.",
+    "arms": {
+      "ephemeral_luxury": {
+        "label": "Ephemeral prestigious wine",
+        "stimulus": "The wine comes from a grape variety whose flavors change every year. The grapes, production method, and packaging are constantly renewed and updated. Every tasting will be different; the wine is constantly reinvented."
+      },
+      "iconic_luxury": {
+        "label": "Iconic prestigious wine",
+        "stimulus": "The wine comes from a grape variety that existed in the eighteenth century. The grapes, production method, and packaging have remained unchanged. It tastes the same year after year; the wine is timeless."
+      },
+      "generic_luxury_control": {
+        "label": "Generic prestigious wine control",
+        "stimulus": "The wine comes from a grape variety with a good reputation. The colleague mentions its grapes, production method, and packaging. The wine will be exquisite; it is a great wine."
+      }
+    },
+    "response_instruction": "Rate every item from 1 (strongly disagree) to 7 (strongly agree) and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "achieved_status": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "achieved_status_high",
+          "text": "The colleague's achieved status is high.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "status_effort",
+          "text": "The colleague made great efforts to reach their status.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "ascribed_status": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "ascribed_status_high",
+          "text": "The colleague's ascribed status is high.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "privileged_background",
+          "text": "The colleague has a privileged social background.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "general_status": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "high_status_person",
+          "text": "The colleague is a high-status person.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "creativity": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "creative_goals",
+          "text": "The colleague suggests new ways to achieve goals or objectives.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "creative_performance",
+          "text": "The colleague comes up with new and practical ideas to improve performance.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "creative_quality",
+          "text": "The colleague suggests new ways to increase quality.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "creative_source",
+          "text": "The colleague is a good source of creative ideas.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "creative_risk",
+          "text": "The colleague is not afraid to take risks.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "creative_opportunity",
+          "text": "The colleague exhibits creativity on the job when given the opportunity.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "creative_innovative",
+          "text": "The colleague often has new and innovative ideas.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "creative_solutions",
+          "text": "The colleague comes up with creative solutions to problems.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "creative_fresh",
+          "text": "The colleague often has a fresh approach to problems.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "creative_tasks",
+          "text": "The colleague suggests new ways of performing work tasks.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Ephemeral luxury signals greater achieved status than iconic luxury.",
+    "reversed_hypothesis_text": "Iconic luxury signals greater achieved status than ephemeral luxury.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}
