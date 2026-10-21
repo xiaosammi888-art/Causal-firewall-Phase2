@@ -1,0 +1,110 @@
+{
+  "identity": {
+    "study_id": "REPLACE_STUDY_ID",
+    "source_study_id": "REPLACE_SOURCE_STUDY_ID",
+    "contract_version": "0.1.0-draft",
+    "domain": "REPLACE_DOMAIN"
+  },
+  "source": {
+    "archive": "REPLACE_ARCHIVE_OR_SOURCE",
+    "archive_url": "REPLACE_ARCHIVE_URL",
+    "prompt_locator": "REPLACE_MATERIAL_LOCATOR",
+    "source_article": "REPLACE_SOURCE_CITATION",
+    "source_article_url": "REPLACE_SOURCE_URL",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "REPLACE_WITH_EACH_AUTHORIZED_CHANGE"
+    ],
+    "omitted_source_measures": [
+      "REPLACE_OR_REMOVE_IF_NONE"
+    ],
+    "normalized_material_sha256": null
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "primary_outcome",
+    "primary_estimand": "REPLACE_WITH_PRESPECIFIED_CONTRAST"
+  },
+  "population": {
+    "source_population": "REPLACE_SOURCE_POPULATION",
+    "simulation_target": "REPLACE_SIMULATION_TARGET",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "REPLACE_PARTICIPANT_ROLE_WITHOUT_RESEARCHER_EXPECTATIONS",
+    "common_scenario": "REPLACE_COMMON_SCENARIO",
+    "arms": {
+      "control": {
+        "label": "Control",
+        "stimulus": "REPLACE_CONTROL_STIMULUS"
+      },
+      "treatment": {
+        "label": "Treatment",
+        "stimulus": "REPLACE_TREATMENT_STIMULUS"
+      }
+    },
+    "response_instruction": "REPLACE_RESPONSE_INSTRUCTION"
+  },
+  "outcomes": {
+    "primary_outcome": {
+      "role": "primary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "outcome_1",
+          "text": "REPLACE_OUTCOME_ITEM_TEXT",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "arithmetic_mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "REPLACE_ALIGNED_EXPECTATION",
+    "reversed_hypothesis_text": "REPLACE_REVERSED_EXPECTATION",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "draft",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

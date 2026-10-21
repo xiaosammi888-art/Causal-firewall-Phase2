@@ -1,0 +1,116 @@
+{
+  "identity": {
+    "study_id": "CF-EXAMPLE-001",
+    "source_study_id": "SYNTHETIC-TUTORIAL-001",
+    "contract_version": "1.0.0",
+    "domain": "organizational_behavior"
+  },
+  "source": {
+    "archive": "Original synthetic tutorial materials",
+    "archive_url": "https://example.org/causal-firewall-tutorial",
+    "prompt_locator": "This repository: examples/new_experiment_template/completed_example",
+    "source_article": "No source article; fictional tutorial example",
+    "source_article_url": "https://example.org/causal-firewall-tutorial",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "None; the materials were written specifically for this tutorial."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "cfd47e943a2922d5433e98c7f9a9d33ec368983ba466831cbec275103bfcd693"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "implementation_support",
+    "primary_estimand": "E[support|participative_message] - E[support|directive_message]"
+  },
+  "population": {
+    "source_population": "Fictional adult employees",
+    "simulation_target": "Adult employee evaluating a manager's change announcement",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one employee reading a manager's announcement. Use your own judgment and do not analyze the experiment.",
+    "common_scenario": "Your organization is introducing a new internal scheduling system next month. You receive the following message from your manager.",
+    "arms": {
+      "directive_message": {
+        "label": "Directive announcement",
+        "stimulus": "The scheduling system has been selected. All employees must begin using it next month. Detailed instructions will follow."
+      },
+      "participative_message": {
+        "label": "Participative announcement",
+        "stimulus": "The scheduling system has been selected. Before implementation next month, employees are invited to suggest how the rollout and training should be organized."
+      }
+    },
+    "response_instruction": "Rate each statement from 1 (strongly disagree) to 7 (strongly agree) and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "implementation_support": {
+      "role": "primary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "support_1",
+          "text": "I would support implementing this scheduling system.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "support_2",
+          "text": "I would be willing to invest effort in learning this scheduling system.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "arithmetic_mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The participative message increases employee support relative to the directive message.",
+    "reversed_hypothesis_text": "The directive message increases employee support relative to the participative message.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}
