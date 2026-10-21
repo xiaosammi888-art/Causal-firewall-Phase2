@@ -1,0 +1,387 @@
+{
+  "authorization": {
+    "api_calls_authorized": false,
+    "authorization_file_created": false,
+    "expansion_requires_post_reassessment_branch_lock": true,
+    "paid_calls_authorized": false,
+    "separate_single_use_hash_bound_authorization_required_per_wave": true
+  },
+  "config_id": "CF-S1-CONF-EXEC-V2-30PLUS10-20260929",
+  "config_version": "2.0.0-frozen",
+  "configuration_status": "frozen_no_api_authorization",
+  "cost": {
+    "cached_input_discount_assumed": false,
+    "cap_semantics": "Hard cumulative observed provider-usage boundary. Every authorization is bounded by its phase cap and the global cap; reaching either stops new calls.",
+    "currency": "USD",
+    "maximum_estimated_total_usd": 80.17077,
+    "maximum_expansion_cumulative_cost_cap_usd": 32.9,
+    "maximum_expansion_estimated_input_tokens": 24006185,
+    "maximum_expansion_estimated_output_tokens": 1374408,
+    "maximum_expansion_estimated_total_usd": 24.189475,
+    "planning_estimator": "ceil(model-visible UTF-8 bytes/3) input tokens plus schema-sized output tokens; no cache discount; output estimate includes the structured response only; observed usage controls the hard stop.",
+    "pricing_sources": [
+      "https://developers.openai.com/api/docs/pricing",
+      "https://developers.openai.com/api/docs/models/gpt-5.4-mini"
+    ],
+    "pricing_verified_at": "2026-09-29",
+    "primary_compatibility_cost_cap_usd": 1.0,
+    "primary_cumulative_cost_cap_usd": 71.0,
+    "primary_estimated_input_tokens": 56243567,
+    "primary_estimated_output_tokens": 3066360,
+    "primary_estimated_total_usd": 55.981295,
+    "primary_per_20_draw_wave_cost_cap_usd": 14.0,
+    "standard_cached_input_usd_per_million": 0.075,
+    "standard_input_usd_per_million": 0.75,
+    "standard_output_usd_per_million": 4.5,
+    "total_cumulative_cost_cap_usd": 104.0
+  },
+  "decoding": {
+    "max_output_tokens": 512,
+    "provider_seed": "unset",
+    "reasoning_effort": "none",
+    "store": false,
+    "structured_outputs": "strict_json_schema",
+    "temperature": 1.0,
+    "tool_choice": "none",
+    "tools": [],
+    "top_p": "unset"
+  },
+  "design": {
+    "expansion_maximum": {
+      "cells": 144,
+      "compatibility_calls": 144,
+      "compatibility_draws_per_cell": 1,
+      "confirmatory_calls": 14400,
+      "confirmatory_draws_per_cell": 100,
+      "contracts": 10,
+      "planned_calls": 14544
+    },
+    "planned_calls_maximum": 53328,
+    "planned_calls_without_expansion": 38784,
+    "primary": {
+      "cells": 384,
+      "compatibility_calls": 384,
+      "compatibility_draws_per_cell": 1,
+      "confirmatory_calls": 38400,
+      "confirmatory_draws_per_cell": 100,
+      "contracts": 30,
+      "planned_calls": 38784
+    }
+  },
+  "locked_at": "2026-09-29",
+  "model_selection": {
+    "current_latest_model_at_verification": "gpt-6-astra",
+    "current_snapshot_verified_at": "2026-09-29",
+    "decision": "retain_engineering_pilot_snapshot_for_confirmatory_comparability",
+    "latest_model_page": "https://developers.openai.com/api/docs/guides/latest-model",
+    "model_page": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+    "rationale": "Changing to the latest family after the engineering pilot would confound architecture effects with a model-generation change. GPT-5.4 Mini remains documented, supports the required endpoint, structured outputs, and reasoning effort none."
+  },
+  "persona_policy": {
+    "cross_call_memory": "deny",
+    "fresh_context_every_call": true,
+    "same_pre_treatment_persona_replayed_across_arms_cues_architectures_and_draws": true,
+    "source_matched_persona_seed": 1
+  },
+  "provider": {
+    "endpoint": "POST /v1/responses",
+    "model_aliases_prohibited": true,
+    "model_snapshot": "gpt-5.4-mini-2026-03-17",
+    "name": "openai",
+    "returned_model_must_equal_snapshot": true,
+    "service_tier": "default"
+  },
+  "randomization": {
+    "algorithm": "Within each phase and microblock, sort eligible cell_id by SHA-256(master_seed|phase|microblock|cell_id).",
+    "batch_interleaving": true,
+    "condition_interleaving": true,
+    "expansion_branch_filter": "Retain cells whose locked expansion_wave is less than or equal to the selected branch maximum; preserve max-schedule order and schedule IDs.",
+    "expansion_maximum_microblocks": 100,
+    "master_seed_sha256": "9904ff3a5320aa0e3f650c6a1f4991e58b42a24da73856cb502ce8baae30994b",
+    "microblocks_per_authorization_wave": 20,
+    "primary_cells_per_microblock": 384,
+    "primary_confirmatory_microblocks": 100,
+    "provider_seed": "unset"
+  },
+  "retry_and_failure_policy": {
+    "automatic_content_retries": 0,
+    "automatic_transport_retries": 0,
+    "completed_invalid_response_replacement": "prohibited",
+    "invalid_structured_output": "retain_as_protocol_failure",
+    "no_completed_response": "eligible_for_separately_authorized_continuation"
+  },
+  "runner_source_sha256": "496062175d635f4e08be69e183478e35ba05e69932f8d51f70a1ace64f48b160",
+  "sample_lock": {
+    "lock_id": "CF-S1-CONFIRMATORY-SAMPLE-30PLUS10-20260929",
+    "path": "artifacts/study1_sampling_frame/confirmatory_30_plus_10_lock/sample_allocation.json",
+    "sha256": "01e74a2a5360b8021359d08a7352a316fdf18340256e9b824a588ded7d4ef175"
+  },
+  "scientific_scope": {
+    "compatibility_calls_included_in_confirmatory_analysis": false,
+    "cross_model_generalization": false,
+    "description": "OpenAI confirmatory tranche for the locked 30-experiment primary sample with a variance-triggered ordered 10-experiment expansion pool.",
+    "eligible_contracts": 40,
+    "expansion_activation_rule": "After all 100 primary draws, use only the preregistered blinded variance reassessment. Select N=30,32,34,36,38,or40 by rounding upward and activate complete expansion waves cumulatively.",
+    "expansion_contracts": 10,
+    "expansion_effect_information_prohibited": [
+      "mean",
+      "sign",
+      "condition_label",
+      "effect_direction",
+      "p_value",
+      "replication_success"
+    ],
+    "included_architectures": [
+      "C_fresh_context_manual_whitelist",
+      "D_labeled_causal_firewall"
+    ],
+    "included_batches": [
+      "batch01",
+      "batch02",
+      "batch03",
+      "batch04",
+      "batch05"
+    ],
+    "included_cues": [
+      "aligned",
+      "reversed"
+    ],
+    "maximum_design_cells": 528,
+    "maximum_expansion_design_cells": 144,
+    "primary_contracts": 30,
+    "primary_design_cells": 384,
+    "proposal_boundary": "This remains a one-provider, one-model-snapshot confirmatory tranche. Other model families require new frozen configurations."
+  },
+  "source_bindings": [
+    {
+      "arm_packets": 18,
+      "batch": "batch01",
+      "batch_contract_set_sha256": "da16ab9abceb6b3d7001b170b51afafbded0088adbd171360b83b665b7488e03",
+      "batch_material_set_sha256": "fd763457cbc15803aefb482ea79f27903ea639445f059a78d1445df64638e0d3",
+      "freeze_manifest": "experiments/study1/confirmatory_frozen_batch01/freeze_manifest.json",
+      "freeze_manifest_sha256": "5e309b02a9db53db25f2a4c79599d39ae04e9c3701f272a66d161106a52b6e93",
+      "offline_templates": 72,
+      "request_manifest": "artifacts/study1_confirmatory_batch01_runner_offline/20260927T142653706668Z/request_manifest.jsonl",
+      "request_manifest_sha256": "1f37d570a1c1c1bc7c5bdd1bf3c11a84fe40c4ca3328610e6f643b0d3a743208",
+      "request_set_sha256": "fd41841dbdf28cbf7f91280b728463a581f1320ffc4eea08d62bc6b4a2f5f9e9",
+      "runner_manifest": "artifacts/study1_confirmatory_batch01_runner_offline/20260927T142653706668Z/runner_manifest.json",
+      "runner_manifest_sha256": "bd97ce870bc9dfa639aee34410d05ac8f826767449e537748a5bbd1022ba546c",
+      "runner_output": "artifacts/study1_confirmatory_batch01_runner_offline/20260927T142653706668Z",
+      "runner_source_sha256": "496062175d635f4e08be69e183478e35ba05e69932f8d51f70a1ace64f48b160"
+    },
+    {
+      "arm_packets": 26,
+      "batch": "batch02",
+      "batch_contract_set_sha256": "dce27b8b2cb91f6b497c859c72715ff27c9c9eb627acc649f794cb2e4adb2db6",
+      "batch_material_set_sha256": "b2fbc97315dd72ec4e5aa2f9233a745b36bc42c4add6b6f032972f6b95fc0e7d",
+      "freeze_manifest": "experiments/study1/confirmatory_frozen_batch02/freeze_manifest.json",
+      "freeze_manifest_sha256": "31e81cbb4420e27730c17d66cf56cf45b3475a9d4e3abe9fd3c3318f376229c8",
+      "offline_templates": 104,
+      "request_manifest": "artifacts/study1_confirmatory_batch02_runner_offline/20260927T142653706780Z/request_manifest.jsonl",
+      "request_manifest_sha256": "3367f6f2c22c80b4d65ba1e1496738cd2ab226c6258fbdbcc64bd2511e87cdfe",
+      "request_set_sha256": "1c58daff82008269e58f8f2507dec16974af7ab3276329ca24b37cbbc88d4578",
+      "runner_manifest": "artifacts/study1_confirmatory_batch02_runner_offline/20260927T142653706780Z/runner_manifest.json",
+      "runner_manifest_sha256": "178faee938d89f47a61b296953cd80f11f095d1e1bc960540a9b9ec08c80caf1",
+      "runner_output": "artifacts/study1_confirmatory_batch02_runner_offline/20260927T142653706780Z",
+      "runner_source_sha256": "496062175d635f4e08be69e183478e35ba05e69932f8d51f70a1ace64f48b160"
+    },
+    {
+      "arm_packets": 25,
+      "batch": "batch03",
+      "batch_contract_set_sha256": "4d294353f82bb3c920cf183fa216e2e5587101cb0582ddad09b681d0400ffaf2",
+      "batch_material_set_sha256": "cfc8f10797820479cca66436a3af210b980fa6c8bde44846c0c520f867c1c8e2",
+      "freeze_manifest": "experiments/study1/confirmatory_frozen_batch03/freeze_manifest.json",
+      "freeze_manifest_sha256": "9e463663f4afc9cb35b802032a637e628df8a45e43d6db74af6ffec7854925d0",
+      "offline_templates": 100,
+      "request_manifest": "artifacts/study1_confirmatory_batch03_runner_offline/20260927T142857727530Z/request_manifest.jsonl",
+      "request_manifest_sha256": "ebfaf79734f60984dccf1b9254476a586ca310042ea2ff11af0bfeb258c16272",
+      "request_set_sha256": "6e0198668820b46963104a09cf45e04535703e1dca987a2e7a1580bdb6d6db70",
+      "runner_manifest": "artifacts/study1_confirmatory_batch03_runner_offline/20260927T142857727530Z/runner_manifest.json",
+      "runner_manifest_sha256": "f076331de5668509bb7b582acd7fb0b1099acd0b0c928bf9ac88072a78e42601",
+      "runner_output": "artifacts/study1_confirmatory_batch03_runner_offline/20260927T142857727530Z",
+      "runner_source_sha256": "496062175d635f4e08be69e183478e35ba05e69932f8d51f70a1ace64f48b160"
+    },
+    {
+      "arm_packets": 35,
+      "batch": "batch04",
+      "batch_contract_set_sha256": "e9fe28ddc510c483bd328deca6f5c2789154a6e03aa288ff3b4f4ac1b219f6cb",
+      "batch_material_set_sha256": "2d140d288ef93080244ae2921e3639a41737bbe29c14c47f4ad97afc194860ae",
+      "freeze_manifest": "experiments/study1/confirmatory_frozen_batch04/freeze_manifest.json",
+      "freeze_manifest_sha256": "6bb89e1ed630d651da4e9cde5521c7ae289a6decebbf13a706c14745208526b2",
+      "offline_templates": 140,
+      "request_manifest": "artifacts/study1_confirmatory_batch04_runner_offline/20260929T141958591573Z/request_manifest.jsonl",
+      "request_manifest_sha256": "fd3732bdad13893c41103392673aade9f4ef7af569954b1621b3f75de791eb7c",
+      "request_set_sha256": "8988a0f1aa807289effee31aa827d838a8bded36943165e22c9edb66b0b48e4d",
+      "runner_manifest": "artifacts/study1_confirmatory_batch04_runner_offline/20260929T141958591573Z/runner_manifest.json",
+      "runner_manifest_sha256": "cecd59f9bc3004232c491a4d9d59873b183fd1b89946fbb1dce2607fb21c930f",
+      "runner_output": "artifacts/study1_confirmatory_batch04_runner_offline/20260929T141958591573Z",
+      "runner_source_sha256": "496062175d635f4e08be69e183478e35ba05e69932f8d51f70a1ace64f48b160"
+    },
+    {
+      "arm_packets": 28,
+      "batch": "batch05",
+      "batch_contract_set_sha256": "b7f30d3258279dae0323915bb8eade28aa69657077ddffe4046c826e1fefbcfe",
+      "batch_material_set_sha256": "95306c29a2cb16d10545facf4e61de5484ca975c7ab27d03bcaa473ef07c3ed3",
+      "freeze_manifest": "experiments/study1/confirmatory_frozen_batch05/freeze_manifest.json",
+      "freeze_manifest_sha256": "2405e6b67a2d44f6b5111a6e3823ad04522217b669f7423184deb7b9817c6773",
+      "offline_templates": 112,
+      "request_manifest": "artifacts/study1_confirmatory_batch05_runner_offline/20260929T142013173258Z/request_manifest.jsonl",
+      "request_manifest_sha256": "1eaf62d293a8b51994a7c34faf9b2f5ea433a2680ffb4080a26ae1f5180a8ffa",
+      "request_set_sha256": "058aaa40c7db7194853cb3668da6638855092445c4404bfe5d4705ff90627fbd",
+      "runner_manifest": "artifacts/study1_confirmatory_batch05_runner_offline/20260929T142013173258Z/runner_manifest.json",
+      "runner_manifest_sha256": "d59e66a7c2f1079f3357227d35dd7030dee2a4b93bcd23befd0e78a18605e6f6",
+      "runner_output": "artifacts/study1_confirmatory_batch05_runner_offline/20260929T142013173258Z",
+      "runner_source_sha256": "496062175d635f4e08be69e183478e35ba05e69932f8d51f70a1ace64f48b160"
+    }
+  ],
+  "stop_rules": [
+    "returned model identifier differs from the frozen snapshot",
+    "request, schedule, contract, policy, sample-lock, or manifest hash mismatch",
+    "Architecture D model-visible payload differs across aligned and reversed cues",
+    "prohibited field or canary appears under Architecture D",
+    "observed usage reaches the authorized phase cap or global cap",
+    "an expansion call is attempted before the blinded branch decision is frozen"
+  ],
+  "waves": {
+    "blinded_variance_reassessment": {
+      "after_wave": "P5",
+      "allowed_statistics": [
+        "paired_contrast_variance",
+        "paired_contrast_standard_deviation"
+      ],
+      "api_calls": 0,
+      "possible_total_experiments": [
+        30,
+        32,
+        34,
+        36,
+        38,
+        40
+      ]
+    },
+    "continuation_policy": "No automatic retry. A continuation may target only calls with no completed response, after a separately hash-bound authorization and within the branch and global caps.",
+    "expansion_branches": {
+      "N32": {
+        "branch_cumulative_cap_usd": 8.1,
+        "cells": 32,
+        "compatibility_calls": 32,
+        "compatibility_cap": 0.1,
+        "confirmatory_calls_per_wave": 640,
+        "confirmatory_calls_total": 3200,
+        "estimated_compatibility_usd": 0.058774,
+        "estimated_per_20_draw_wave_usd": 1.175475,
+        "estimated_total_usd": 5.936149,
+        "max_expansion_wave": 1,
+        "per_wave_cap": 1.6,
+        "planned_calls_total": 3232
+      },
+      "N34": {
+        "branch_cumulative_cap_usd": 16.2,
+        "cells": 64,
+        "compatibility_calls": 64,
+        "compatibility_cap": 0.2,
+        "confirmatory_calls_per_wave": 1280,
+        "confirmatory_calls_total": 6400,
+        "estimated_compatibility_usd": 0.118573,
+        "estimated_per_20_draw_wave_usd": 2.371455,
+        "estimated_total_usd": 11.975848,
+        "max_expansion_wave": 2,
+        "per_wave_cap": 3.2,
+        "planned_calls_total": 6464
+      },
+      "N36": {
+        "branch_cumulative_cap_usd": 20.75,
+        "cells": 88,
+        "compatibility_calls": 88,
+        "compatibility_cap": 0.25,
+        "confirmatory_calls_per_wave": 1760,
+        "confirmatory_calls_total": 8800,
+        "estimated_compatibility_usd": 0.154222,
+        "estimated_per_20_draw_wave_usd": 3.08445,
+        "estimated_total_usd": 15.576472,
+        "max_expansion_wave": 3,
+        "per_wave_cap": 4.1,
+        "planned_calls_total": 8888
+      },
+      "N38": {
+        "branch_cumulative_cap_usd": 28.35,
+        "cells": 120,
+        "compatibility_calls": 120,
+        "compatibility_cap": 0.35,
+        "confirmatory_calls_per_wave": 2400,
+        "confirmatory_calls_total": 12000,
+        "estimated_compatibility_usd": 0.212206,
+        "estimated_per_20_draw_wave_usd": 4.244115,
+        "estimated_total_usd": 21.432781,
+        "max_expansion_wave": 4,
+        "per_wave_cap": 5.6,
+        "planned_calls_total": 12120
+      },
+      "N40": {
+        "branch_cumulative_cap_usd": 32.9,
+        "cells": 144,
+        "compatibility_calls": 144,
+        "compatibility_cap": 0.4,
+        "confirmatory_calls_per_wave": 2880,
+        "confirmatory_calls_total": 14400,
+        "estimated_compatibility_usd": 0.2395,
+        "estimated_per_20_draw_wave_usd": 4.789995,
+        "estimated_total_usd": 24.189475,
+        "max_expansion_wave": 5,
+        "per_wave_cap": 6.5,
+        "planned_calls_total": 14544
+      }
+    },
+    "expansion_execution": "For the selected cumulative branch only: one compatibility wave followed by five 20-draw confirmatory waves, interleaving every activated expansion cell in each microblock.",
+    "primary_compatibility": {
+      "analysis_status": "excluded",
+      "calls": 384,
+      "cost_cap_usd": 1.0,
+      "draws_per_cell": 1,
+      "separate_authorization_required": true,
+      "wave_id": "PC0"
+    },
+    "primary_confirmatory": [
+      {
+        "calls": 7680,
+        "cost_cap_usd": 14.0,
+        "cumulative_draws_per_cell": 20,
+        "draws_per_cell": 20,
+        "separate_authorization_required": true,
+        "wave_id": "P1"
+      },
+      {
+        "calls": 7680,
+        "cost_cap_usd": 14.0,
+        "cumulative_draws_per_cell": 40,
+        "draws_per_cell": 20,
+        "separate_authorization_required": true,
+        "wave_id": "P2"
+      },
+      {
+        "calls": 7680,
+        "cost_cap_usd": 14.0,
+        "cumulative_draws_per_cell": 60,
+        "draws_per_cell": 20,
+        "separate_authorization_required": true,
+        "wave_id": "P3"
+      },
+      {
+        "calls": 7680,
+        "cost_cap_usd": 14.0,
+        "cumulative_draws_per_cell": 80,
+        "draws_per_cell": 20,
+        "separate_authorization_required": true,
+        "wave_id": "P4"
+      },
+      {
+        "calls": 7680,
+        "cost_cap_usd": 14.0,
+        "cumulative_draws_per_cell": 100,
+        "draws_per_cell": 20,
+        "separate_authorization_required": true,
+        "wave_id": "P5"
+      }
+    ]
+  }
+}

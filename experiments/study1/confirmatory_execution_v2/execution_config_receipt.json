@@ -1,0 +1,16 @@
+{
+  "api_calls_authorized": false,
+  "authorization_file_created": false,
+  "configured_request_set_sha256": "bd3525d173d22fe9e4dbd5570da7a4407e7cddde25a96c7137eb29e3188d1200",
+  "execution_config_sha256": "3e4e310578b4e85d1cf1af67ef6e976c5bc09255934a839ff9d8afef47d5d3d0",
+  "maximum_planned_calls": 53328,
+  "maximum_total_cumulative_cost_cap_usd": 104.0,
+  "model_called": false,
+  "network_calls": 0,
+  "offline_test_passed": true,
+  "package_manifest_sha256": "3f8efb61f63042cf4d5aa0fb4b57014d97136e8a426a222bc5813d91f27ac587",
+  "paid_calls_authorized": false,
+  "primary_cumulative_cost_cap_usd": 71.0,
+  "primary_planned_calls": 38784,
+  "receipt_id": "CF-S1-CONF-EXEC-V2-RECEIPT-20260929"
+}
