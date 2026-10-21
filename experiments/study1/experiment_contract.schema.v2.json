@@ -1,0 +1,401 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/causal-firewall/study1/experiment-contract.schema.v2.json",
+  "title": "Causal Firewall Study 1 Experiment Contract v2 (up to eight arms)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "identity",
+    "source",
+    "design",
+    "population",
+    "materials",
+    "outcomes",
+    "research_restricted",
+    "participant_packet",
+    "execution"
+  ],
+  "properties": {
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "study_id",
+        "source_study_id",
+        "contract_version",
+        "domain"
+      ],
+      "properties": {
+        "study_id": {
+          "type": "string",
+          "pattern": "^CF-S1-"
+        },
+        "source_study_id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "contract_version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "domain": {
+          "enum": [
+            "management",
+            "psychology"
+          ]
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "archive",
+        "archive_url",
+        "prompt_locator",
+        "source_article",
+        "source_article_url",
+        "adapted_in_archive",
+        "material_policy",
+        "authorized_normalizations",
+        "omitted_source_measures",
+        "normalized_material_sha256"
+      ],
+      "properties": {
+        "archive": {
+          "type": "string"
+        },
+        "archive_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "prompt_locator": {
+          "type": "string"
+        },
+        "source_article": {
+          "type": "string"
+        },
+        "source_article_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "adapted_in_archive": {
+          "type": "boolean"
+        },
+        "material_policy": {
+          "const": "source_faithful_experimental_content_with_standardized_simulation_wrapper"
+        },
+        "authorized_normalizations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "omitted_source_measures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "normalized_material_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "design": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "assignment_unit",
+        "context_policy",
+        "persona_replay_across_arms",
+        "primary_outcome",
+        "primary_estimand"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "two_arm_between_subjects",
+            "three_arm_between_subjects",
+            "four_arm_between_subjects",
+            "factorial_between_subjects_2x2",
+            "six_arm_between_subjects",
+            "factorial_between_subjects_2x3",
+            "factorial_between_subjects_2x2x2"
+          ]
+        },
+        "assignment_unit": {
+          "const": "synthetic_participant_instance"
+        },
+        "context_policy": {
+          "const": "fresh_context"
+        },
+        "persona_replay_across_arms": {
+          "const": true
+        },
+        "primary_outcome": {
+          "type": "string"
+        },
+        "primary_estimand": {
+          "type": "string"
+        }
+      }
+    },
+    "population": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_population",
+        "simulation_target",
+        "claims_population_representativeness",
+        "required_persona_fields"
+      ],
+      "properties": {
+        "source_population": {
+          "type": "string"
+        },
+        "simulation_target": {
+          "type": "string"
+        },
+        "claims_population_representativeness": {
+          "const": false
+        },
+        "required_persona_fields": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "materials": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "participant_role",
+        "common_scenario",
+        "arms",
+        "response_instruction"
+      ],
+      "properties": {
+        "participant_role": {
+          "type": "string",
+          "minLength": 10
+        },
+        "common_scenario": {
+          "type": "string"
+        },
+        "arms": {
+          "type": "object",
+          "minProperties": 2,
+          "maxProperties": 8,
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "stimulus"
+            ],
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "stimulus": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "response_instruction": {
+          "type": "string",
+          "minLength": 10
+        }
+      }
+    },
+    "outcomes": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "role",
+          "type",
+          "items",
+          "aggregation",
+          "model_may_write_aggregate"
+        ],
+        "properties": {
+          "role": {
+            "enum": [
+              "primary",
+              "secondary"
+            ]
+          },
+          "type": {
+            "enum": [
+              "binary",
+              "bounded_integer",
+              "bounded_number",
+              "composite_mean",
+              "item_vector"
+            ]
+          },
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "item_id",
+                "text",
+                "minimum",
+                "maximum"
+              ],
+              "properties": {
+                "item_id": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "analysis_group": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "text_by_arm": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "minimum": {
+                  "type": "number"
+                },
+                "maximum": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "integer_only": {
+                  "type": "boolean"
+                },
+                "reverse_scored": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "aggregation": {
+            "enum": [
+              "identity",
+              "mean",
+              "sum",
+              "deterministic_category_map",
+              "subscale_means",
+              "paired_item_contrast"
+            ]
+          },
+          "model_may_write_aggregate": {
+            "const": false
+          }
+        }
+      }
+    },
+    "research_restricted": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "aligned_hypothesis_text",
+        "reversed_hypothesis_text",
+        "human_benchmark_status",
+        "other_arm_visibility"
+      ],
+      "properties": {
+        "aligned_hypothesis_text": {
+          "type": "string"
+        },
+        "reversed_hypothesis_text": {
+          "type": "string"
+        },
+        "human_benchmark_status": {
+          "const": "EMBARGOED_NOT_IN_CONTRACT"
+        },
+        "other_arm_visibility": {
+          "const": "deny"
+        }
+      }
+    },
+    "participant_packet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ordered_fields",
+        "required_fields",
+        "forbidden_information_classes"
+      ],
+      "properties": {
+        "ordered_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "required_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forbidden_information_classes": {
+          "type": "array",
+          "contains": {
+            "const": "HUMAN_BENCHMARK"
+          },
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_status",
+        "paid_calls_authorized",
+        "content_retry_policy",
+        "invalid_output_policy"
+      ],
+      "properties": {
+        "contract_status": {
+          "enum": [
+            "draft",
+            "dual_reviewed",
+            "frozen"
+          ]
+        },
+        "paid_calls_authorized": {
+          "type": "boolean"
+        },
+        "content_retry_policy": {
+          "const": "none"
+        },
+        "invalid_output_policy": {
+          "const": "retain_as_protocol_failure"
+        }
+      }
+    }
+  }
+}
