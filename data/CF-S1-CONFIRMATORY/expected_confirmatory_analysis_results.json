@@ -1,0 +1,1917 @@
+{
+  "analysis_id": "CF-S1-ANALYSIS-UNBLINDING-RECOVERY-20261005-R01-FORMAL-RESULT",
+  "authority": {
+    "authorization_consumed": true,
+    "confirmatory_analysis_authorized": true,
+    "real_data_execution_authorized": true,
+    "unblinding_authorized": true
+  },
+  "blinding": {
+    "mapping_path_exported": false,
+    "mapping_used": true,
+    "mapping_values_exported": false,
+    "restricted_mapping_read_by_executor": true
+  },
+  "deviations": [],
+  "execution": {
+    "api_calls": 0,
+    "formal_component_rows_read": 39600,
+    "formal_response_units_read": 38400,
+    "network_calls": 0
+  },
+  "experiment_estimands": [
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.17749999999999994,
+              "reversed": -0.10499999999999993
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": -0.07687499999999992,
+              "reversed": -0.10499999999999998
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.28249999999999986,
+            "D_labeled_causal_firewall": 0.028125000000000067
+          },
+          "theta": 0.2543749999999998
+        }
+      ],
+      "contract_id": "CF-S1-CONF-001",
+      "source_paper": "AMJ_7",
+      "source_study_id": "AMJ_7_1",
+      "theta": 0.2543749999999998
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.0010000000000000009,
+              "reversed": 0.0
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.0,
+              "reversed": 0.0
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.0010000000000000009,
+            "D_labeled_causal_firewall": 0.0
+          },
+          "theta": 0.0010000000000000009
+        }
+      ],
+      "contract_id": "CF-S1-CONF-002",
+      "source_paper": "JAP_8",
+      "source_study_id": "JAP_8_3",
+      "theta": 0.0010000000000000009
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.20829999999999993,
+              "reversed": -0.19210000000000005
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.0343,
+              "reversed": 0.05160000000000009
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.4004,
+            "D_labeled_causal_firewall": -0.017300000000000093
+          },
+          "theta": 0.41770000000000007
+        }
+      ],
+      "contract_id": "CF-S1-CONF-003",
+      "source_paper": "OBHDP_3",
+      "source_study_id": "OBHDP_3_5",
+      "theta": 0.41770000000000007
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.061666666666469805,
+              "reversed": -0.04000000000007009
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": -0.013333333333360065,
+              "reversed": -0.011666666666690029
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.1016666666665399,
+            "D_labeled_causal_firewall": -0.0016666666666700358
+          },
+          "theta": 0.10333333333320993
+        }
+      ],
+      "contract_id": "CF-S1-CONF-004",
+      "source_paper": "OBHDP_4",
+      "source_study_id": "OBHDP_4_1",
+      "theta": 0.10333333333320993
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.24333333333289006,
+              "reversed": 0.22958333333293
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.19833333333301,
+              "reversed": 0.21999999999955996
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.013749999999960072,
+            "D_labeled_causal_firewall": -0.021666666666549955
+          },
+          "theta": 0.03541666666651003
+        }
+      ],
+      "contract_id": "CF-S1-CONF-005",
+      "source_paper": "JEP_2",
+      "source_study_id": "JEP_2_2a",
+      "theta": 0.03541666666651003
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.6093333333334501,
+              "reversed": 0.53133333333352
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.51700000000005,
+              "reversed": 0.52366666666674
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.07799999999993013,
+            "D_labeled_causal_firewall": -0.006666666666690024
+          },
+          "theta": 0.08466666666662015
+        }
+      ],
+      "contract_id": "CF-S1-CONF-006",
+      "source_paper": "JEP_5",
+      "source_study_id": "JEP_5_3a",
+      "theta": 0.08466666666662015
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": -0.04833333333332002,
+              "reversed": -0.07166666666653998
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": -0.21166666666632,
+              "reversed": -0.24166666666614
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.023333333333219963,
+            "D_labeled_causal_firewall": 0.029999999999820004
+          },
+          "theta": -0.006666666666600041
+        }
+      ],
+      "contract_id": "CF-S1-CONF-007",
+      "source_paper": "JEP_8",
+      "source_study_id": "JEP_8_4",
+      "theta": -0.006666666666600041
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.10029999999999994,
+              "reversed": -0.03059999999999996
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.0341999999999999,
+              "reversed": 0.03510000000000002
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.1308999999999999,
+            "D_labeled_causal_firewall": -0.0009000000000001229
+          },
+          "theta": 0.13180000000000003
+        }
+      ],
+      "contract_id": "CF-S1-CONF-008",
+      "source_paper": "JPSP_3",
+      "source_study_id": "JPSP_3_2",
+      "theta": 0.13180000000000003
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.33333333333380005,
+              "reversed": 0.1533333333335299
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.08166666666699005,
+              "reversed": 0.07555555555584009
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.18000000000027017,
+            "D_labeled_causal_firewall": 0.006111111111149953
+          },
+          "theta": 0.1738888888891202
+        }
+      ],
+      "contract_id": "CF-S1-CONF-009",
+      "source_paper": "OBHDP_2",
+      "source_study_id": "OBHDP_2_1",
+      "theta": 0.1738888888891202
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.1605555555557,
+              "reversed": 0.03388888888896999
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.22055555555519996,
+              "reversed": 0.19833333333291997
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.12666666666673002,
+            "D_labeled_causal_firewall": 0.022222222222279986
+          },
+          "theta": 0.10444444444445003
+        }
+      ],
+      "contract_id": "CF-S1-CONF-010",
+      "source_paper": "OBHDP_5",
+      "source_study_id": "OBHDP_5_2",
+      "theta": 0.10444444444445003
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.262291666666875,
+              "reversed": -0.12354166666662
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.019791666666734986,
+              "reversed": 0.03416666666675999
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.385833333333495,
+            "D_labeled_causal_firewall": -0.014375000000025007
+          },
+          "theta": 0.40020833333352
+        }
+      ],
+      "contract_id": "CF-S1-CONF-011",
+      "source_paper": "OBHDP_6",
+      "source_study_id": "OBHDP_6_3",
+      "theta": 0.40020833333352
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.32666666666653,
+              "reversed": 0.03416666666672008
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": -0.02583333333326998,
+              "reversed": -0.056666666666669974
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.2924999999998099,
+            "D_labeled_causal_firewall": 0.030833333333399993
+          },
+          "theta": 0.2616666666664099
+        }
+      ],
+      "contract_id": "CF-S1-CONF-012",
+      "source_paper": "OBHDP_7",
+      "source_study_id": "OBHDP_7_2a",
+      "theta": 0.2616666666664099
+    },
+    {
+      "components": [
+        {
+          "component_id": "coprimary_harm",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.245,
+              "reversed": 0.30999999999999994
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.026666666666666665,
+              "reversed": 0.03166666666666667
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": -0.06499999999999995,
+            "D_labeled_causal_firewall": -0.0050000000000000044
+          },
+          "theta": -0.05999999999999994
+        },
+        {
+          "component_id": "coprimary_instrumental",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.7516666666666666,
+              "reversed": 0.6799999999999999
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.8533333333333333,
+              "reversed": 0.8983333333333332
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.07166666666666666,
+            "D_labeled_causal_firewall": -0.04499999999999993
+          },
+          "theta": 0.11666666666666659
+        }
+      ],
+      "contract_id": "CF-S1-CONF-013",
+      "source_paper": "JEP_3",
+      "source_study_id": "JEP_3_1",
+      "theta": 0.02833333333333332
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.030333333333355,
+              "reversed": -0.01766666666668501
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.062833333333295,
+              "reversed": 0.07416666666668004
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.04800000000004001,
+            "D_labeled_causal_firewall": -0.011333333333385043
+          },
+          "theta": 0.05933333333342505
+        }
+      ],
+      "contract_id": "CF-S1-CONF-014",
+      "source_paper": "JPSP_1",
+      "source_study_id": "JPSP_1_2",
+      "theta": 0.05933333333342505
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.30416666666654996,
+              "reversed": 0.07416666666668997
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.15416666666665005,
+              "reversed": 0.16666666666667004
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.22999999999985998,
+            "D_labeled_causal_firewall": -0.012500000000019995
+          },
+          "theta": 0.24249999999987998
+        }
+      ],
+      "contract_id": "CF-S1-CONF-015",
+      "source_paper": "JPSP_4",
+      "source_study_id": "JPSP_4_4",
+      "theta": 0.24249999999987998
+    },
+    {
+      "components": [
+        {
+          "component_id": "bolstering_minus_point",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.15860000000000019,
+              "reversed": 0.15429999999999988
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.14570000000000016,
+              "reversed": 0.15000000000000002
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.004300000000000304,
+            "D_labeled_causal_firewall": -0.0042999999999998595
+          },
+          "theta": 0.008600000000000163
+        },
+        {
+          "component_id": "backdown_minus_point",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": -0.006500000000000061,
+              "reversed": -0.007699999999999929
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.005499999999999949,
+              "reversed": 0.006999999999999784
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.0011999999999998678,
+            "D_labeled_causal_firewall": -0.0014999999999998348
+          },
+          "theta": 0.0026999999999997026
+        }
+      ],
+      "contract_id": "CF-S1-CONF-016",
+      "source_paper": "JPSP_9",
+      "source_study_id": "JPSP_9_1",
+      "theta": 0.005649999999999933
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.018888888888949906,
+              "reversed": 0.09277777777787999
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.12972222222252994,
+              "reversed": 0.12444444444468994
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": -0.07388888888893008,
+            "D_labeled_causal_firewall": 0.005277777777839998
+          },
+          "theta": -0.07916666666677008
+        }
+      ],
+      "contract_id": "CF-S1-CONF-017",
+      "source_paper": "JAP_3",
+      "source_study_id": "JAP_3_1c",
+      "theta": -0.07916666666677008
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": -0.006666666666729881,
+              "reversed": -0.04611111111108013
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.022222222222240018,
+              "reversed": 0.0027777777777698853
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.039444444444350246,
+            "D_labeled_causal_firewall": 0.019444444444470133
+          },
+          "theta": 0.019999999999880114
+        }
+      ],
+      "contract_id": "CF-S1-CONF-018",
+      "source_paper": "JAP_7",
+      "source_study_id": "JAP_7_3",
+      "theta": 0.019999999999880114
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.3144999999999999,
+              "reversed": 0.474
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.25549999999999995,
+              "reversed": 0.223
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": -0.1595000000000001,
+            "D_labeled_causal_firewall": 0.032499999999999946
+          },
+          "theta": -0.19200000000000003
+        }
+      ],
+      "contract_id": "CF-S1-CONF-019",
+      "source_paper": "JAP_9",
+      "source_study_id": "JAP_9_6",
+      "theta": -0.19200000000000003
+    },
+    {
+      "components": [
+        {
+          "component_id": "upb_minus_usb",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": -0.19437499999992,
+              "reversed": 0.04145833333334999
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.30125000000000995,
+              "reversed": 0.233541666666795
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": -0.23583333333327,
+            "D_labeled_causal_firewall": 0.06770833333321497
+          },
+          "theta": -0.30354166666648497
+        },
+        {
+          "component_id": "upb_minus_control",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.27416666666667,
+              "reversed": 0.2204166666666
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.2799999999999,
+              "reversed": 0.24270833333335498
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.05375000000006999,
+            "D_labeled_causal_firewall": 0.037291666666545015
+          },
+          "theta": 0.016458333333524977
+        }
+      ],
+      "contract_id": "CF-S1-CONF-020",
+      "source_paper": "OBHDP_8",
+      "source_study_id": "OBHDP_8_2",
+      "theta": -0.14354166666648
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.35583333333317,
+              "reversed": 0.21958333333322008
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.32458333333317,
+              "reversed": 0.32083333333319
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.13624999999994994,
+            "D_labeled_causal_firewall": 0.003749999999980047
+          },
+          "theta": 0.1324999999999699
+        }
+      ],
+      "contract_id": "CF-S1-CONF-021",
+      "source_paper": "JEP_2",
+      "source_study_id": "JEP_2_2b",
+      "theta": 0.1324999999999699
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.09500000000000008,
+              "reversed": -0.198125
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": -0.024374999999999925,
+              "reversed": -0.008750000000000036
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.2931250000000001,
+            "D_labeled_causal_firewall": -0.015624999999999889
+          },
+          "theta": 0.30874999999999997
+        }
+      ],
+      "contract_id": "CF-S1-CONF-023",
+      "source_paper": "JPSP_4",
+      "source_study_id": "JPSP_4_7",
+      "theta": 0.30874999999999997
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.7129166666665301,
+              "reversed": 0.5420833333332301
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.76666666666672,
+              "reversed": 0.7633333333333501
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.17083333333329997,
+            "D_labeled_causal_firewall": 0.0033333333333699366
+          },
+          "theta": 0.16749999999993004
+        }
+      ],
+      "contract_id": "CF-S1-CONF-026",
+      "source_paper": "JAP_2",
+      "source_study_id": "JAP_2_3",
+      "theta": 0.16749999999993004
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.149999999999955,
+              "reversed": -0.007500000000044971
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.017333333333415024,
+              "reversed": 0.023166666666704916
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.15749999999999997,
+            "D_labeled_causal_firewall": -0.005833333333289892
+          },
+          "theta": 0.16333333333328987
+        }
+      ],
+      "contract_id": "CF-S1-CONF-027",
+      "source_paper": "JAP_5",
+      "source_study_id": "JAP_5_1",
+      "theta": 0.16333333333328987
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.03733333333333204,
+              "reversed": 0.05706666666666402
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.006933333333330002,
+              "reversed": 0.011466666666666042
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": -0.01973333333333198,
+            "D_labeled_causal_firewall": -0.00453333333333604
+          },
+          "theta": -0.015199999999995939
+        }
+      ],
+      "contract_id": "CF-S1-CONF-028",
+      "source_paper": "JAP_6",
+      "source_study_id": "JAP_6_4",
+      "theta": -0.015199999999995939
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": -0.010833333333330003,
+              "reversed": 0.003333333333340016
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.16916666666656008,
+              "reversed": 0.222499999999875
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": -0.01416666666667002,
+            "D_labeled_causal_firewall": -0.053333333333314914
+          },
+          "theta": 0.039166666666644895
+        }
+      ],
+      "contract_id": "CF-S1-CONF-029",
+      "source_paper": "JEP_1",
+      "source_study_id": "JEP_1_6a",
+      "theta": 0.039166666666644895
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": -0.026499999999999968,
+              "reversed": -0.046499999999999986
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": -0.028900000000000037,
+              "reversed": -0.02980000000000005
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.020000000000000018,
+            "D_labeled_causal_firewall": 0.0009000000000000119
+          },
+          "theta": 0.019100000000000006
+        }
+      ],
+      "contract_id": "CF-S1-CONF-030",
+      "source_paper": "JEP_10",
+      "source_study_id": "JEP_10_3",
+      "theta": 0.019100000000000006
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.14312500000001,
+              "reversed": 0.144791666666615
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.17645833333332495,
+              "reversed": 0.20208333333328998
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": -0.0016666666666050045,
+            "D_labeled_causal_firewall": -0.025624999999965037
+          },
+          "theta": 0.023958333333360032
+        }
+      ],
+      "contract_id": "CF-S1-CONF-031",
+      "source_paper": "JPSP_8",
+      "source_study_id": "JPSP_8_2",
+      "theta": 0.023958333333360032
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.872,
+              "reversed": 0.7895
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.8464999999999999,
+              "reversed": 0.8455
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.08250000000000002,
+            "D_labeled_causal_firewall": 0.0009999999999998899
+          },
+          "theta": 0.08150000000000013
+        }
+      ],
+      "contract_id": "CF-S1-CONF-032",
+      "source_paper": "JPSP_10",
+      "source_study_id": "JPSP_10_1",
+      "theta": 0.08150000000000013
+    },
+    {
+      "components": [
+        {
+          "component_id": "primary",
+          "delta": {
+            "C_fresh_context_manual_whitelist": {
+              "aligned": 0.44999999999967,
+              "reversed": 0.29500000000056
+            },
+            "D_labeled_causal_firewall": {
+              "aligned": 0.3883333333330001,
+              "reversed": 0.40666666666629997
+            }
+          },
+          "gamma": {
+            "C_fresh_context_manual_whitelist": 0.15499999999911002,
+            "D_labeled_causal_firewall": -0.018333333333299895
+          },
+          "theta": 0.1733333333324099
+        }
+      ],
+      "contract_id": "CF-S1-CONF-037",
+      "source_paper": "JEP_6",
+      "source_study_id": "JEP_6_4",
+      "theta": 0.1733333333324099
+    }
+  ],
+  "population_audit": {
+    "component_rows": 39600,
+    "expansion_experiments": 0,
+    "logical_response_units": 38400,
+    "primary_experiments": 30,
+    "soft_alerts_retained": true,
+    "technical_retries_change_sample": false,
+    "waves": [
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5"
+    ]
+  },
+  "primary_h2": {
+    "bootstrap_replicates": 20000,
+    "confidence_interval_95": [
+      0.04795935475872502,
+      0.1531415335249234
+    ],
+    "decision": "REJECT_H0",
+    "estimate": 0.09989611111107058,
+    "p_value": 0.00024998750062496874,
+    "standard_error": 0.02671344435204002
+  },
+  "provenance": {
+    "authorization_id": "CF-S1-ANALYSIS-UNBLINDING-RECOVERY-20261005-R01",
+    "consumption_package_sha256": "28a8bff2e4f7c5fd00ff9559c51a0b9bf04a3bdfb48a4e935739d65855c85b4c",
+    "estimand_registry_sha256": "d980c46517eb0c03a8d26cfcc383cd8e387f26c4ebb8b2c6f612ab3f7352c7c0",
+    "frozen_analysis_module_sha256": "1bae3370a8142d9b658493cd2c89dde595706f6d657761b6ddc1a40638bc1923",
+    "mapping_hash_exported": false,
+    "public_mapping_identity_receipt_sha256": "510273e69d7aceb4d120f49beae07fb0bb59b75064794a9d745d296035e69de5"
+  },
+  "qc_disclosures": [
+    {
+      "qc_receipt_sha256": "e8e208d080c82b24937e39fcb161df6e028c55b935548ce47d752f0a83b1de5d",
+      "qc_summary_sha256": "083cd043ce5857ab7f1e746a936419b581e3f56d964f0e4b1092a0672bc34c7b",
+      "soft_alerts_retained": true,
+      "wave": "W1"
+    },
+    {
+      "qc_receipt_sha256": "7ac1e8fc2bb2e0c4b7aa5b40669e7863b66b71f7db03712cdaf207be07ee6c4c",
+      "qc_summary_sha256": "58d39ffbadd8e59f0e0da85b7a1f9510cfe0f78ce797c71451eb6f2dbd740bf9",
+      "soft_alerts_retained": true,
+      "wave": "W2"
+    },
+    {
+      "qc_receipt_sha256": "4f1e426421dcbb4468b705500d8871b0b8157c7eb2a489ee0e12e54b656f4ddf",
+      "qc_summary_sha256": "656b23e5d1e4e9b56d3aa8a1889ccc1866a06200ee3ef4314396c523d348dd0c",
+      "soft_alerts_retained": true,
+      "wave": "W3"
+    },
+    {
+      "qc_receipt_sha256": "fe391d75acf1d2ad0383b2742743bc03687240a2b43b3a640a1b64cb287569c2",
+      "qc_summary_sha256": "aad21f7736664d8896b94468c15fd17da645f9cccca7b2b1c743a1bebe698ba9",
+      "soft_alerts_retained": true,
+      "wave": "W4"
+    },
+    {
+      "qc_receipt_sha256": "480d00b1a0093f6096bf0972286a39cd2bc08e0fa71a15d4fdf806388a695de6",
+      "qc_summary_sha256": "85e37f8a0e1447e81b0082202702b330e81682b170f9b415625273f7213b18e7",
+      "soft_alerts_retained": true,
+      "wave": "W5"
+    }
+  ],
+  "replication_diagnostics": {
+    "components": [
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          -0.1196875,
+          -0.06125
+        ],
+        "contract_id": "CF-S1-CONF-001",
+        "estimate": -0.0909375,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-001:primary",
+        "label": "FAILURE",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "AMJ_7",
+        "standard_error": 0.014863616001832492
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.0,
+          0.0
+        ],
+        "contract_id": "CF-S1-CONF-002",
+        "estimate": 0.0,
+        "holm_adjusted_p_value": 1.0,
+        "identifier": "CF-S1-CONF-002:primary",
+        "label": "INDETERMINATE",
+        "p_value": 1.0,
+        "source_paper": "JAP_8",
+        "standard_error": 0.0
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.03035,
+          0.05585
+        ],
+        "contract_id": "CF-S1-CONF-003",
+        "estimate": 0.04295,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-003:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "OBHDP_3",
+        "standard_error": 0.006479677538645364
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          -0.022500000000050004,
+          -0.0025000000000100007
+        ],
+        "contract_id": "CF-S1-CONF-004",
+        "estimate": -0.012500000000025002,
+        "holm_adjusted_p_value": 0.05959702014899255,
+        "identifier": "CF-S1-CONF-004:primary",
+        "label": "INDETERMINATE",
+        "p_value": 0.014899255037248137,
+        "source_paper": "OBHDP_4",
+        "standard_error": 0.005179915985467547
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.19458333333297,
+          0.22354166666625516
+        ],
+        "contract_id": "CF-S1-CONF-005",
+        "estimate": 0.209166666666285,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-005:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JEP_2",
+        "standard_error": 0.007412238220572948
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.5048291666666942,
+          0.53600000000007
+        ],
+        "contract_id": "CF-S1-CONF-006",
+        "estimate": 0.520333333333395,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-006:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JEP_5",
+        "standard_error": 0.008023694731046041
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          -0.2533333333328703,
+          -0.19999999999955997
+        ],
+        "contract_id": "CF-S1-CONF-007",
+        "estimate": -0.22666666666622998,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-007:primary",
+        "label": "FAILURE",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JEP_8",
+        "standard_error": 0.013706251420556183
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.01835000000000001,
+          0.050100000000000006
+        ],
+        "contract_id": "CF-S1-CONF-008",
+        "estimate": 0.03465,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-008:primary",
+        "label": "SUCCESS",
+        "p_value": 9.99950002499875e-05,
+        "source_paper": "JPSP_3",
+        "standard_error": 0.008105334957164843
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.05916666666700001,
+          0.09833333333361002
+        ],
+        "contract_id": "CF-S1-CONF-009",
+        "estimate": 0.07861111111141501,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-009:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "OBHDP_2",
+        "standard_error": 0.009989350546636537
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.19666666666626,
+          0.222222222221855
+        ],
+        "contract_id": "CF-S1-CONF-010",
+        "estimate": 0.20944444444406,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-010:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "OBHDP_5",
+        "standard_error": 0.006560327362252394
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.01677083333339995,
+          0.03739583333342752
+        ],
+        "contract_id": "CF-S1-CONF-011",
+        "estimate": 0.02697916666674751,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-011:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "OBHDP_6",
+        "standard_error": 0.005306035395889476
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          -0.067916666666675,
+          -0.013749999999994864
+        ],
+        "contract_id": "CF-S1-CONF-012",
+        "estimate": -0.04124999999996999,
+        "holm_adjusted_p_value": 0.015299235038248087,
+        "identifier": "CF-S1-CONF-012:primary",
+        "label": "FAILURE",
+        "p_value": 0.0025498725063746812,
+        "source_paper": "OBHDP_7",
+        "standard_error": 0.013836433600780247
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "coprimary_harm",
+        "confidence_interval_95": [
+          0.011666666666666667,
+          0.04666666666666666
+        ],
+        "contract_id": "CF-S1-CONF-013",
+        "estimate": 0.029166666666666664,
+        "holm_adjusted_p_value": 0.0111994400279986,
+        "identifier": "CF-S1-CONF-013:coprimary_harm",
+        "label": "SUCCESS",
+        "p_value": 0.0015999200039998,
+        "source_paper": "JEP_3",
+        "standard_error": 0.008905942754106838
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "coprimary_instrumental",
+        "confidence_interval_95": [
+          0.8558333333333333,
+          0.895
+        ],
+        "contract_id": "CF-S1-CONF-013",
+        "estimate": 0.8758333333333332,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-013:coprimary_instrumental",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JEP_3",
+        "standard_error": 0.010081909364675432
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.052664583333291014,
+          0.0841687500000169
+        ],
+        "contract_id": "CF-S1-CONF-014",
+        "estimate": 0.06849999999998752,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-014:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JPSP_1",
+        "standard_error": 0.008093882322102926
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.143749999999975,
+          0.1770833333333801
+        ],
+        "contract_id": "CF-S1-CONF-015",
+        "estimate": 0.16041666666666,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-015:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JPSP_4",
+        "standard_error": 0.00857849911990211
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "bolstering_minus_point",
+        "confidence_interval_95": [
+          0.14035000000000003,
+          0.15535000000000002
+        ],
+        "contract_id": "CF-S1-CONF-016",
+        "estimate": 0.14785,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-016:bolstering_minus_point",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JPSP_9",
+        "standard_error": 0.0038246232746421763
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "backdown_minus_point",
+        "confidence_interval_95": [
+          -0.0012500000000000094,
+          0.01379999999999998
+        ],
+        "contract_id": "CF-S1-CONF-016",
+        "estimate": 0.006249999999999989,
+        "holm_adjusted_p_value": 0.31738413079346034,
+        "identifier": "CF-S1-CONF-016:backdown_minus_point",
+        "label": "INDETERMINATE",
+        "p_value": 0.10579471026448678,
+        "source_paper": "JPSP_9",
+        "standard_error": 0.003846213471048927
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.11125000000023488,
+          0.142638888889175
+        ],
+        "contract_id": "CF-S1-CONF-017",
+        "estimate": 0.12708333333361,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-017:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JAP_3",
+        "standard_error": 0.007980946265662578
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          -0.02249999999997,
+          0.04888888888887499
+        ],
+        "contract_id": "CF-S1-CONF-018",
+        "estimate": 0.012500000000004997,
+        "holm_adjusted_p_value": 0.9807509624518774,
+        "identifier": "CF-S1-CONF-018:primary",
+        "label": "INDETERMINATE",
+        "p_value": 0.4903754812259387,
+        "source_paper": "JAP_7",
+        "standard_error": 0.018235714230971548
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.212,
+          0.26725
+        ],
+        "contract_id": "CF-S1-CONF-019",
+        "estimate": 0.23925000000000002,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-019:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JAP_9",
+        "standard_error": 0.014082133935742275
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "upb_minus_usb",
+        "confidence_interval_95": [
+          0.22229166666669747,
+          0.31375000000008785
+        ],
+        "contract_id": "CF-S1-CONF-020",
+        "estimate": 0.2673958333334025,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-020:upb_minus_usb",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "OBHDP_8",
+        "standard_error": 0.023259877227768875
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "upb_minus_control",
+        "confidence_interval_95": [
+          0.21760416666671173,
+          0.3067708333333061
+        ],
+        "contract_id": "CF-S1-CONF-020",
+        "estimate": 0.2613541666666275,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-020:upb_minus_control",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "OBHDP_8",
+        "standard_error": 0.022915474924187298
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.3116666666665499,
+          0.33374999999986005
+        ],
+        "contract_id": "CF-S1-CONF-021",
+        "estimate": 0.32270833333318,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-021:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JEP_2",
+        "standard_error": 0.005613562907898758
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          -0.029375,
+          -0.0040625
+        ],
+        "contract_id": "CF-S1-CONF-023",
+        "estimate": -0.0165625,
+        "holm_adjusted_p_value": 0.0519974001299935,
+        "identifier": "CF-S1-CONF-023:primary",
+        "label": "INDETERMINATE",
+        "p_value": 0.0103994800259987,
+        "source_paper": "JPSP_4",
+        "standard_error": 0.006439919764060525
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.7545833333333699,
+          0.7747916666667353
+        ],
+        "contract_id": "CF-S1-CONF-026",
+        "estimate": 0.765000000000035,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-026:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JAP_2",
+        "standard_error": 0.005154218418764669
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.011333333333372442,
+          0.029083333333410132
+        ],
+        "contract_id": "CF-S1-CONF-027",
+        "estimate": 0.020250000000060005,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-027:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JAP_5",
+        "standard_error": 0.0045489287875208895
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.00713333333333098,
+          0.011266666666665011
+        ],
+        "contract_id": "CF-S1-CONF-028",
+        "estimate": 0.009199999999998008,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-028:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JAP_6",
+        "standard_error": 0.0010754785794383243
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.17291666666656,
+          0.2179166666665956
+        ],
+        "contract_id": "CF-S1-CONF-029",
+        "estimate": 0.1958333333332175,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-029:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JEP_1",
+        "standard_error": 0.01149841525352628
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          -0.037700000000000004,
+          -0.021050000000000003
+        ],
+        "contract_id": "CF-S1-CONF-030",
+        "estimate": -0.029350000000000005,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-030:primary",
+        "label": "FAILURE",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JEP_10",
+        "standard_error": 0.004214465619971659
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.1702057291666147,
+          0.2083333333333
+        ],
+        "contract_id": "CF-S1-CONF-031",
+        "estimate": 0.1892708333333075,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-031:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JPSP_8",
+        "standard_error": 0.00977947420201195
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.83075,
+          0.86075
+        ],
+        "contract_id": "CF-S1-CONF-032",
+        "estimate": 0.846,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-032:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JPSP_10",
+        "standard_error": 0.007578824683067867
+      },
+      {
+        "bootstrap_replicates": 20000,
+        "component_id": "primary",
+        "confidence_interval_95": [
+          0.3533333333330048,
+          0.44166666666624027
+        ],
+        "contract_id": "CF-S1-CONF-037",
+        "estimate": 0.39749999999964997,
+        "holm_adjusted_p_value": 0.0016499175041247937,
+        "identifier": "CF-S1-CONF-037:primary",
+        "label": "SUCCESS",
+        "p_value": 4.999750012499375e-05,
+        "source_paper": "JEP_6",
+        "standard_error": 0.022571541130339882
+      }
+    ],
+    "experiments": [
+      {
+        "component_labels": [
+          "FAILURE"
+        ],
+        "contract_id": "CF-S1-CONF-001",
+        "label": "FAILURE",
+        "source_paper": "AMJ_7",
+        "source_study_id": "AMJ_7_1"
+      },
+      {
+        "component_labels": [
+          "INDETERMINATE"
+        ],
+        "contract_id": "CF-S1-CONF-002",
+        "label": "INDETERMINATE",
+        "source_paper": "JAP_8",
+        "source_study_id": "JAP_8_3"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-003",
+        "label": "SUCCESS",
+        "source_paper": "OBHDP_3",
+        "source_study_id": "OBHDP_3_5"
+      },
+      {
+        "component_labels": [
+          "INDETERMINATE"
+        ],
+        "contract_id": "CF-S1-CONF-004",
+        "label": "INDETERMINATE",
+        "source_paper": "OBHDP_4",
+        "source_study_id": "OBHDP_4_1"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-005",
+        "label": "SUCCESS",
+        "source_paper": "JEP_2",
+        "source_study_id": "JEP_2_2a"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-006",
+        "label": "SUCCESS",
+        "source_paper": "JEP_5",
+        "source_study_id": "JEP_5_3a"
+      },
+      {
+        "component_labels": [
+          "FAILURE"
+        ],
+        "contract_id": "CF-S1-CONF-007",
+        "label": "FAILURE",
+        "source_paper": "JEP_8",
+        "source_study_id": "JEP_8_4"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-008",
+        "label": "SUCCESS",
+        "source_paper": "JPSP_3",
+        "source_study_id": "JPSP_3_2"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-009",
+        "label": "SUCCESS",
+        "source_paper": "OBHDP_2",
+        "source_study_id": "OBHDP_2_1"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-010",
+        "label": "SUCCESS",
+        "source_paper": "OBHDP_5",
+        "source_study_id": "OBHDP_5_2"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-011",
+        "label": "SUCCESS",
+        "source_paper": "OBHDP_6",
+        "source_study_id": "OBHDP_6_3"
+      },
+      {
+        "component_labels": [
+          "FAILURE"
+        ],
+        "contract_id": "CF-S1-CONF-012",
+        "label": "FAILURE",
+        "source_paper": "OBHDP_7",
+        "source_study_id": "OBHDP_7_2a"
+      },
+      {
+        "component_labels": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-013",
+        "label": "SUCCESS",
+        "source_paper": "JEP_3",
+        "source_study_id": "JEP_3_1"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-014",
+        "label": "SUCCESS",
+        "source_paper": "JPSP_1",
+        "source_study_id": "JPSP_1_2"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-015",
+        "label": "SUCCESS",
+        "source_paper": "JPSP_4",
+        "source_study_id": "JPSP_4_4"
+      },
+      {
+        "component_labels": [
+          "SUCCESS",
+          "INDETERMINATE"
+        ],
+        "contract_id": "CF-S1-CONF-016",
+        "label": "INDETERMINATE",
+        "source_paper": "JPSP_9",
+        "source_study_id": "JPSP_9_1"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-017",
+        "label": "SUCCESS",
+        "source_paper": "JAP_3",
+        "source_study_id": "JAP_3_1c"
+      },
+      {
+        "component_labels": [
+          "INDETERMINATE"
+        ],
+        "contract_id": "CF-S1-CONF-018",
+        "label": "INDETERMINATE",
+        "source_paper": "JAP_7",
+        "source_study_id": "JAP_7_3"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-019",
+        "label": "SUCCESS",
+        "source_paper": "JAP_9",
+        "source_study_id": "JAP_9_6"
+      },
+      {
+        "component_labels": [
+          "SUCCESS",
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-020",
+        "label": "SUCCESS",
+        "source_paper": "OBHDP_8",
+        "source_study_id": "OBHDP_8_2"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-021",
+        "label": "SUCCESS",
+        "source_paper": "JEP_2",
+        "source_study_id": "JEP_2_2b"
+      },
+      {
+        "component_labels": [
+          "INDETERMINATE"
+        ],
+        "contract_id": "CF-S1-CONF-023",
+        "label": "INDETERMINATE",
+        "source_paper": "JPSP_4",
+        "source_study_id": "JPSP_4_7"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-026",
+        "label": "SUCCESS",
+        "source_paper": "JAP_2",
+        "source_study_id": "JAP_2_3"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-027",
+        "label": "SUCCESS",
+        "source_paper": "JAP_5",
+        "source_study_id": "JAP_5_1"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-028",
+        "label": "SUCCESS",
+        "source_paper": "JAP_6",
+        "source_study_id": "JAP_6_4"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-029",
+        "label": "SUCCESS",
+        "source_paper": "JEP_1",
+        "source_study_id": "JEP_1_6a"
+      },
+      {
+        "component_labels": [
+          "FAILURE"
+        ],
+        "contract_id": "CF-S1-CONF-030",
+        "label": "FAILURE",
+        "source_paper": "JEP_10",
+        "source_study_id": "JEP_10_3"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-031",
+        "label": "SUCCESS",
+        "source_paper": "JPSP_8",
+        "source_study_id": "JPSP_8_2"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-032",
+        "label": "SUCCESS",
+        "source_paper": "JPSP_10",
+        "source_study_id": "JPSP_10_1"
+      },
+      {
+        "component_labels": [
+          "SUCCESS"
+        ],
+        "contract_id": "CF-S1-CONF-037",
+        "label": "SUCCESS",
+        "source_paper": "JEP_6",
+        "source_study_id": "JEP_6_4"
+      }
+    ],
+    "multiplicity": "Holm FWER 0.05 across 33 registered components"
+  },
+  "sensitivity": {
+    "article_equal_mean": {
+      "bootstrap_replicates": 20000,
+      "confidence_interval_95": [
+        0.04369093005952695,
+        0.14680439980156018
+      ],
+      "estimate": 0.09418928571424777,
+      "p_value": 0.000199990000499975,
+      "standard_error": 0.026291635181913877
+    },
+    "cr2": {
+      "cluster_variable": "source_paper",
+      "clusters": 28,
+      "confidence_interval_95": [
+        0.044079726090904964,
+        0.15571249613123617
+      ],
+      "degrees_of_freedom": 25.47697063369397,
+      "degrees_of_freedom_method": "Satterthwaite_quadratic_form",
+      "estimate": 0.09989611111107057,
+      "experiments": 30,
+      "model": "intercept_only_ols",
+      "p_value_two_sided": 0.0010895659367298194,
+      "small_sample_adjustment": "CR2_identity_working_covariance",
+      "standard_error": 0.027127131719762828,
+      "status": "executed_synthetic_only",
+      "t_statistic": 3.682516535218267
+    },
+    "reml_multilevel_meta_analysis": {
+      "confidence_interval_95": [
+        0.04146460973585299,
+        0.15039653828275995
+      ],
+      "degrees_of_freedom": 29,
+      "estimate": 0.09593057400930648,
+      "estimation": "REML",
+      "experiment_heterogeneity_variance": 0.0032105322750935056,
+      "experiments": 30,
+      "knapp_hartung_modified": false,
+      "knapp_hartung_scale": 1.0045770811555794,
+      "model": "intercept_plus_source_paper_random_intercept_plus_experiment_heterogeneity",
+      "optimizer": "deterministic_quartic_grid_multistart_pattern_search",
+      "optimizer_evaluations": 3954,
+      "p_value_two_sided": 0.001163887815376352,
+      "paper_random_intercept_variance": 0.01595233665092104,
+      "restricted_negative_log_likelihood": -15.025998891956295,
+      "source_paper_clusters": 28,
+      "standard_error": 0.026630732877828904,
+      "status": "executed_synthetic_only",
+      "t_statistic": 3.602250619590433,
+      "within_experiment_variance_source": "paired_microblock_theta_sample_variance_divided_by_draw_count"
+    },
+    "within_experiment_mc_variances": [
+      {
+        "contract_id": "CF-S1-CONF-001",
+        "variance": 0.0018633641098484849
+      },
+      {
+        "contract_id": "CF-S1-CONF-002",
+        "variance": 9.08080808080808e-06
+      },
+      {
+        "contract_id": "CF-S1-CONF-003",
+        "variance": 0.00018514858585858587
+      },
+      {
+        "contract_id": "CF-S1-CONF-004",
+        "variance": 0.00020078563411880964
+      },
+      {
+        "contract_id": "CF-S1-CONF-005",
+        "variance": 0.00027931221941544603
+      },
+      {
+        "contract_id": "CF-S1-CONF-006",
+        "variance": 0.00032040852974213373
+      },
+      {
+        "contract_id": "CF-S1-CONF-007",
+        "variance": 0.004068013468015812
+      },
+      {
+        "contract_id": "CF-S1-CONF-008",
+        "variance": 0.0006236036363636364
+      },
+      {
+        "contract_id": "CF-S1-CONF-009",
+        "variance": 0.0005927515899725227
+      },
+      {
+        "contract_id": "CF-S1-CONF-010",
+        "variance": 0.00032939269235656023
+      },
+      {
+        "contract_id": "CF-S1-CONF-011",
+        "variance": 0.00025737364969151904
+      },
+      {
+        "contract_id": "CF-S1-CONF-012",
+        "variance": 0.0016007575757581694
+      },
+      {
+        "contract_id": "CF-S1-CONF-013",
+        "variance": 0.00011254208754208755
+      },
+      {
+        "contract_id": "CF-S1-CONF-014",
+        "variance": 0.0004378406285074446
+      },
+      {
+        "contract_id": "CF-S1-CONF-015",
+        "variance": 0.0003845328282834498
+      },
+      {
+        "contract_id": "CF-S1-CONF-016",
+        "variance": 2.2457853535353522e-05
+      },
+      {
+        "contract_id": "CF-S1-CONF-017",
+        "variance": 0.0004959120526262669
+      },
+      {
+        "contract_id": "CF-S1-CONF-018",
+        "variance": 0.0015260755705184285
+      },
+      {
+        "contract_id": "CF-S1-CONF-019",
+        "variance": 0.001379151515151515
+      },
+      {
+        "contract_id": "CF-S1-CONF-020",
+        "variance": 0.002777132873877096
+      },
+      {
+        "contract_id": "CF-S1-CONF-021",
+        "variance": 0.00023442059483719585
+      },
+      {
+        "contract_id": "CF-S1-CONF-023",
+        "variance": 0.0003155145202020202
+      },
+      {
+        "contract_id": "CF-S1-CONF-026",
+        "variance": 0.0006502455106621758
+      },
+      {
+        "contract_id": "CF-S1-CONF-027",
+        "variance": 0.0001503367003367586
+      },
+      {
+        "contract_id": "CF-S1-CONF-028",
+        "variance": 2.729589225589083e-05
+      },
+      {
+        "contract_id": "CF-S1-CONF-029",
+        "variance": 0.0004776304713801041
+      },
+      {
+        "contract_id": "CF-S1-CONF-030",
+        "variance": 0.0002116584848484848
+      },
+      {
+        "contract_id": "CF-S1-CONF-031",
+        "variance": 0.0004437057203981394
+      },
+      {
+        "contract_id": "CF-S1-CONF-032",
+        "variance": 0.0003922499999999999
+      },
+      {
+        "contract_id": "CF-S1-CONF-037",
+        "variance": 0.0023340067340028065
+      }
+    ]
+  },
+  "settings": {
+    "article_bootstrap_replicates": 20000,
+    "article_seed": 61002,
+    "draws_per_cell": 100,
+    "primary_bootstrap_replicates": 20000,
+    "primary_seed": 61001,
+    "replication_bootstrap_replicates": 20000
+  },
+  "status": "authorized_confirmatory_analysis_complete"
+}

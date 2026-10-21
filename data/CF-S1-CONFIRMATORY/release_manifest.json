@@ -1,0 +1,23 @@
+{
+  "classification": "public_deidentified_semantic_analysis_data",
+  "contains_api_credentials": false,
+  "contains_hmac_key": false,
+  "contains_raw_model_text": false,
+  "files": [
+    {
+      "bytes": 11111191,
+      "path": "data/CF-S1-CONFIRMATORY/public_semantic_components.jsonl",
+      "sha256": "e08986d56ca3195cf4adb98967f8cde0d716926a309260191a1bb9459acccf35"
+    },
+    {
+      "bytes": 22343,
+      "path": "experiments/study1/confirmatory_analysis_frozen_v0_2/blinded_estimand_registry_v0_2.json",
+      "sha256": "d980c46517eb0c03a8d26cfcc383cd8e387f26c4ebb8b2c6f612ab3f7352c7c0"
+    }
+  ],
+  "logical_response_units": 38400,
+  "primary_experiments": 30,
+  "release_id": "CF-S1-PUBLIC-DATA-V1",
+  "rows": 39600,
+  "source_paper_clusters": 28
+}
