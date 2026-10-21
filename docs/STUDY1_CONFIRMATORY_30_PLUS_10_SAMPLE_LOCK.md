@@ -1,4 +1,4 @@
-# Study 1 Confirmatory 30 + 10 Sample Lock
+# Phase 2 Confirmatory 30 + 10 Sample Lock
 
 **Status:** The experiment-level sample allocation is frozen. This decision does not freeze future experiment contracts, modify the execution configuration, authorize API calls, or inspect confirmatory outcomes.
 
