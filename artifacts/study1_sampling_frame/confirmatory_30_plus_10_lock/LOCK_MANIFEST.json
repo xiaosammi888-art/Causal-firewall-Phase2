@@ -1,0 +1,68 @@
+{
+  "lock_id": "CF-S1-CONFIRMATORY-SAMPLE-30PLUS10-20260929",
+  "locked_at": "2026-09-29",
+  "status": "frozen_sample_allocation",
+  "summary": {
+    "eligible_total": 40,
+    "primary_total": 30,
+    "primary_management": 15,
+    "primary_psychology": 15,
+    "primary_source_papers": 28,
+    "primary_sensitive": 20,
+    "expansion_total": 10,
+    "expansion_management": 4,
+    "expansion_psychology": 6,
+    "all_source_papers": 33,
+    "all_sensitive": 28,
+    "inventory_risk_primary": {
+      "low": 19,
+      "moderate": 10,
+      "high": 1
+    }
+  },
+  "sample_allocation_locked": true,
+  "experiment_contracts_frozen_by_this_decision": false,
+  "api_calls_authorized": false,
+  "files": {
+    "artifacts/study1_sampling_frame/confirmatory_30_plus_10_lock/sample_allocation.json": {
+      "sha256": "01e74a2a5360b8021359d08a7352a316fdf18340256e9b824a588ded7d4ef175",
+      "bytes": 34562
+    },
+    "artifacts/study1_sampling_frame/confirmatory_30_plus_10_lock/sample_allocation.csv": {
+      "sha256": "2cd46f9ba21a3ca91ceb30ec800adc9278ec38f1dbadf53492fb679591375130",
+      "bytes": 14841
+    },
+    "artifacts/study1_sampling_frame/confirmatory_30_plus_10_lock/sampling_lock_decision.json": {
+      "sha256": "ee2116cc6c60c7f92c4d16f656241ed988cbe0e2aade71cc9303c5d3cf24639b",
+      "bytes": 4164
+    },
+    "docs/STUDY1_CONFIRMATORY_30_PLUS_10_SAMPLE_LOCK.md": {
+      "sha256": "185d48cda73d977791a97465f68294d1d95b39b523c0c354e6aa8e9ca3d4cfaf",
+      "bytes": 4857
+    },
+    "outputs/study1_sampling_frame/Study1_Confirmatory_48_plus_4_Candidate_Frame.xlsx": {
+      "sha256": "371e5d76d6d532646a235aae5f4d3800059e71716fb28b4fa8d3a07527b8f8da",
+      "bytes": 113891
+    },
+    "artifacts/study1_sampling_frame/reviewer2_batch04/reviewer2_attestation.json": {
+      "sha256": "a54d4c366865cec2ff2e23fd4684280582ef25af0b3941ff149786cc03c1184a",
+      "bytes": 690
+    },
+    "artifacts/study1_sampling_frame/reviewer2_batch05/reviewer2_attestation.json": {
+      "sha256": "51eebd42c7f38c4ebee677111e80604a1e196635f92e8afc8b386654ce952e1f",
+      "bytes": 793
+    },
+    "outputs/study1_sampling_frame/qa/confirmatory_30_plus_10_lock/sample_lock_inspect.ndjson": {
+      "sha256": "651a32f0c8bc7402bde0deedf21ca16859c9746223bed03552758698b16f9ac8",
+      "bytes": 12447
+    },
+    "outputs/study1_sampling_frame/qa/confirmatory_30_plus_10_lock/review_queue_inspect.ndjson": {
+      "sha256": "bcb1a8fec455b301334d24ba34f6f11d8ffa3be40f67932a844afeb3560c235e",
+      "bytes": 33078
+    },
+    "outputs/study1_sampling_frame/qa/confirmatory_30_plus_10_lock/formula_error_scan.ndjson": {
+      "sha256": "acc0111e19cf44d2753fc9ecd164bf1b27fbd65597463a25cf48bd1c65e90146",
+      "bytes": 60
+    }
+  }
+}

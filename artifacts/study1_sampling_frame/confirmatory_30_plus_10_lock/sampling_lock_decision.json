@@ -1,0 +1,153 @@
+{
+  "lock_id": "CF-S1-CONFIRMATORY-SAMPLE-30PLUS10-20260929",
+  "locked_at": "2026-09-29",
+  "status": "frozen_sample_allocation",
+  "basis": "Outcome-blind metadata, dual-review decisions, execution risk, feasibility, domain balance, and source-paper diversity only.",
+  "outcomes_inspected_for_selection": false,
+  "selection_rule_version": "1.0.0",
+  "summary": {
+    "eligible_total": 40,
+    "primary_total": 30,
+    "primary_management": 15,
+    "primary_psychology": 15,
+    "primary_source_papers": 28,
+    "primary_sensitive": 20,
+    "expansion_total": 10,
+    "expansion_management": 4,
+    "expansion_psychology": 6,
+    "all_source_papers": 33,
+    "all_sensitive": 28,
+    "inventory_risk_primary": {
+      "low": 19,
+      "moderate": 10,
+      "high": 1
+    }
+  },
+  "primary_candidate_ids": [
+    "CF-S1-CAND-005",
+    "CF-S1-CAND-009",
+    "CF-S1-CAND-010",
+    "CF-S1-CAND-011",
+    "CF-S1-CAND-012",
+    "CF-S1-CAND-013",
+    "CF-S1-CAND-014",
+    "CF-S1-CAND-015",
+    "CF-S1-CAND-018",
+    "CF-S1-CAND-019",
+    "CF-S1-CAND-020",
+    "CF-S1-CAND-021",
+    "CF-S1-CAND-022",
+    "CF-S1-CAND-023",
+    "CF-S1-CAND-024",
+    "CF-S1-CAND-026",
+    "CF-S1-CAND-035",
+    "CF-S1-CAND-027",
+    "CF-S1-CAND-028",
+    "CF-S1-CAND-029",
+    "CF-S1-CAND-030",
+    "CF-S1-CAND-032",
+    "CF-S1-CAND-034",
+    "CF-S1-CAND-036",
+    "CF-S1-CAND-047",
+    "CF-S1-CAND-037",
+    "CF-S1-CAND-039",
+    "CF-S1-CAND-040",
+    "CF-S1-CAND-043",
+    "CF-S1-CAND-045"
+  ],
+  "expansion_candidate_ids": [
+    "CF-S1-CAND-004",
+    "CF-S1-CAND-046",
+    "CF-S1-CAND-003",
+    "CF-S1-CAND-031",
+    "CF-S1-CAND-006",
+    "CF-S1-CAND-038",
+    "CF-S1-CAND-017",
+    "CF-S1-CAND-048",
+    "CF-S1-CAND-025",
+    "CF-S1-CAND-042"
+  ],
+  "interim_variance_subset": {
+    "count": 10,
+    "management": 5,
+    "psychology": 5,
+    "selection_seed_phrase": "CF-S1-30PLUS10-20260929",
+    "candidate_ids": [
+      "CF-S1-CAND-013",
+      "CF-S1-CAND-023",
+      "CF-S1-CAND-022",
+      "CF-S1-CAND-014",
+      "CF-S1-CAND-011",
+      "CF-S1-CAND-040",
+      "CF-S1-CAND-028",
+      "CF-S1-CAND-037",
+      "CF-S1-CAND-030",
+      "CF-S1-CAND-029"
+    ],
+    "restriction": "Variance only. Conceal the mean, sign, condition labels, and treatment-effect direction."
+  },
+  "expansion_rule": {
+    "allowed_total_experiment_counts": [
+      30,
+      32,
+      34,
+      36,
+      38,
+      40
+    ],
+    "decision_basis": "Blinded between-experiment variance reassessment using the locked first-ten subset and the registered minimum effect.",
+    "rounding": "Round the required experiment count upward to the next allowed even total and activate complete waves only.",
+    "waves": [
+      {
+        "wave": 1,
+        "candidate_ids": [
+          "CF-S1-CAND-004",
+          "CF-S1-CAND-046"
+        ]
+      },
+      {
+        "wave": 2,
+        "candidate_ids": [
+          "CF-S1-CAND-003",
+          "CF-S1-CAND-031"
+        ]
+      },
+      {
+        "wave": 3,
+        "candidate_ids": [
+          "CF-S1-CAND-006",
+          "CF-S1-CAND-038"
+        ]
+      },
+      {
+        "wave": 4,
+        "candidate_ids": [
+          "CF-S1-CAND-017",
+          "CF-S1-CAND-048"
+        ]
+      },
+      {
+        "wave": 5,
+        "candidate_ids": [
+          "CF-S1-CAND-025",
+          "CF-S1-CAND-042"
+        ]
+      }
+    ],
+    "stop_rule": "Do not activate a later wave after the required total is reached.",
+    "prohibited_inputs": [
+      "mean Theta",
+      "sign of Theta",
+      "condition names",
+      "treatment-effect direction",
+      "p-values",
+      "replication success"
+    ]
+  },
+  "replacement_rule": "Before any confirmatory outcome is generated, a primary hard-gate failure promotes the earliest same-domain expansion candidate. Replenishment requires a separately dual-reviewed reserve. No outcome-contingent replacement is permitted.",
+  "jpsp_7_6_boundary": "Expansion wave 5. Interpret as a synthetic-persona calibration contrast, not a randomized human country effect.",
+  "sample_allocation_locked": true,
+  "experiment_contracts_frozen_by_this_decision": false,
+  "execution_configuration_modified": false,
+  "api_calls_authorized": false
+}
