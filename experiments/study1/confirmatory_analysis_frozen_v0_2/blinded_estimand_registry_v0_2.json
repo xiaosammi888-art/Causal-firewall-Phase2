@@ -1,0 +1,679 @@
+{
+  "bindings": {
+    "confirmatory_design": {
+      "path": "docs/STUDY1_CONFIRMATORY_DESIGN.md",
+      "sha256": "096771c8b7bff673ebdceb632f9e791d14174d93a16d9b6cc0ca66725c8c102d"
+    },
+    "contract_batch_manifests": [
+      {
+        "path": "experiments/study1/confirmatory_frozen_batch01/freeze_manifest.json",
+        "sha256": "5e309b02a9db53db25f2a4c79599d39ae04e9c3701f272a66d161106a52b6e93"
+      },
+      {
+        "path": "experiments/study1/confirmatory_frozen_batch02/freeze_manifest.json",
+        "sha256": "31e81cbb4420e27730c17d66cf56cf45b3475a9d4e3abe9fd3c3318f376229c8"
+      },
+      {
+        "path": "experiments/study1/confirmatory_frozen_batch03/freeze_manifest.json",
+        "sha256": "9e463663f4afc9cb35b802032a637e628df8a45e43d6db74af6ffec7854925d0"
+      },
+      {
+        "path": "experiments/study1/confirmatory_frozen_batch04/freeze_manifest.json",
+        "sha256": "6bb89e1ed630d651da4e9cde5521c7ae289a6decebbf13a706c14745208526b2"
+      },
+      {
+        "path": "experiments/study1/confirmatory_frozen_batch05/freeze_manifest.json",
+        "sha256": "2405e6b67a2d44f6b5111a6e3823ad04522217b669f7423184deb7b9817c6773"
+      }
+    ],
+    "execution_config": {
+      "path": "experiments/study1/confirmatory_execution_v2/execution_config.json",
+      "sha256": "3e4e310578b4e85d1cf1af67ef6e976c5bc09255934a839ff9d8afef47d5d3d0"
+    },
+    "sample_allocation": {
+      "path": "artifacts/study1_sampling_frame/confirmatory_30_plus_10_lock/sample_allocation.json",
+      "sha256": "01e74a2a5360b8021359d08a7352a316fdf18340256e9b824a588ded7d4ef175"
+    }
+  },
+  "blinding_declaration": {
+    "api_calls": 0,
+    "condition_mapping_used": false,
+    "effect_estimates_computed": false,
+    "p_values_computed": false,
+    "replication_judgments_computed": false,
+    "restricted_crosswalk_read": false
+  },
+  "component_value_rules": {
+    "centered_difference_component": "z = 2 * value - 1",
+    "counteroffer_fraction_of_point_offer": "z = value / 100",
+    "default_normalized_primary": "z = value",
+    "emotional_ambivalence_component": "z = 1.5 * value - 0.5"
+  },
+  "estimand_construction": {
+    "cell_mean": "mu[a,c,j,k,r] = arithmetic mean of z over the 100 unique logical responses pooled across P1-P5",
+    "component_firewall_contrast": "theta[j,k] = gamma[C,j,k] - gamma[D,j,k]",
+    "cue_sensitivity": "gamma[a,j,k] = delta[a,aligned,j,k] - delta[a,reversed,j,k]",
+    "direction_harmonized_contrast": "delta[a,c,j,k] = benchmark_sign[j,k] * delta_raw[a,c,j,k]",
+    "experiment_firewall_contrast": "theta[j] = equal-weight arithmetic mean of theta[j,k] over registered primary components k",
+    "primary_mean": "theta_bar = equal-weight arithmetic mean of theta[j] over the 30 primary experiments",
+    "raw_source_contrast": "delta_raw[a,c,j,k] = sum over source arms r of arm_weight[j,k,r] * mu[a,c,j,k,r]"
+  },
+  "experiments": [
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "anger_competence": 1,
+            "anger_integrity": -1,
+            "neutral_competence": -1,
+            "neutral_integrity": 1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-001",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch01/CF-S1-CONF-001/experiment_contract.json",
+      "source_paper": "AMJ_7",
+      "source_study_id": "AMJ_7_1"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "female_manager": 1,
+            "male_manager": -1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "centered_difference_component"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-002",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch01/CF-S1-CONF-002/experiment_contract.json",
+      "source_paper": "JAP_8",
+      "source_study_id": "JAP_8_3"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "laid_off_employees_men": -1,
+            "laid_off_employees_women": 1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-003",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch01/CF-S1-CONF-003/experiment_contract.json",
+      "source_paper": "OBHDP_3",
+      "source_study_id": "OBHDP_3_5"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "creative_fake_return_theft": 1,
+            "ordinary_register_theft": -1
+          },
+          "benchmark_sign": -1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-004",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch01/CF-S1-CONF-004/experiment_contract.json",
+      "source_paper": "OBHDP_4",
+      "source_study_id": "OBHDP_4_1"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "high_mental_control": 1,
+            "low_mental_control": -1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-005",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch01/CF-S1-CONF-005/experiment_contract.json",
+      "source_paper": "JEP_2",
+      "source_study_id": "JEP_2_2a"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "eight_of_eight_heads": 1,
+            "four_of_eight_heads": -1
+          },
+          "benchmark_sign": -1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-006",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch01/CF-S1-CONF-006/experiment_contract.json",
+      "source_paper": "JEP_5",
+      "source_study_id": "JEP_5_3a"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "negative_outcome": -1,
+            "positive_outcome": 1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "centered_difference_component"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-007",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch01/CF-S1-CONF-007/experiment_contract.json",
+      "source_paper": "JEP_8",
+      "source_study_id": "JEP_8_4"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "American_and_Arab_dual_identity": 1,
+            "American_only_identity": -1
+          },
+          "benchmark_sign": -1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-008",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch01/CF-S1-CONF-008/experiment_contract.json",
+      "source_paper": "JPSP_3",
+      "source_study_id": "JPSP_3_2"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "high_power_stable": -1,
+            "high_power_unstable": 1,
+            "low_power_stable": 1,
+            "low_power_unstable": -1
+          },
+          "benchmark_sign": -1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-009",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch02/CF-S1-CONF-009/experiment_contract.json",
+      "source_paper": "OBHDP_2",
+      "source_study_id": "OBHDP_2_1"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "control": -1,
+            "passion": 1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-010",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch02/CF-S1-CONF-010/experiment_contract.json",
+      "source_paper": "OBHDP_5",
+      "source_study_id": "OBHDP_5_2"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "algorithm_only": -0.5,
+            "algorithm_with_human_adjustment": -0.5,
+            "human_only": 0.5,
+            "human_with_algorithmic_option": 0.5
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-011",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch02/CF-S1-CONF-011/experiment_contract.json",
+      "source_paper": "OBHDP_6",
+      "source_study_id": "OBHDP_6_3"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "ephemeral_luxury": 1,
+            "generic_luxury_control": 0,
+            "iconic_luxury": -1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-012",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch02/CF-S1-CONF-012/experiment_contract.json",
+      "source_paper": "OBHDP_7",
+      "source_study_id": "OBHDP_7_2a"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "communicator": 0.3333333333333333,
+            "target": 0.3333333333333333,
+            "third_party": 0.3333333333333333
+          },
+          "benchmark_sign": 1,
+          "component_id": "coprimary_harm",
+          "value_rule": "centered_difference_component"
+        },
+        {
+          "arm_weights": {
+            "communicator": 0.3333333333333333,
+            "target": 0.3333333333333333,
+            "third_party": 0.3333333333333333
+          },
+          "benchmark_sign": -1,
+          "component_id": "coprimary_instrumental",
+          "value_rule": "centered_difference_component"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-013",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch02/CF-S1-CONF-013/experiment_contract.json",
+      "source_paper": "JEP_3",
+      "source_study_id": "JEP_3_1"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "inconsistent_gambling": 0.5,
+            "inconsistent_tobacco": 0.5,
+            "unrelated_gambling_business_tobacco_virtue": -0.5,
+            "unrelated_tobacco_business_gambling_virtue": -0.5
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-014",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch02/CF-S1-CONF-014/experiment_contract.json",
+      "source_paper": "JPSP_1",
+      "source_study_id": "JPSP_1_2"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "strong_passion": 1,
+            "weak_passion": -1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-015",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch02/CF-S1-CONF-015/experiment_contract.json",
+      "source_paper": "JPSP_4",
+      "source_study_id": "JPSP_4_4"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "backdown_range": 0,
+            "bolstering_range": 1,
+            "bracketing_range": 0,
+            "point_offer": -1
+          },
+          "benchmark_sign": 1,
+          "component_id": "bolstering_minus_point",
+          "source_component_id": "primary",
+          "value_rule": "counteroffer_fraction_of_point_offer"
+        },
+        {
+          "arm_weights": {
+            "backdown_range": 1,
+            "bolstering_range": 0,
+            "bracketing_range": 0,
+            "point_offer": -1
+          },
+          "benchmark_sign": -1,
+          "component_id": "backdown_minus_point",
+          "source_component_id": "primary",
+          "value_rule": "counteroffer_fraction_of_point_offer"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-016",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch02/CF-S1-CONF-016/experiment_contract.json",
+      "source_paper": "JPSP_9",
+      "source_study_id": "JPSP_9_1"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "economic_fit": -1,
+            "economic_no_fit": 1,
+            "moral_fit": 1,
+            "moral_no_fit": -1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-017",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch03/CF-S1-CONF-017/experiment_contract.json",
+      "source_paper": "JAP_3",
+      "source_study_id": "JAP_3_1c"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "compliance_high_power": -1,
+            "compliance_low_power": 1,
+            "moral_objection_high_power": 1,
+            "moral_objection_low_power": -1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-018",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch03/CF-S1-CONF-018/experiment_contract.json",
+      "source_paper": "JAP_7",
+      "source_study_id": "JAP_7_3"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "high_frequency_group_serving": -1,
+            "high_frequency_self_serving": 1,
+            "low_frequency_group_serving": 1,
+            "low_frequency_self_serving": -1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-019",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch03/CF-S1-CONF-019/experiment_contract.json",
+      "source_paper": "JAP_9",
+      "source_study_id": "JAP_9_6"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "control": 0,
+            "upb": 1,
+            "usb": -1
+          },
+          "benchmark_sign": 1,
+          "component_id": "upb_minus_usb",
+          "source_component_id": "primary",
+          "value_rule": "emotional_ambivalence_component"
+        },
+        {
+          "arm_weights": {
+            "control": -1,
+            "upb": 1,
+            "usb": 0
+          },
+          "benchmark_sign": 1,
+          "component_id": "upb_minus_control",
+          "source_component_id": "primary",
+          "value_rule": "emotional_ambivalence_component"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-020",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch03/CF-S1-CONF-020/experiment_contract.json",
+      "source_paper": "OBHDP_8",
+      "source_study_id": "OBHDP_8_2"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "high_mental_control": 1,
+            "low_mental_control": -1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-021",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch03/CF-S1-CONF-021/experiment_contract.json",
+      "source_paper": "JEP_2",
+      "source_study_id": "JEP_2_2b"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "exploited": 1,
+            "neutral": -1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-023",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch03/CF-S1-CONF-023/experiment_contract.json",
+      "source_paper": "JPSP_4",
+      "source_study_id": "JPSP_4_7"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "neutral_response": 1,
+            "uncivil_response": -1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-026",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch04/CF-S1-CONF-026/experiment_contract.json",
+      "source_paper": "JAP_2",
+      "source_study_id": "JAP_2_3"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "high_directness_high_politeness_high_credibility": 0.5,
+            "high_directness_high_politeness_low_credibility": 0,
+            "high_directness_low_politeness_high_credibility": 0.5,
+            "high_directness_low_politeness_low_credibility": 0,
+            "low_directness_high_politeness_high_credibility": -0.5,
+            "low_directness_high_politeness_low_credibility": 0,
+            "low_directness_low_politeness_high_credibility": -0.5,
+            "low_directness_low_politeness_low_credibility": 0
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-027",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch04/CF-S1-CONF-027/experiment_contract.json",
+      "source_paper": "JAP_5",
+      "source_study_id": "JAP_5_1"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "black": 0.2,
+            "east_asian": -1,
+            "latino": 0.2,
+            "middle_eastern": 0.2,
+            "south_asian": 0.2,
+            "white": 0.2
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-028",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch04/CF-S1-CONF-028/experiment_contract.json",
+      "source_paper": "JAP_6",
+      "source_study_id": "JAP_6_4"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "high_incentive_anti_gun": -0.5,
+            "high_incentive_pro_gun": 0.5,
+            "low_incentive_anti_gun": 0.5,
+            "low_incentive_pro_gun": -0.5
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-029",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch04/CF-S1-CONF-029/experiment_contract.json",
+      "source_paper": "JEP_1",
+      "source_study_id": "JEP_1_6a"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "group_composition": 1,
+            "group_frame": -1,
+            "individual": 0
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-030",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch04/CF-S1-CONF-030/experiment_contract.json",
+      "source_paper": "JEP_10",
+      "source_study_id": "JEP_10_3"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "airport_high": 0.5,
+            "airport_low": -0.5,
+            "dermatology_high": 0.5,
+            "dermatology_low": -0.5
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-031",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch04/CF-S1-CONF-031/experiment_contract.json",
+      "source_paper": "JPSP_8",
+      "source_study_id": "JPSP_8_2"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "low_ability_reversed": 1,
+            "low_ability_traditional": -1,
+            "low_effort_reversed": -1,
+            "low_effort_traditional": 1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-032",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch04/CF-S1-CONF-032/experiment_contract.json",
+      "source_paper": "JPSP_10",
+      "source_study_id": "JPSP_10_1"
+    },
+    {
+      "components": [
+        {
+          "arm_weights": {
+            "non_zero_sum": 1,
+            "zero_sum": -1
+          },
+          "benchmark_sign": 1,
+          "component_id": "primary",
+          "value_rule": "default_normalized_primary"
+        }
+      ],
+      "contract_id": "CF-S1-CONF-037",
+      "contract_path": "experiments/study1/confirmatory_frozen_batch05/CF-S1-CONF-037/experiment_contract.json",
+      "source_paper": "JEP_6",
+      "source_study_id": "JEP_6_4"
+    }
+  ],
+  "freeze": {
+    "analysis_contract": "docs/STUDY1_ANALYSIS_AND_UNBLINDING_CONTRACT_V0_2.md",
+    "analysis_contract_sha256": "9181b0ddeea7190423bebb3781c9f8d29a9a32fb4cebc4273dfa07a18385812d",
+    "condition_mapping_used": false,
+    "confirmatory_analysis_authorized": false,
+    "freeze_date": "2026-10-04",
+    "restricted_crosswalk_read": false,
+    "source_registry": "experiments/study1/confirmatory_analysis_draft_v1/blinded_estimand_registry.json",
+    "source_registry_sha256": "7e7813cf3b4bb1cbdead09fc7138e970b7c22c3bfc3f81f08c72bc63b6dfc04d",
+    "unblinding_authorized": false
+  },
+  "registry_id": "CF-S1-BLINDED-ESTIMAND-REGISTRY-V0.2-FROZEN-20261004",
+  "scope": {
+    "architectures": [
+      "C_fresh_context_manual_whitelist",
+      "D_labeled_causal_firewall"
+    ],
+    "cues": [
+      "aligned",
+      "reversed"
+    ],
+    "draws_per_cell": 100,
+    "primary_components": 33,
+    "primary_experiments": 30,
+    "source_paper_clusters": 28,
+    "waves": [
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5"
+    ]
+  },
+  "status": "frozen_blinded_v0_2_no_analysis_or_unblinding_authority",
+  "version": "0.2.0"
+}

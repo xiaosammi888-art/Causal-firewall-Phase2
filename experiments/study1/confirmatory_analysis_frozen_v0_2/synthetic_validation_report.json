@@ -1,0 +1,28 @@
+{
+  "api_calls": 0,
+  "confirmatory_analysis_authorized": false,
+  "cr2_status": "executed_synthetic_only",
+  "errors": 0,
+  "failures": 0,
+  "fixture_manifest": "validation_fixture/fixture_manifest.json",
+  "fixture_manifest_sha256": "5ebf69f1e6e413f13367ef05ad3829cf3ced3460074ac0befa3bb4dd574b4245",
+  "mapping_used": false,
+  "network_calls": 0,
+  "network_import_scan": {
+    "causal_firewall/study1_confirmatory_analysis_blinded.py": false,
+    "scripts/generate_study1_confirmatory_synthetic_fixture.py": false,
+    "scripts/run_study1_confirmatory_synthetic_analysis.py": false
+  },
+  "reml_status": "executed_synthetic_only",
+  "restricted_crosswalk_read": false,
+  "status": "pass",
+  "synthetic_audit": "validation_analysis/synthetic_analysis_audit.json",
+  "synthetic_audit_sha256": "802ec71651290d0d099076fdb2266272c11644e2bd334105e9ec9fdb27c82a30",
+  "synthetic_results": "validation_analysis/synthetic_analysis_results.json",
+  "synthetic_results_sha256": "b0f60fc15ea6f41d90eb92bfdf1916ed70f4594ed6b498272cfe90b4962bbc1f",
+  "test_command": "python -m unittest -v tests.test_study1_confirmatory_analysis_blinded",
+  "test_output_sha256": "eff51b81b99f3cf4568e17272a8c26578091869e7e83973a239cc599ed1d5cbb",
+  "tests_run": 9,
+  "unblinding_authorized": false,
+  "validation_id": "CF-S1-ANALYSIS-V0.2-SYNTHETIC-VALIDATION-20261004"
+}

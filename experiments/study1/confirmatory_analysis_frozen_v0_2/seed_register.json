@@ -1,0 +1,15 @@
+{
+  "article_bootstrap_replicates": 20000,
+  "article_equal_source_paper_bootstrap": 61002,
+  "cr2_randomness": "none",
+  "freeze_date": "2026-10-04",
+  "primary_bootstrap_replicates": 20000,
+  "primary_source_paper_bootstrap": 61001,
+  "reml_randomness": "none",
+  "replication_component_bootstrap": {
+    "derivation": "unsigned integer represented by first 16 hexadecimal characters of SHA-256('CF-S1-REPLICATION|' + contract_id + '|' + component_id)",
+    "replicates": 20000
+  },
+  "seed_register_id": "CF-S1-ANALYSIS-SEEDS-V0.2-20261004",
+  "synthetic_fixture_noise": "deterministic SHA-256 transform; no pseudorandom seed"
+}
