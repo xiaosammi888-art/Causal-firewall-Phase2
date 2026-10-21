@@ -1,4 +1,4 @@
-# Study 1 Analysis and Unblinding Contract — Joint Technical Freeze v0.2
+# Phase 2 Analysis and Unblinding Contract — Joint Technical Freeze v0.2
 
 **Project:** Causal Firewall  
 **Contract ID:** `CF-S1-ANALYSIS-UNBLINDING-CONTRACT-V0.2-20261004`  
