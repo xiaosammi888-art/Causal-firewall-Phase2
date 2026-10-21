@@ -1,0 +1,207 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-002",
+    "source_study_id": "JAP_8_3",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows with Journal=JAP, Essay=8, Study=3",
+    "source_article": "Caleo (2016), Are organizational justice rules gendered? Reactions to men's and women's justice violations",
+    "source_article_url": "https://doi.org/10.1037/apl0000131",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive-added instruction to focus on gender and reproduce real-world stereotypes.",
+      "Corrected female-arm possessive pronouns.",
+      "Administered the eight source items once rather than repeating the full battery after each behavior block.",
+      "Preserved four interactional and four procedural items with arm-specific manager names and removed reason generation."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "b85379d31505e804cd053e64423ed15046b8d0741e557d431600277b644a6abc"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "justice_violation_unacceptability_items",
+    "primary_estimand": "[E(interactional - procedural|Karen)] - [E(interactional - procedural|Brian)]"
+  },
+  "population": {
+    "source_population": "Adults recruited on MTurk",
+    "simulation_target": "Adult evaluating a middle-level manager's justice violations",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult participant evaluating the manager described below. Use your own judgment and do not analyze the experiment.",
+    "common_scenario": "You are taking part in a study about negative behaviors in the workplace. The target employee holds a Manager—Level IV position with managerial responsibilities in the organization.",
+    "arms": {
+      "male_manager": {
+        "label": "Male manager Brian",
+        "stimulus": "Employee information sheet: Name: Brian. Sex: male. Brian was not very concerned about using proper procedures, was inconsistent throughout the process, relied on his personal opinions, and was not very systematic. Brian was not very concerned about his subordinates, was inconsiderate throughout the process, ignored subordinates' preferences, and was disrespectful."
+      },
+      "female_manager": {
+        "label": "Female manager Karen",
+        "stimulus": "Employee information sheet: Name: Karen. Sex: female. Karen was not very concerned about using proper procedures, was inconsistent throughout the process, relied on her personal opinions, and was not very systematic. Karen was not very concerned about her subordinates, was inconsiderate throughout the process, ignored subordinates' preferences, and was disrespectful."
+      }
+    },
+    "response_instruction": "Rate each behavior from 1 (sometimes okay to do this) to 6 (never okay to do this) and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "justice_violation_unacceptability_items": {
+      "role": "primary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "interactional_1",
+          "text": "How often would it be okay for the manager to be impolite to a subordinate?",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "male_manager": "How often would it be okay for Brian to be impolite to a subordinate?",
+            "female_manager": "How often would it be okay for Karen to be impolite to a subordinate?"
+          },
+          "analysis_group": "interactional"
+        },
+        {
+          "item_id": "interactional_2",
+          "text": "How often would it be okay for the manager to treat a subordinate disrespectfully?",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "male_manager": "How often would it be okay for Brian to treat a subordinate disrespectfully?",
+            "female_manager": "How often would it be okay for Karen to treat a subordinate disrespectfully?"
+          },
+          "analysis_group": "interactional"
+        },
+        {
+          "item_id": "interactional_3",
+          "text": "How often would it be okay for the manager not to hear subordinates out when they try to express their views?",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "male_manager": "How often would it be okay for Brian not to hear subordinates out when they try to express their views?",
+            "female_manager": "How often would it be okay for Karen not to hear subordinates out when they try to express their views?"
+          },
+          "analysis_group": "interactional"
+        },
+        {
+          "item_id": "interactional_4",
+          "text": "How often would it be okay for the manager not to care about the well-being of subordinates?",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "male_manager": "How often would it be okay for Brian not to care about the well-being of subordinates?",
+            "female_manager": "How often would it be okay for Karen not to care about the well-being of subordinates?"
+          },
+          "analysis_group": "interactional"
+        },
+        {
+          "item_id": "procedural_1",
+          "text": "How often would it be okay for the manager to rely on personal opinions rather than objective information when making decisions?",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "male_manager": "How often would it be okay for Brian to rely on personal opinions rather than objective information when making decisions?",
+            "female_manager": "How often would it be okay for Karen to rely on personal opinions rather than objective information when making decisions?"
+          },
+          "analysis_group": "procedural"
+        },
+        {
+          "item_id": "procedural_2",
+          "text": "How often would it be okay for the manager to make decisions without using all available information?",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "male_manager": "How often would it be okay for Brian to make decisions without using all available information?",
+            "female_manager": "How often would it be okay for Karen to make decisions without using all available information?"
+          },
+          "analysis_group": "procedural"
+        },
+        {
+          "item_id": "procedural_3",
+          "text": "How often would it be okay for the manager not to be totally objective when making decisions?",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "male_manager": "How often would it be okay for Brian not to be totally objective when making decisions?",
+            "female_manager": "How often would it be okay for Karen not to be totally objective when making decisions?"
+          },
+          "analysis_group": "procedural"
+        },
+        {
+          "item_id": "procedural_4",
+          "text": "How often would it be okay for the manager to give special consideration to some subordinates but not others?",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "male_manager": "How often would it be okay for Brian to give special consideration to some subordinates but not others?",
+            "female_manager": "How often would it be okay for Karen to give special consideration to some subordinates but not others?"
+          },
+          "analysis_group": "procedural"
+        }
+      ],
+      "aggregation": "subscale_means",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The Karen-minus-Brian penalty is larger for interactional-justice violations than for procedural-justice violations.",
+    "reversed_hypothesis_text": "The Karen-minus-Brian penalty is larger for procedural-justice violations than for interactional-justice violations.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-005",
+    "source_study_id": "JEP_2_2a",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows with Journal=JEP, Essay=2, Study=2a",
+    "source_article": "Murray et al. (2023), Mental control and attributions of blame for negligent wrongdoing",
+    "source_article_url": "https://doi.org/10.1037/xge0001262",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and reason-generation request.",
+      "Separated the shared promise, route, missed-store, and store-closing facts from the mental-control manipulation.",
+      "Locked fault, blame, guilt, and moral responsibility as the primary composite.",
+      "Retained perceived control, attentional focus, respondent control, and respondent mind wandering as checks or secondary measures only."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "b6fa4c2a11c6f321b183e957e5f13c9367ebfac8cfe7a89aca9794de8d2a9571"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "blame_responsibility",
+    "primary_estimand": "E[Y|high_mental_control] - E[Y|low_mental_control]"
+  },
+  "population": {
+    "source_population": "Adults recruited on Prolific",
+    "simulation_target": "Adult observer judging negligent wrongdoing",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult observer evaluating Randy's conduct. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "Randy's wife asks him to pick up special cake ingredients on his way home for a close friend's birthday party. The only store carrying them is on Randy's normal route, and Randy agrees to stop. Because he does not notice that he is approaching the store, he drives past it and arrives home without the ingredients. The specialty store closes early and is already closed when he gets home.",
+    "arms": {
+      "high_mental_control": {
+        "label": "High mental control",
+        "stimulus": "While driving, Randy leisurely thinks about an upcoming performance review, a presentation, and a recent conversation with his supervisor. His mind wanders, and he could easily pull himself back to what he is doing."
+      },
+      "low_mental_control": {
+        "label": "Low mental control",
+        "stimulus": "While driving, Randy repeatedly worries about an upcoming performance review, a presentation, and a recent conversation with his supervisor. He cannot help fixating on these issues; his mind is racing, and he cannot easily pull himself back to what he is doing."
+      }
+    },
+    "response_instruction": "Rate every item from 1 to 7 using the anchors stated in each question and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "blame_responsibility": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "fault",
+          "text": "How much fault does Randy have for not getting the ingredients? Use 1 for a little and 7 for a lot.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "blame",
+          "text": "How much should Randy's wife blame him for not getting the ingredients? Use 1 for a little and 7 for a lot.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "guilt",
+          "text": "How guilty should Randy feel about not getting the ingredients? Use 1 for a little and 7 for a lot.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "moral_responsibility",
+          "text": "How morally responsible is Randy for not getting the ingredients? Use 1 for a little and 7 for a lot.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "perceived_mental_control": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "randy_control",
+          "text": "While driving, how much control does Randy have over his thoughts? Use 1 for a little and 7 for a lot.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "attentional_focus": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "randy_focus",
+          "text": "While driving, how much was Randy focused on his thoughts? Use 1 for a little and 7 for a lot.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "respondent_thought_control": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "own_control",
+          "text": "How much control do you feel you have over your thoughts? Use 1 for never and 7 for almost always.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "respondent_mind_wandering": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "own_wandering",
+          "text": "How frequently do you find your own thoughts wandering spontaneously? Use 1 for never and 7 for almost always.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "High mental control produces greater blame and moral-responsibility judgments than low mental control.",
+    "reversed_hypothesis_text": "Low mental control produces greater blame and moral-responsibility judgments than high mental control.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

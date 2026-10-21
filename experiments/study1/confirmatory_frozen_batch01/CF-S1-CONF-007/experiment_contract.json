@@ -1,0 +1,185 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-007",
+    "source_study_id": "JEP_8_4",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows with Journal=JEP, Essay=8, Study=4",
+    "source_article": "Burgmer, Forstmann, and Stavrova (2019), Ideas are cheap: When and why adults value labor over ideas",
+    "source_article_url": "https://doi.org/10.1037/xge0000473",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and reason-generation request.",
+      "Restored the source construct in the negative arm: blame for the negative outcome rather than praise for a positive outcome.",
+      "Used arm-specific item text so each participant sees only praise or blame wording for the assigned outcome.",
+      "Kept Jesse and Alex target ratings separate and retained effort and comprehension items as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "c5a3195b45734737ed77331bcdf290f78c7a5f73b6294f25d8b7e81ed4b920a2"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "target_evaluation_items",
+    "primary_estimand": "[E(Alex - Jesse praise|positive outcome)] - [E(Alex - Jesse blame|negative outcome)]"
+  },
+  "population": {
+    "source_population": "Adults recruited on MTurk",
+    "simulation_target": "Adult evaluating credit and blame for a jointly produced meal",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult participant judging the two contributors described below. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "Two friends, Jesse and Alex, want to surprise a mutual friend, Sam, with a home-cooked meal. Jesse thinks of a recipe for the meal. Alex then cooks the meal.",
+    "arms": {
+      "positive_outcome": {
+        "label": "Positive meal outcome",
+        "stimulus": "Sam arrives, tries the meal, really likes the food, finishes the whole dish, and asks for more."
+      },
+      "negative_outcome": {
+        "label": "Negative meal outcome",
+        "stimulus": "Sam arrives, tries the meal, does not like the food at all, does not finish the dish, and would never ask for more."
+      }
+    },
+    "response_instruction": "Return only integer item responses in the required JSON structure. Use the 1-to-7 or 1-to-2 bounds shown for each item."
+  },
+  "outcomes": {
+    "target_evaluation_items": {
+      "role": "primary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "target_jesse",
+          "text": "How much outcome-appropriate evaluation does Jesse deserve?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "positive_outcome": "How much praise does Jesse deserve for the positive outcome?",
+            "negative_outcome": "How much blame does Jesse deserve for the negative outcome?"
+          },
+          "analysis_group": "Jesse"
+        },
+        {
+          "item_id": "target_alex",
+          "text": "How much outcome-appropriate evaluation does Alex deserve?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "positive_outcome": "How much praise does Alex deserve for the positive outcome?",
+            "negative_outcome": "How much blame does Alex deserve for the negative outcome?"
+          },
+          "analysis_group": "Alex"
+        }
+      ],
+      "aggregation": "paired_item_contrast",
+      "model_may_write_aggregate": false
+    },
+    "perceived_effort": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "effort",
+          "text": "Who invested more effort? Use 1 for definitely Jesse and 7 for definitely Alex.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "time",
+          "text": "Who spent more time? Use 1 for definitely Jesse and 7 for definitely Alex.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "exertion",
+          "text": "Who really exerted themself? Use 1 for definitely Jesse and 7 for definitely Alex.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "comprehension_checks": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "idea_source",
+          "text": "Who had the idea for the recipe? Use 1 for Jesse and 2 for Alex.",
+          "minimum": 1,
+          "maximum": 2,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "meal_enjoyment",
+          "text": "Did Sam enjoy the meal? Use 1 for yes and 2 for no.",
+          "minimum": 1,
+          "maximum": 2,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "deterministic_category_map",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The Alex-minus-Jesse target difference is more positive for praise after success than for blame after failure.",
+    "reversed_hypothesis_text": "The Alex-minus-Jesse target difference is more positive for blame after failure than for praise after success.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

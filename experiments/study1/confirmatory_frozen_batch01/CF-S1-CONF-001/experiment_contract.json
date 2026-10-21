@@ -1,0 +1,191 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-001",
+    "source_study_id": "AMJ_7_1",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows with Journal=AMJ, Essay=7, Study=1",
+    "source_article": "Wang, Restubog, Shao, Lu, and Van Kleef (2018), Does anger expression help or harm leader effectiveness? The role of competence-based versus integrity-based violations and abusive supervision",
+    "source_article_url": "https://doi.org/10.5465/amj.2015.0460",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM role wrapper and all reason-generation requests.",
+      "Corrected the obvious archival typo 'Perter' to 'Peter'.",
+      "Separated the shared insurance-company setting from the two randomized factors.",
+      "Designated the four leader-effectiveness items as primary and retained anger and violation-attribution items as checks."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "0bf8542709185db35ee201aa869e59cfdfaa518bc9e031f8e151ddeac48397b3"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "leader_effectiveness",
+    "primary_estimand": "[E(Y|anger, competence) - E(Y|neutral, competence)] - [E(Y|anger, integrity) - E(Y|neutral, integrity)]"
+  },
+  "population": {
+    "source_population": "Australian university students",
+    "simulation_target": "Adult Australian university student imagining working for the described leader",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult Australian university student imagining that you work for Peter. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "In an insurance company, a leader named Peter learned that his follower, John, had exaggerated the benefits of the company's insurance policies to customers. Peter told John that he would not want this to happen again.",
+    "arms": {
+      "anger_competence": {
+        "label": "Anger expression after competence-based violation",
+        "stimulus": "John exaggerated the benefits because of his inadequate knowledge of the policies. Peter became very angry in the meeting."
+      },
+      "neutral_competence": {
+        "label": "Neutral expression after competence-based violation",
+        "stimulus": "John exaggerated the benefits because of his inadequate knowledge of the policies. Peter maintained a neutral emotional expression in the meeting."
+      },
+      "anger_integrity": {
+        "label": "Anger expression after integrity-based violation",
+        "stimulus": "John exaggerated the benefits because he wanted to increase his own sales. Peter became very angry in the meeting."
+      },
+      "neutral_integrity": {
+        "label": "Neutral expression after integrity-based violation",
+        "stimulus": "John exaggerated the benefits because he wanted to increase his own sales. Peter maintained a neutral emotional expression in the meeting."
+      }
+    },
+    "response_instruction": "Rate every item from 1 (strongly disagree or not at all) to 5 (strongly agree or very much) and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "leader_effectiveness": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "effectiveness_1",
+          "text": "I would want Peter to continue to be the manager of the department.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "effectiveness_2",
+          "text": "Peter deserves the position of manager.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "effectiveness_3",
+          "text": "I would approve of Peter as a leader.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "effectiveness_4",
+          "text": "I would recommend Peter to a friend or close colleague.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "anger_manipulation_check": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "anger_1",
+          "text": "To what extent did Peter show anger toward John?",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "anger_2",
+          "text": "To what extent did Peter show irritation toward John?",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "violation_attribution_check": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "competence_attribution",
+          "text": "John broke the rules because he did not understand the insurance policies well.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "integrity_attribution",
+          "text": "John broke the rules because he wanted to increase his own sales number.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "paired_item_contrast",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The anger-minus-neutral effect on leader effectiveness is more positive for a competence-based violation than for an integrity-based violation.",
+    "reversed_hypothesis_text": "The anger-minus-neutral effect on leader effectiveness is more positive for an integrity-based violation than for a competence-based violation.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

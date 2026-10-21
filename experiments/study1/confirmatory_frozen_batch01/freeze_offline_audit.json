@@ -1,0 +1,191 @@
+{
+  "audit_id": "CF-S1-CONF-B01-FREEZE-AUDIT-20260927-01",
+  "status": "offline_freeze_audit",
+  "network_calls": 0,
+  "model_called": false,
+  "contracts": 8,
+  "compiled_arm_packets": 18,
+  "all_checks_passed": true,
+  "rows": [
+    {
+      "contract_id": "CF-S1-CONF-001",
+      "arm": "anger_competence",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-001",
+      "arm": "neutral_competence",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-001",
+      "arm": "anger_integrity",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-001",
+      "arm": "neutral_integrity",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-002",
+      "arm": "male_manager",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-002",
+      "arm": "female_manager",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-003",
+      "arm": "laid_off_employees_men",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-003",
+      "arm": "laid_off_employees_women",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-004",
+      "arm": "ordinary_register_theft",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-004",
+      "arm": "creative_fake_return_theft",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-005",
+      "arm": "high_mental_control",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-005",
+      "arm": "low_mental_control",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-006",
+      "arm": "eight_of_eight_heads",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-006",
+      "arm": "four_of_eight_heads",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-007",
+      "arm": "positive_outcome",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-007",
+      "arm": "negative_outcome",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-008",
+      "arm": "American_only_identity",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    },
+    {
+      "contract_id": "CF-S1-CONF-008",
+      "arm": "American_and_Arab_dual_identity",
+      "frozen_status": true,
+      "paid_calls_disabled": true,
+      "frozen_hash_matches": true,
+      "opposite_arm_absent": true,
+      "restricted_hypotheses_absent": true,
+      "packet_fields_match_contract": true
+    }
+  ]
+}

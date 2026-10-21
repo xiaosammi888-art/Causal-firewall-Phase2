@@ -1,0 +1,160 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-006",
+    "source_study_id": "JEP_5_3a",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows with Journal=JEP, Essay=5, Study=3a",
+    "source_article": "Choshen-Hillel, Shaw, and Caruso (2020), Lying to appear honest",
+    "source_article_url": "https://doi.org/10.1037/xge0000737",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and reason-generation request.",
+      "Separated the common private coin-flip incentive task from Jim's reported outcome.",
+      "Locked the five ethicality, morality, goodness, honesty, and truthfulness ratings as the primary composite.",
+      "Bounded the non-primary flip-count comprehension response from 0 to 20 solely to permit a strict numeric response schema."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "82b5e246616b0a643b6274a7cd8155ca8b0b7cc78c72d9b2bb218503a6f8c329"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "perceived_morality",
+    "primary_estimand": "E[Y|eight_of_eight_heads] - E[Y|four_of_eight_heads]"
+  },
+  "population": {
+    "source_population": "U.S. adults recruited on MTurk",
+    "simulation_target": "U.S. adult judging a participant's privately reported incentivized coin flips",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult",
+      "country_context"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one U.S. adult participant evaluating Jim's reported outcome. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "In a lab experiment, 500 participants privately flipped a coin eight times and reported the number of heads. In addition to a flat participation fee, they earned a bonus of 25 cents for each head they reported. Imagine one participant named Jim.",
+    "arms": {
+      "eight_of_eight_heads": {
+        "label": "Extreme report: eight of eight heads",
+        "stimulus": "Jim reported flipping eight heads out of eight flips."
+      },
+      "four_of_eight_heads": {
+        "label": "Standard report: four of eight heads",
+        "stimulus": "Jim reported flipping four heads out of eight flips."
+      }
+    },
+    "response_instruction": "Rate the five judgment items from 1 to 7 using their stated anchors and return the flip-count comprehension answer as an integer. Return only the required JSON object."
+  },
+  "outcomes": {
+    "perceived_morality": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "ethical",
+          "text": "Given the outcome he reported, how ethical is Jim? Use 1 for not at all and 7 for extremely.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "moral",
+          "text": "Given the outcome he reported, how moral is Jim? Use 1 for not at all and 7 for extremely.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "good",
+          "text": "Given the outcome he reported, how good is Jim? Use 1 for not at all and 7 for extremely.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "honest",
+          "text": "Jim is honest. Use 1 for strongly disagree and 7 for strongly agree.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "telling_truth",
+          "text": "Jim is telling the truth. Use 1 for strongly disagree and 7 for strongly agree.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "comprehension_check": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "number_of_flips",
+          "text": "How many times was Jim asked to flip the coin?",
+          "minimum": 0,
+          "maximum": 20,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Reporting eight of eight heads reduces perceived morality relative to reporting four of eight heads.",
+    "reversed_hypothesis_text": "Reporting eight of eight heads increases perceived morality relative to reporting four of eight heads.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

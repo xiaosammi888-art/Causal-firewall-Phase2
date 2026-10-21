@@ -1,0 +1,191 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-003",
+    "source_study_id": "OBHDP_3_5",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows with Journal=OBHDP, Essay=3, Study=5",
+    "source_article": "Reynolds et al. (2020), Man up and take it: Gender bias in moral typecasting",
+    "source_article_url": "https://doi.org/10.1016/j.obhdp.2020.05.002",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and reason-generation request.",
+      "Separated the gender manipulation from the common company, layoff rationale, severance, reemployment, relocation, unemployment, and profitability facts.",
+      "Preserved the intentionally negated victimhood item and marked it for deterministic reverse scoring.",
+      "Encoded the imagined management-team composition response as 1=all men, 2=all women, 3=mixed; this item remains secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "c2f950a96f0ab5e35fbb13975c6a634faf7165281644006fec2a36e120e705cc"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "perceived_victim_pain",
+    "primary_estimand": "E[Y|laid_off_employees_women] - E[Y|laid_off_employees_men]"
+  },
+  "population": {
+    "source_population": "Canadian managers recruited through a market research firm",
+    "simulation_target": "Adult Canadian manager evaluating a manufacturing-company layoff decision",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult Canadian manager evaluating the company case below. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "Jarvis Manufacturing is a 30-year-old private ski-apparel company with 200 employees. Profits have slowly declined as competition increased. Management concluded that nine redundant positions could be eliminated without seriously compromising operations and estimated annual profitability gains of 3–5% for three years. The laid-off employees had no college degrees and had worked at Jarvis for an average of five years. Each received two weeks' salary plus $100 for each year employed. Three months later, seven had found lower-paid jobs, three had relocated, and two remained unemployed. One year later, Jarvis's profit margin had increased by 3% and operations were more efficient.",
+    "arms": {
+      "laid_off_employees_men": {
+        "label": "All laid-off employees are men",
+        "stimulus": "All nine laid-off employees were men. Refer to the laid-off group as the men in your responses."
+      },
+      "laid_off_employees_women": {
+        "label": "All laid-off employees are women",
+        "stimulus": "All nine laid-off employees were women. Refer to the laid-off group as the women in your responses."
+      }
+    },
+    "response_instruction": "Return only bounded integer item responses in the required JSON structure. Items state their own response ranges; for management-team composition use 1=all men, 2=all women, 3=a mix of men and women."
+  },
+  "outcomes": {
+    "perceived_victim_pain": {
+      "role": "primary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "victim_pain",
+          "text": "How much pain, whether psychological, emotional, or physical, do you think the laid-off employees experienced as a group?",
+          "minimum": 0,
+          "maximum": 100,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "victimhood": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "not_victims",
+          "text": "The employees who were laid off are NOT victims. Rate from 1 (strongly disagree) to 7 (strongly agree).",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": true
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "perceived_harm": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "harm",
+          "text": "How much harm do you think the management team inflicted on the group of employees it laid off?",
+          "minimum": 0,
+          "maximum": 100,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "perceived_fairness": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "fairness",
+          "text": "I believe the laid-off employees have been treated fairly. Rate from 1 (strongly disagree) to 7 (strongly agree).",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "management_morality": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "management_morality",
+          "text": "How moral do you think the senior management team at Jarvis Manufacturing is? Rate from 1 (extremely immoral) to 7 (extremely moral).",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "imagined_management_gender": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "management_gender",
+          "text": "What is the management team's gender composition according to your imagination or intuition? Use 1 for all men, 2 for all women, or 3 for a mix of men and women.",
+          "minimum": 1,
+          "maximum": 3,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "deterministic_category_map",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Layoffs of women produce higher perceived victim pain than otherwise identical layoffs of men.",
+    "reversed_hypothesis_text": "Layoffs of men produce higher perceived victim pain than otherwise identical layoffs of women.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

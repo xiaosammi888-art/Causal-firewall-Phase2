@@ -1,0 +1,16 @@
+{
+  "receipt_id": "CF-S1-CONF-B01-FREEZE-RECEIPT-20260927-01",
+  "created_at": "2026-09-27",
+  "freeze_manifest": "experiments/study1/confirmatory_frozen_batch01/freeze_manifest.json",
+  "freeze_manifest_sha256": "5e309b02a9db53db25f2a4c79599d39ae04e9c3701f272a66d161106a52b6e93",
+  "hash_register_sha256": "e722c34a27271e53e7e42c0a94cf184c006f6c89da256d96846c653619fb572e",
+  "hash_register_csv_sha256": "76b2c0e728f19b9b4e0fee84e55f8c5cb95f1a51128d2070a87db3e47b634cca",
+  "offline_audit_sha256": "76466608952d8512522c907f76a78337df94b6d4890a861102fa1988357f33b4",
+  "pi_freeze_decision_sha256": "f2746a6a440427b5b4c263d3269d96c3bd4752da332062065d93eada76ba5c2a",
+  "batch_material_set_sha256": "fd763457cbc15803aefb482ea79f27903ea639445f059a78d1445df64638e0d3",
+  "batch_contract_set_sha256": "da16ab9abceb6b3d7001b170b51afafbded0088adbd171360b83b665b7488e03",
+  "contracts_frozen": true,
+  "paid_calls_authorized": false,
+  "api_calls_authorized": false,
+  "authorization_file_created": false
+}

@@ -1,0 +1,176 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-004",
+    "source_study_id": "OBHDP_4_1",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows with Journal=OBHDP, Essay=4, Study=1",
+    "source_article": "Wiltermuth, Vincent, and Gino (2017), Creativity in unethical behavior attenuates condemnation and breeds social contagion when transgressions seem to create little harm",
+    "source_article_url": "https://doi.org/10.1016/j.obhdp.2017.01.006",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper, duplicated anchor text, and reason-generation requests.",
+      "Separated the common cashier, purchase, amount, and low-detection facts from the theft-method manipulation.",
+      "Designated punishment severity as primary; retained creativity and unethicality measures as secondary.",
+      "Marked the honesty item for reverse scoring within the secondary unethicality composite."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "01f773e4d883af831268097b24962decf0701b08c3a4046e9eae8fa3e7679d0c"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "punishment_severity",
+    "primary_estimand": "E[Y|creative_fake_return_theft] - E[Y|ordinary_register_theft]"
+  },
+  "population": {
+    "source_population": "U.S. law master's students participating in class",
+    "simulation_target": "Adult U.S. graduate law student judging a low-harm retail theft",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult",
+      "country_context"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult U.S. graduate law student judging the behavior described below. Respond for yourself and do not analyze the experiment.",
+    "common_scenario": "Pat works as a cashier at a large retail store. A customer purchases $50 of merchandise and pays in cash. The theft will not be connected directly to Pat because several cashiers use the register and process transactions during the day.",
+    "arms": {
+      "ordinary_register_theft": {
+        "label": "Ordinary register theft",
+        "stimulus": "After the customer leaves, Pat opens the cash register and takes the $50 bill."
+      },
+      "creative_fake_return_theft": {
+        "label": "Creative fake-return theft",
+        "stimulus": "After the customer leaves, Pat processes a fake return for the merchandise and takes the $50 bill."
+      }
+    },
+    "response_instruction": "Rate every item from 1 to 7 using the anchors stated in each question and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "punishment_severity": {
+      "role": "primary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "punishment",
+          "text": "How severely should Pat's dishonest behavior be punished? Use 1 for no punishment and 7 for severe punishment.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "perceived_creativity": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "creative",
+          "text": "Pat's behavior was creative.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "unique",
+          "text": "Pat's behavior was unique.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "unconventional",
+          "text": "Pat's behavior was unconventional.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "perceived_unethicality": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "honest",
+          "text": "Pat's behavior was honest.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": true
+        },
+        {
+          "item_id": "immoral",
+          "text": "Pat's behavior was immoral.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "unethical",
+          "text": "Pat's behavior was unethical.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Creative fake-return theft receives less severe punishment than ordinary register theft.",
+    "reversed_hypothesis_text": "Creative fake-return theft receives more severe punishment than ordinary register theft.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

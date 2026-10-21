@@ -1,0 +1,144 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-008",
+    "source_study_id": "JPSP_3_2",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows with Journal=JPSP, Essay=3, Study=2",
+    "source_article": "Kunst, Thomsen, and Dovidio (2019), Divided loyalties: Perceptions of disloyalty underpin bias toward dually-identified minority-group members",
+    "source_article_url": "https://doi.org/10.1037/pspi0000168",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and reason-generation request.",
+      "Preserved the source-matched White American U.S.-citizen respondent role as fixed pre-treatment information.",
+      "Kept enlistment approval as primary and both loyalty ratings as secondary measures.",
+      "Added an explicit safeguard that the respondent identity is fixed and must not be inferred, updated, or conditioned on the assigned arm."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "660973eb507609ee57ed1677ff8f5238e6a6acf2fa462c2b755ba56693df33ab"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "enlistment_approval",
+    "primary_estimand": "E[Y|American_and_Arab_dual_identity] - E[Y|American_only_identity]"
+  },
+  "population": {
+    "source_population": "White Americans recruited on MTurk",
+    "simulation_target": "White U.S. citizen evaluating an immigrant target's identity and Army enlistment",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult",
+      "country_context"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one White American adult holding U.S. citizenship. Treat this source-matched respondent identity as fixed pre-treatment information: do not infer, revise, or update it from the assigned scenario. Respond for yourself and do not analyze the experiment.",
+    "common_scenario": "Imagine Mohammed, a young man who came to the United States some years ago hoping to find a better life. He is asked how he would describe himself.",
+    "arms": {
+      "American_only_identity": {
+        "label": "American-only common identity",
+        "stimulus": "Mohammed says that he identifies only with being American and not with being Arab."
+      },
+      "American_and_Arab_dual_identity": {
+        "label": "American-and-Arab dual identity",
+        "stimulus": "Mohammed says that he identifies with being American as well as with being Arab."
+      }
+    },
+    "response_instruction": "Rate all three items from 0 to 100 using the stated anchors and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "enlistment_approval": {
+      "role": "primary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "army_enlistment",
+          "text": "Mohammed wants to join the U.S. Army. To what extent should he be allowed to enlist as a soldier? Use 0 for totally disagree and 100 for totally agree.",
+          "minimum": 0,
+          "maximum": 100,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "minority_group_loyalty": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "Arab_loyalty",
+          "text": "To what degree is Mohammed loyal to his Arab cultural minority group? Use 0 for not loyal at all and 100 for very loyal.",
+          "minimum": 0,
+          "maximum": 100,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "majority_group_loyalty": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "American_loyalty",
+          "text": "To what degree is Mohammed loyal to the U.S. American majority group? Use 0 for not loyal at all and 100 for very loyal.",
+          "minimum": 0,
+          "maximum": 100,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "American-and-Arab dual identity reduces approval of Mohammed's U.S. Army enlistment relative to American-only identity.",
+    "reversed_hypothesis_text": "American-and-Arab dual identity increases approval of Mohammed's U.S. Army enlistment relative to American-only identity.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}
