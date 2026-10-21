@@ -1,0 +1,17 @@
+{
+  "receipt_id": "CF-S1-CONF-B05-FREEZE-RECEIPT-20260929-01",
+  "created_at": "2026-09-29",
+  "freeze_manifest": "experiments/study1/confirmatory_frozen_batch05/freeze_manifest.json",
+  "freeze_manifest_sha256": "2405e6b67a2d44f6b5111a6e3823ad04522217b669f7423184deb7b9817c6773",
+  "hash_register_sha256": "356bdb579fd359cfd991152dfb80d47409acc0d7aa29590dbb702f651050346a",
+  "hash_register_csv_sha256": "fcefdc945366208cac00316448761bc97b651791fdd7a57e949fb7dbcf37d6c9",
+  "draft_to_frozen_diff_sha256": "cd1b671e8cc341716713d0a4ec24df1f535d62566bce0706d6880f9769caca8e",
+  "offline_audit_sha256": "17e1316f129e07cc5815f702b192cbf7c41f16ee85d47be304fa3849ccf25a57",
+  "contract_level_reviewer2_attestation_sha256": "0b3d83bf830b06d1dfd81b77ac2462d62668da5aef5037f9ee036cba33fe5a9c",
+  "batch_material_set_sha256": "95306c29a2cb16d10545facf4e61de5484ca975c7ab27d03bcaa473ef07c3ed3",
+  "batch_contract_set_sha256": "b7f30d3258279dae0323915bb8eade28aa69657077ddffe4046c826e1fefbcfe",
+  "contracts_frozen": true,
+  "paid_calls_authorized": false,
+  "api_calls_authorized": false,
+  "authorization_file_created": false
+}

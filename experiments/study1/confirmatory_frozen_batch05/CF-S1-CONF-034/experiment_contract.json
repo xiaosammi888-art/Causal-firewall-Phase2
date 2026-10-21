@@ -1,0 +1,240 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-034",
+    "source_study_id": "AMJ_9_1",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 58-61; Journal=AMJ, Essay=9, Study=1",
+    "source_article": "Tröster and Van Quaquebeke (2021), When victims help their abusive supervisors",
+    "source_article_url": "https://doi.org/10.5465/amj.2019.0559",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed reason generation.",
+      "Preserved the four LMX-by-abuse cells.",
+      "Locked helping items 31-36 as primary and retained self-blame 23-25 and guilt 26-30 as secondary."
+    ],
+    "omitted_source_measures": [
+      "Source items 1-22 were omitted from routine calls as nonfocal checks under the Reviewer 1 item-reduction decision."
+    ],
+    "normalized_material_sha256": "d94ce1cd30b4a9cdc6e602c39dfcc77aebbffcd0899e837e252081ff3887daa7"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "supervisor_directed_helping",
+    "primary_estimand": "[E(Y|abuse,high LMX)-E(Y|nonabuse,high LMX)]-[E(Y|abuse,low LMX)-E(Y|nonabuse,low LMX)]"
+  },
+  "population": {
+    "source_population": "Working adults",
+    "simulation_target": "Employee reflecting on a relationship with supervisor Chris",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as the employee in the described supervisor relationship. Respond for yourself and do not analyze the experiment.",
+    "common_scenario": "Your supervisor is Chris. Your prior relationship quality and Chris's recent conduct are described below.",
+    "arms": {
+      "high_lmx_abuse": {
+        "label": "High Lmx Abuse",
+        "stimulus": "You and Chris previously had a trusting, supportive, high-quality working relationship. Chris has now ridiculed and demeaned you in an abusive interaction."
+      },
+      "high_lmx_nonabuse": {
+        "label": "High Lmx Nonabuse",
+        "stimulus": "You and Chris have a trusting, supportive, high-quality working relationship. Chris interacts with you normally and respectfully."
+      },
+      "low_lmx_abuse": {
+        "label": "Low Lmx Abuse",
+        "stimulus": "You and Chris previously had a distant, transactional, low-quality working relationship. Chris has now ridiculed and demeaned you in an abusive interaction."
+      },
+      "low_lmx_nonabuse": {
+        "label": "Low Lmx Nonabuse",
+        "stimulus": "You and Chris have a distant, transactional, low-quality working relationship. Chris interacts with you normally and respectfully."
+      }
+    },
+    "response_instruction": "Rate self-blame items 1-7 and guilt/helping items 1-5. Return only integer responses."
+  },
+  "outcomes": {
+    "supervisor_directed_helping": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "help_1",
+          "text": "I would try to help Chris.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "help_2",
+          "text": "I would speak highly about Chris.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "help_3",
+          "text": "I would go out of my way to be nice to Chris.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "help_4",
+          "text": "I would include Chris in conversations.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "help_5",
+          "text": "I would make myself available to Chris.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "help_6",
+          "text": "I would defend Chris's opinions and suggestions.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "self_blame": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "self_blame_1",
+          "text": "I jeopardized the relationship.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "self_blame_2",
+          "text": "I am responsible for damaging the relationship.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "self_blame_3",
+          "text": "I am to blame for risking the relationship.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "guilt": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "guilt_1",
+          "text": "I feel remorse or regret.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "guilt_2",
+          "text": "I feel tension about something I did.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "guilt_3",
+          "text": "I cannot stop thinking about a bad thing I did.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "guilt_4",
+          "text": "I feel like apologizing or confessing.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "guilt_5",
+          "text": "I feel bad about something I did.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The abuse effect on supervisor-directed helping is more positive under high than low LMX.",
+    "reversed_hypothesis_text": "The abuse effect on supervisor-directed helping is not more positive under high than low LMX.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

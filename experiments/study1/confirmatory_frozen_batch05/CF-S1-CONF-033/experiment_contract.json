@@ -1,0 +1,264 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-033",
+    "source_study_id": "AMJ_5_1",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 40-45; Journal=AMJ, Essay=5, Study=1",
+    "source_article": "Bain et al. (2021), Amplifying voice in organizations",
+    "source_article_url": "https://doi.org/10.5465/amj.2018.0621",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed reason generation and archive-added inference steering.",
+      "Preserved all six voice-type-by-response cells.",
+      "Locked voicer status items 6-10 as primary; retained responder status and voicer idea quality as secondary."
+    ],
+    "omitted_source_measures": [
+      "Manager status items 11-15 and responder idea-quality items 16-21 were omitted as nonfocal outcomes under the Reviewer 1 item-reduction decision."
+    ],
+    "normalized_material_sha256": "167becf6d2b4d40dbd6d97da90d94595509b909902b836ab1d944b42414e4fb6"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x3",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "voicer_status",
+    "primary_estimand": "amplification minus mean(additional voice, quiet), averaged over promotive and prohibitive voice"
+  },
+  "population": {
+    "source_population": "Adult workplace-vignette participants",
+    "simulation_target": "Employee observing coworkers speak in a workplace discussion",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one employee observing the discussion. Evaluate each employee only from the scenario and do not analyze the experiment.",
+    "common_scenario": "During a workplace discussion, one employee raises an idea and a second employee responds as described below.",
+    "arms": {
+      "promotive_amplification": {
+        "label": "promotive / amplification",
+        "stimulus": "The first employee proposes a new way to improve performance. A second employee explicitly repeats and supports the first employee's exact point."
+      },
+      "promotive_additional_voice": {
+        "label": "promotive / additional_voice",
+        "stimulus": "The first employee proposes a new way to improve performance. A second employee raises a different additional point."
+      },
+      "promotive_quiet": {
+        "label": "promotive / quiet",
+        "stimulus": "The first employee proposes a new way to improve performance. The second employee remains silent."
+      },
+      "prohibitive_amplification": {
+        "label": "prohibitive / amplification",
+        "stimulus": "The first employee warns about a harmful practice that should be stopped. A second employee explicitly repeats and supports the first employee's exact point."
+      },
+      "prohibitive_additional_voice": {
+        "label": "prohibitive / additional_voice",
+        "stimulus": "The first employee warns about a harmful practice that should be stopped. A second employee raises a different additional point."
+      },
+      "prohibitive_quiet": {
+        "label": "prohibitive / quiet",
+        "stimulus": "The first employee warns about a harmful practice that should be stopped. The second employee remains silent."
+      }
+    },
+    "response_instruction": "Rate status items from 1 (strongly disagree) to 5 (strongly agree) and idea-quality items from 1 to 7. Return only integer responses."
+  },
+  "outcomes": {
+    "voicer_status": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "voicer_status_1",
+          "text": "The first employee is respected by others.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "voicer_status_2",
+          "text": "The first employee has high status in the group.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "voicer_status_3",
+          "text": "The first employee is influential.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "voicer_status_4",
+          "text": "The first employee is looked up to.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "voicer_status_5",
+          "text": "The first employee has prestige.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "responder_status": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "responder_status_1",
+          "text": "The second employee is respected by others.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "responder_status_2",
+          "text": "The second employee has high status in the group.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "responder_status_3",
+          "text": "The second employee is influential.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "responder_status_4",
+          "text": "The second employee is looked up to.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "responder_status_5",
+          "text": "The second employee has prestige.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "voicer_idea_quality": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "idea_quality_1",
+          "text": "The idea is useful.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "idea_quality_2",
+          "text": "The idea is valuable.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "idea_quality_3",
+          "text": "The idea would improve the organization.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "idea_quality_4",
+          "text": "The idea is feasible.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "idea_quality_5",
+          "text": "The idea is high quality.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "idea_quality_6",
+          "text": "The idea deserves implementation.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Amplification increases the original voicer's status relative to additional voice and silence, averaged across voice type.",
+    "reversed_hypothesis_text": "Amplification does not increase the original voicer's status relative to additional voice and silence.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

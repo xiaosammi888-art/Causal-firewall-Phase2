@@ -1,0 +1,117 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-036",
+    "source_study_id": "JEP_1_1b",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 182-185; Journal=JEP, Essay=1, Study=1b",
+    "source_article": "Silver and Shaw (2022), When and why staying out of it backfires",
+    "source_article_url": "https://doi.org/10.1037/xge0001201",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed reason generation and the hypothesis-revealing archive sentence.",
+      "Preserved two issue vignettes crossed with liberal/conservative audience consensus."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "b0b08e718e4b9c690bfd5d69c681f815516a5bde43b51e959f69ba770211d58a"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "inferred_ideology",
+    "primary_estimand": "mean inferred ideology under liberal audiences minus conservative audiences, averaged over vignette"
+  },
+  "population": {
+    "source_population": "U.S. adults",
+    "simulation_target": "U.S. adult inferring a neutral actor's concealed ideology",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one U.S. adult reading the disagreement. Make your own inference and do not analyze the experiment.",
+    "common_scenario": "A person declines to take a side in a political or moral disagreement. The issue and audience consensus are described below.",
+    "arms": {
+      "vignette_a_liberal": {
+        "label": "Vignette A Liberal",
+        "stimulus": "In the first issue vignette, the surrounding audience expresses a liberal consensus before the person remains neutral."
+      },
+      "vignette_a_conservative": {
+        "label": "Vignette A Conservative",
+        "stimulus": "In the first issue vignette, the surrounding audience expresses a conservative consensus before the person remains neutral."
+      },
+      "vignette_b_liberal": {
+        "label": "Vignette B Liberal",
+        "stimulus": "In the second issue vignette, the surrounding audience expresses a liberal consensus before the person remains neutral."
+      },
+      "vignette_b_conservative": {
+        "label": "Vignette B Conservative",
+        "stimulus": "In the second issue vignette, the surrounding audience expresses a conservative consensus before the person remains neutral."
+      }
+    },
+    "response_instruction": "Rate the person's private ideology from -3 (strongly liberal) to +3 (strongly conservative) and return one integer response."
+  },
+  "outcomes": {
+    "inferred_ideology": {
+      "role": "primary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "ideology",
+          "text": "What is the person's private ideological position?",
+          "minimum": -3,
+          "maximum": 3,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The inferred ideology score is higher under liberal than conservative audience consensus, averaged over vignette.",
+    "reversed_hypothesis_text": "The inferred ideology score is not higher under liberal than conservative audience consensus.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

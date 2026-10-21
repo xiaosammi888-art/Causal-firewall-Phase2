@@ -1,0 +1,184 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-038",
+    "source_study_id": "JPSP_3_3",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 282-283; Journal=JPSP, Essay=3, Study=3",
+    "source_article": "Kunst, Thomsen, and Dovidio (2019), Divided loyalties",
+    "source_article_url": "https://doi.org/10.1037/pspi0000168",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed reason generation.",
+      "Locked a Polish-majority evaluator role before treatment.",
+      "Locked Polish-loyalty items 6-10 as primary and retained selected employment/conflict outcomes."
+    ],
+    "omitted_source_measures": [
+      "Russian-loyalty items 1-5, identity/norm checks 11-20, and high-risk persecution items 25-26 were omitted under the Reviewer 1 item-reduction decision."
+    ],
+    "normalized_material_sha256": "3724d41efea17425a893ec754217f1c173b06fa33d5c37ee20cf39323e15fd22"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "polish_loyalty",
+    "primary_estimand": "E(Y|Polish-only identity)-E(Y|Polish-and-Russian dual identity)"
+  },
+  "population": {
+    "source_population": "Polish majority-group adults",
+    "simulation_target": "Polish-majority adult evaluating a minority target",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult member of the Polish majority group evaluating the target. Respond for yourself, avoid stereotypes, and do not analyze the experiment.",
+    "common_scenario": "You read about a person of Russian family background who lives in Poland. The person's stated national identification is described below.",
+    "arms": {
+      "common_identity": {
+        "label": "Common Identity",
+        "stimulus": "The target says that they identify only as Polish."
+      },
+      "dual_identity": {
+        "label": "Dual Identity",
+        "stimulus": "The target says that they identify as both Polish and Russian."
+      }
+    },
+    "response_instruction": "Rate loyalty items from 1 to 7 and the four selected policy/conflict outcomes from 0 to 100. Return only integer responses."
+  },
+  "outcomes": {
+    "polish_loyalty": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "loyalty_1",
+          "text": "The target is loyal to Poland.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "loyalty_2",
+          "text": "The target would do whatever is needed for Poland.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "loyalty_3",
+          "text": "The target would make sacrifices for Poland.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "loyalty_4",
+          "text": "The target would never betray Poland.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "loyalty_5",
+          "text": "The target puts Polish interests first.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "policy_and_conflict": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "sensitive_security_job",
+          "text": "How much should the target be allowed to hold sensitive national-security jobs?",
+          "minimum": 0,
+          "maximum": 100,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "ordinary_job",
+          "text": "How much should the target be allowed to hold ordinary jobs?",
+          "minimum": 0,
+          "maximum": 100,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "soccer_support",
+          "text": "Whom would the target support in a Poland-Russia match? 0=Poland, 100=Russia.",
+          "minimum": 0,
+          "maximum": 100,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "fight_for_country",
+          "text": "For which country would the target fight? 0=Poland, 100=Russia.",
+          "minimum": 0,
+          "maximum": 100,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "A Polish-only identity elicits higher perceived loyalty to Poland than a Polish-and-Russian dual identity.",
+    "reversed_hypothesis_text": "A Polish-only identity does not elicit higher perceived loyalty to Poland than a dual identity.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-039",
+    "source_study_id": "JPSP_7_6",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 306-307; Journal=JPSP, Essay=7, Study=6",
+    "source_article": "Yu and Chaudhry (2024), Thanks, but no thanks",
+    "source_article_url": "https://doi.org/10.1037/pspi0000435",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Classified country as a synthetic-persona calibration benchmark rather than a randomized human intervention.",
+      "Removed reason generation and all nationality/race stereotype steering.",
+      "Assigned country in the current persona stimulus before favor judgments.",
+      "Used only independently unambiguous matched favor-target pairs."
+    ],
+    "omitted_source_measures": [
+      "The malformed/duplicated advice block corresponding to archived items 5-8 is omitted from this draft pending exact author-material wording verification at contract-level review."
+    ],
+    "normalized_material_sha256": "e1053a0d0b6e5a0ed477f48da8c3c26d143f3c6f7af25699543b59501abb0494"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "perceived_duty",
+    "primary_estimand": "mean duty rating for matched favors, Chinese synthetic persona minus U.S. synthetic persona"
+  },
+  "population": {
+    "source_population": "Chinese and U.S. adult samples (observed cultural groups in the human source)",
+    "simulation_target": "Synthetic adult persona assigned a Chinese or U.S. country context for calibration only",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Respond as the adult persona assigned below, based on the scenario and your own judgment. Do not rely on nationality stereotypes and do not interpret this as a randomized human treatment effect.",
+    "common_scenario": "For each favor performed by a close other, judge perceived duty and likelihood of expressing thanks.",
+    "arms": {
+      "chinese_persona": {
+        "label": "Chinese Persona",
+        "stimulus": "Your assigned country context for this calibration response is China."
+      },
+      "us_persona": {
+        "label": "Us Persona",
+        "stimulus": "Your assigned country context for this calibration response is the United States."
+      }
+    },
+    "response_instruction": "Rate each item from -30 (not at all) to +30 (very much) and return only integer responses."
+  },
+  "outcomes": {
+    "perceived_duty": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "venting_mother_duty",
+          "text": "To what extent is listening while you vent about a personal problem a duty for your mother?",
+          "minimum": -30,
+          "maximum": 30,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "duty"
+        },
+        {
+          "item_id": "venting_partner_duty",
+          "text": "To what extent is listening while you vent about a personal problem a duty for your partner?",
+          "minimum": -30,
+          "maximum": 30,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "duty"
+        },
+        {
+          "item_id": "bus_fare_mother_duty",
+          "text": "To what extent is paying your bus fare when you are short of money a duty for your mother?",
+          "minimum": -30,
+          "maximum": 30,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "duty"
+        },
+        {
+          "item_id": "bus_fare_partner_duty",
+          "text": "To what extent is paying your bus fare when you are short of money a duty for your partner?",
+          "minimum": -30,
+          "maximum": 30,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "duty"
+        },
+        {
+          "item_id": "childcare_mother_duty",
+          "text": "To what extent is providing childcare when you need urgent help a duty for your mother?",
+          "minimum": -30,
+          "maximum": 30,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "duty"
+        },
+        {
+          "item_id": "childcare_partner_duty",
+          "text": "To what extent is providing childcare when you need urgent help a duty for your partner?",
+          "minimum": -30,
+          "maximum": 30,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "duty"
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "gratitude_expression": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "venting_mother_thanks",
+          "text": "How likely are you to thank your mother for listening while you vent about a personal problem?",
+          "minimum": -30,
+          "maximum": 30,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "gratitude"
+        },
+        {
+          "item_id": "venting_partner_thanks",
+          "text": "How likely are you to thank your partner for listening while you vent about a personal problem?",
+          "minimum": -30,
+          "maximum": 30,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "gratitude"
+        },
+        {
+          "item_id": "bus_fare_mother_thanks",
+          "text": "How likely are you to thank your mother for paying your bus fare when you are short of money?",
+          "minimum": -30,
+          "maximum": 30,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "gratitude"
+        },
+        {
+          "item_id": "bus_fare_partner_thanks",
+          "text": "How likely are you to thank your partner for paying your bus fare when you are short of money?",
+          "minimum": -30,
+          "maximum": 30,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "gratitude"
+        },
+        {
+          "item_id": "childcare_mother_thanks",
+          "text": "How likely are you to thank your mother for providing childcare when you need urgent help?",
+          "minimum": -30,
+          "maximum": 30,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "gratitude"
+        },
+        {
+          "item_id": "childcare_partner_thanks",
+          "text": "How likely are you to thank your partner for providing childcare when you need urgent help?",
+          "minimum": -30,
+          "maximum": 30,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "gratitude"
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The Chinese synthetic persona assigns greater duty to matched close-other favors than the U.S. synthetic persona.",
+    "reversed_hypothesis_text": "The Chinese synthetic persona does not assign greater duty to matched close-other favors than the U.S. synthetic persona.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

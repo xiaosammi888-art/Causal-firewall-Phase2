@@ -1,0 +1,239 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-035",
+    "source_study_id": "OBHDP_1_2a",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 170-173; Journal=OBHDP, Essay=1, Study=2a",
+    "source_article": "Fehr et al. (2019), The role of moral decoupling in unethical pro-organizational behavior",
+    "source_article_url": "https://doi.org/10.1016/j.obhdp.2019.05.007",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed reason generation.",
+      "Cleared the automatic image flag as a false positive caused by the phrase company image.",
+      "Separated supervisor UPB and moral-decoupling factors.",
+      "Locked employee-UPB items 1-3 as primary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "34008a8dcfed956dea60aac3a4df961485b53e1150d3fd86dbf4c03b5ddc9b05"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "employee_upb",
+    "primary_estimand": "[E(Y|high supervisor UPB,high decoupling)-E(Y|low supervisor UPB,high decoupling)]-[E(Y|high supervisor UPB,low decoupling)-E(Y|low supervisor UPB,low decoupling)]"
+  },
+  "population": {
+    "source_population": "Working adults",
+    "simulation_target": "Operations manager deciding whether to continue a legally permitted but soon-to-be-banned chemical",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as the operations manager in the scenario. Make your own decision and do not analyze the experiment.",
+    "common_scenario": "Your company uses a cheap pesticide chemical that remains legal but will soon be banned because of health risks. Your supervisor's conduct and evaluation standard are described below.",
+    "arms": {
+      "high_upb_high_decoupling": {
+        "label": "High Upb High Decoupling",
+        "stimulus": "The supervisor has taken dishonest pro-company actions and says that putting the company first matters. The supervisor evaluates job performance separately from ethical conduct."
+      },
+      "high_upb_low_decoupling": {
+        "label": "High Upb Low Decoupling",
+        "stimulus": "The supervisor has taken dishonest pro-company actions and says that putting the company first matters. The supervisor evaluates both job performance and ethical conduct."
+      },
+      "low_upb_high_decoupling": {
+        "label": "Low Upb High Decoupling",
+        "stimulus": "The supervisor emphasizes ethical transparency and says that putting ethics first matters. The supervisor evaluates job performance separately from ethical conduct."
+      },
+      "low_upb_low_decoupling": {
+        "label": "Low Upb Low Decoupling",
+        "stimulus": "The supervisor emphasizes ethical transparency and says that putting ethics first matters. The supervisor evaluates both job performance and ethical conduct."
+      }
+    },
+    "response_instruction": "Rate every item from 1 (strongly disagree) to 7 (strongly agree) and return only integer responses."
+  },
+  "outcomes": {
+    "employee_upb": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "employee_upb_1",
+          "text": "I would continue using the chemical.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "employee_upb_2",
+          "text": "I would keep using the chemical while it remains available.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "employee_upb_3",
+          "text": "I plan to keep using the chemical for as long as I can.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "supervisor_upb_check": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "supervisor_upb_1",
+          "text": "The supervisor distorts facts to benefit the company.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "supervisor_upb_2",
+          "text": "The supervisor conceals damaging information.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "supervisor_upb_3",
+          "text": "The supervisor takes questionable actions for the company.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "supervisor_upb_4",
+          "text": "The supervisor puts company interests first even unethically.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "supervisor_upb_5",
+          "text": "The supervisor misrepresents information for the company.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "supervisor_upb_6",
+          "text": "The supervisor protects the company through improper conduct.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "moral_decoupling_check": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "decoupling_1",
+          "text": "Job performance can be evaluated apart from morality.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "decoupling_2",
+          "text": "Ethical conduct should not affect performance evaluation.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "decoupling_3",
+          "text": "Performance and ethics are separate judgments.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "decoupling_4",
+          "text": "A person's work can be good despite unethical conduct.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "decoupling_5",
+          "text": "Moral judgments can be set aside when judging performance.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Supervisor UPB increases employee UPB more under high than low moral decoupling.",
+    "reversed_hypothesis_text": "Supervisor UPB does not increase employee UPB more under high than low moral decoupling.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

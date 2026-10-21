@@ -1,0 +1,134 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-037",
+    "source_study_id": "JEP_6_4",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 208-209; Journal=JEP, Essay=6, Study=4",
+    "source_article": "Chernyak-Hai and Davidai (2022), Do not teach them how to fish",
+    "source_article_url": "https://doi.org/10.1037/xge0001196",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed reason generation.",
+      "Cleared the automatic face/media flag as a false positive from the phrase face job loss.",
+      "Locked autonomy-oriented help as primary and retained dependency and bipolar help measures as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "314c975b1690b79c03dba0d516d62cf6677be3e0c2756515ac68a1feb8bf8aca"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "autonomy_help",
+    "primary_estimand": "E(Y|non-zero-sum)-E(Y|zero-sum)"
+  },
+  "population": {
+    "source_population": "Working adults",
+    "simulation_target": "Employee deciding how to help a coworker under a performance-evaluation system",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as the employee deciding whether and how to help a coworker. Respond for yourself and do not analyze the experiment.",
+    "common_scenario": "A coworker asks for help with a work problem. The organization's performance-evaluation system is described below.",
+    "arms": {
+      "zero_sum": {
+        "label": "Zero Sum",
+        "stimulus": "Employees are evaluated by relative rank; rewards for one employee imply losses for others, and low-ranked employees may face job loss."
+      },
+      "non_zero_sum": {
+        "label": "Non Zero Sum",
+        "stimulus": "Employees are evaluated against an absolute performance benchmark; one employee's success does not reduce another employee's rewards."
+      }
+    },
+    "response_instruction": "Rate each item from 1 (not at all likely) to 7 (very likely) and return only integer responses."
+  },
+  "outcomes": {
+    "autonomy_help": {
+      "role": "primary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "autonomy_help",
+          "text": "How likely are you to teach the coworker how to solve the problem independently?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "other_help": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "dependency_help",
+          "text": "How likely are you to solve the problem for the coworker?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "help_orientation",
+          "text": "Choose your preferred form of help, from 1 (do it for them) to 7 (teach them to do it).",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Non-zero-sum evaluation increases autonomy-oriented helping relative to zero-sum evaluation.",
+    "reversed_hypothesis_text": "Non-zero-sum evaluation does not increase autonomy-oriented helping relative to zero-sum evaluation.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}
