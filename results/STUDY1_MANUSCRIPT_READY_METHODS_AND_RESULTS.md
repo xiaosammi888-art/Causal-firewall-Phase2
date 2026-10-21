@@ -1,8 +1,8 @@
-# Study 1 Manuscript Ready Methods and Results
+# Phase 2 Methods and Results
 
 ## Confirmatory analysis methods
 
-Confirmatory analyses followed the prespecified Study 1 Analysis and Unblinding Contract. The analytic population comprised the 30 primary experiments sampled across five repeated waves (P1-P5); none of the 10 expansion experiments was activated. The pooled data contained 38,400 logical response units and 39,600 component rows. All observations associated with blinded soft alerts were retained, and technical continuations or retries did not alter the logical sample. For experiment j, the confirmatory estimand was theta_j = gamma_C,j - gamma_D,j, where gamma was the aligned-minus-reversed contrast and C and D denoted the fresh-context manual-whitelist and labeled causal-firewall architectures, respectively. The primary estimate was the equal-weight mean of theta_j across the 30 experiments. Inference used 20,000 bootstrap samples of the 28 source-paper identifiers (seed 61001), with a one-sided test of H0: E(theta_j) <= 0. The sole primary test was evaluated at alpha = .05 without multiplicity adjustment.
+Confirmatory analyses followed the prespecified Phase 2 Analysis and Unblinding Contract. The analytic population comprised the 30 primary experiments sampled across five repeated waves (P1-P5); none of the 10 expansion experiments was activated. The pooled data contained 38,400 logical response units and 39,600 component rows. All observations associated with blinded soft alerts were retained, and technical continuations or retries did not alter the logical sample. For experiment j, the confirmatory estimand was theta_j = gamma_C,j - gamma_D,j, where gamma was the aligned-minus-reversed contrast and C and D denoted the fresh-context manual-whitelist and labeled causal-firewall architectures, respectively. The primary estimate was the equal-weight mean of theta_j across the 30 experiments. Inference used 20,000 bootstrap samples of the 28 source-paper identifiers (seed 61001), with a one-sided test of H0: E(theta_j) <= 0. The sole primary test was evaluated at alpha = .05 without multiplicity adjustment.
 
 ## Sensitivity analysis methods
 
@@ -116,7 +116,3 @@ After Holm correction, 24 of the 33 registered components were classified as SUC
 | CF-S1-CONF-031:primary | JPSP_8 | 0.189271 | 0.009779 | [0.170206, 0.208333] | 4.99975e-05 | 0.0016499175 | SUCCESS |
 | CF-S1-CONF-032:primary | JPSP_10 | 0.846000 | 0.007579 | [0.830750, 0.860750] | 4.99975e-05 | 0.0016499175 | SUCCESS |
 | CF-S1-CONF-037:primary | JEP_6 | 0.397500 | 0.022572 | [0.353333, 0.441667] | 4.99975e-05 | 0.0016499175 | SUCCESS |
-
-## Use restrictions
-
-This package reports the frozen confirmatory analysis only. Any additional model, subgroup analysis, transformation, exclusion, or visualization not already contained in the frozen result must be labeled post-unblinding exploratory. The internal legacy status strings attached to the CR2 and REML objects are preserved in the audit source but are not manuscript claims; formal provenance is governed by the authorized top-level execution and final freeze records.
