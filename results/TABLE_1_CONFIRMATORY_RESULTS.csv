@@ -1,0 +1,5 @@
+Analysis,Estimate,SE,CI_low_95,CI_high_95,p_value,p_value_sidedness,Decision_or_role
+Primary source-paper bootstrap,0.0999,0.0267,0.0480,0.1531,0.0002499875,One-sided,REJECT_H0
+Article-equal bootstrap,0.0942,0.0263,0.0437,0.1468,0.00019999,One-sided,Sensitivity
+CR2 intercept model,0.0999,0.0271,0.0441,0.1557,0.0010895659,Two-sided,Sensitivity
+REML multilevel meta-analysis,0.0959,0.0266,0.0415,0.1504,0.0011638878,Two-sided,Sensitivity
