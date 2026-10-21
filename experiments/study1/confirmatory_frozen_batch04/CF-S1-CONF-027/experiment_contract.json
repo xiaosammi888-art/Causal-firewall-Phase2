@@ -1,0 +1,295 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-027",
+    "source_study_id": "JAP_5_1",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 86-93; Journal=JAP, Essay=5, Study=1",
+    "source_article": "Lam, Lee, and Sui (2019), Say it as it is",
+    "source_article_url": "https://doi.org/10.1037/apl0000358",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed reason generation.",
+      "Separated the three crossed factors while preserving all eight archived cells.",
+      "Locked items 14-18 as primary and items 1-13 as checks.",
+      "Kept the directness-by-credibility contrast as a secondary planned analysis."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "a2e9c3cb01b382b359dfedb9259eee7950a9c460da666460cd0f62a78a4a5f82"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "voice_endorsement",
+    "primary_estimand": "0.5*[E(Y|high directness,high politeness,high credibility)+E(Y|high directness,low politeness,high credibility)]-0.5*[E(Y|low directness,high politeness,high credibility)+E(Y|low directness,low politeness,high credibility)]"
+  },
+  "population": {
+    "source_population": "Working adults in a managerial voice vignette",
+    "simulation_target": "Manager evaluating an employee's voiced suggestion",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as the manager receiving the employee's suggestion. Respond for yourself and do not analyze the study.",
+    "common_scenario": "An employee raises a change-oriented suggestion in a workplace meeting. The employee's wording and prior credibility are described below.",
+    "arms": {
+      "high_directness_high_politeness_high_credibility": {
+        "label": "high directness / high politeness / high credibility",
+        "stimulus": "The employee has extensive successful experience and high credibility on this issue. The employee states the recommendation explicitly, gets directly to the point, and uses respectful, courteous language."
+      },
+      "high_directness_high_politeness_low_credibility": {
+        "label": "high directness / high politeness / low credibility",
+        "stimulus": "The employee has limited experience and low credibility on this issue. The employee states the recommendation explicitly, gets directly to the point, and uses respectful, courteous language."
+      },
+      "high_directness_low_politeness_high_credibility": {
+        "label": "high directness / low politeness / high credibility",
+        "stimulus": "The employee has extensive successful experience and high credibility on this issue. The employee states the recommendation explicitly and gets directly to the point, using blunt and discourteous language."
+      },
+      "high_directness_low_politeness_low_credibility": {
+        "label": "high directness / low politeness / low credibility",
+        "stimulus": "The employee has limited experience and low credibility on this issue. The employee states the recommendation explicitly and gets directly to the point, using blunt and discourteous language."
+      },
+      "low_directness_high_politeness_high_credibility": {
+        "label": "low directness / high politeness / high credibility",
+        "stimulus": "The employee has extensive successful experience and high credibility on this issue. The employee hints indirectly at the recommendation and uses respectful, courteous language."
+      },
+      "low_directness_high_politeness_low_credibility": {
+        "label": "low directness / high politeness / low credibility",
+        "stimulus": "The employee has limited experience and low credibility on this issue. The employee hints indirectly at the recommendation and uses respectful, courteous language."
+      },
+      "low_directness_low_politeness_high_credibility": {
+        "label": "low directness / low politeness / high credibility",
+        "stimulus": "The employee has extensive successful experience and high credibility on this issue. The employee hints indirectly at the recommendation, using blunt and discourteous language."
+      },
+      "low_directness_low_politeness_low_credibility": {
+        "label": "low directness / low politeness / low credibility",
+        "stimulus": "The employee has limited experience and low credibility on this issue. The employee hints indirectly at the recommendation, using blunt and discourteous language."
+      }
+    },
+    "response_instruction": "Rate every item from 1 (strongly disagree) to 7 (strongly agree) and return only integer item responses."
+  },
+  "outcomes": {
+    "voice_endorsement": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "endorsement_1",
+          "text": "I endorse the employee's suggestion.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "endorsement_2",
+          "text": "I support implementing the suggestion.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "endorsement_3",
+          "text": "The suggestion should be adopted.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "endorsement_4",
+          "text": "I would approve the proposal.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "endorsement_5",
+          "text": "The idea is worth pursuing.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "directness_check": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "directness_1",
+          "text": "The employee voiced the idea directly.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "directness_2",
+          "text": "The message was explicit.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "directness_3",
+          "text": "The employee stated the recommendation clearly.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "directness_4",
+          "text": "The employee got straight to the point.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "politeness_check": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "politeness_1",
+          "text": "The employee was polite.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "politeness_2",
+          "text": "The employee was respectful.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "politeness_3",
+          "text": "The employee showed consideration.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "politeness_4",
+          "text": "The employee used courteous language.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "credibility_check": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "credibility_1",
+          "text": "The employee is credible.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "credibility_2",
+          "text": "The employee has relevant experience.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "credibility_3",
+          "text": "The employee has sound judgment.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "credibility_4",
+          "text": "The employee is knowledgeable.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "credibility_5",
+          "text": "The employee can be trusted on this issue.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Under high credibility, direct voice receives more endorsement than indirect voice after averaging over politeness.",
+    "reversed_hypothesis_text": "Under high credibility, direct voice receives no more endorsement than indirect voice after averaging over politeness.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

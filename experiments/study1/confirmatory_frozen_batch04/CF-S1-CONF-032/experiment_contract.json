@@ -1,0 +1,295 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-032",
+    "source_study_id": "JPSP_10_1",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 320-323; Journal=JPSP, Essay=10, Study=1",
+    "source_article": "Thürmer and Kunze (2023), Reaction to poor performers in task groups",
+    "source_article_url": "https://doi.org/10.1037/pspi0000396",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed reason generation.",
+      "Separated effort/ability and traditional/reversed assumptions.",
+      "Reverse-scored supportive reaction items 13 and 15 outside the model.",
+      "Locked reaction items 12-16 as primary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "9874824fdffab12edecc31113b1623a44cbef24b58f6dc63a91d071219f5831d"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "negative_group_reaction",
+    "primary_estimand": "[E(Y|low effort,traditional)-E(Y|low ability,traditional)]-[E(Y|low effort,reversed)-E(Y|low ability,reversed)]"
+  },
+  "population": {
+    "source_population": "Adult task-group participants",
+    "simulation_target": "Task-group member evaluating a poor performer",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one member of the task group. Evaluate the poor-performing member for yourself and do not analyze the experiment.",
+    "common_scenario": "A fellow group member performs poorly. Information about effort, ability, and the reason for the shortfall follows.",
+    "arms": {
+      "low_effort_traditional": {
+        "label": "Low Effort Traditional",
+        "stimulus": "The member has high ability but expends little effort because they do not care about the group task."
+      },
+      "low_effort_reversed": {
+        "label": "Low Effort Reversed",
+        "stimulus": "The member has high ability but expends little effort because they believe they lack the capacity to succeed, not because they do not care."
+      },
+      "low_ability_traditional": {
+        "label": "Low Ability Traditional",
+        "stimulus": "The member works hard but lacks the required knowledge because they never had the opportunity to acquire it."
+      },
+      "low_ability_reversed": {
+        "label": "Low Ability Reversed",
+        "stimulus": "The member works hard but lacks the required knowledge because they chose not to acquire it."
+      }
+    },
+    "response_instruction": "Rate all items from 1 to 5 and return only integer responses."
+  },
+  "outcomes": {
+    "negative_group_reaction": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "reaction_1",
+          "text": "I would threaten punishment if the member does not work hard.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "reaction_2",
+          "text": "I would convince the member that they can perform well.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": true
+        },
+        {
+          "item_id": "reaction_3",
+          "text": "I would remove the member from the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "reaction_4",
+          "text": "I would offer the member a training opportunity.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": true
+        },
+        {
+          "item_id": "reaction_5",
+          "text": "I would threaten punishment if the member does not obtain training.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "manipulation_checks": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "check_1",
+          "text": "The member invested effort.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "check_2",
+          "text": "The member had sufficient ability.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "check_3",
+          "text": "The shortfall reflected low motivation.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "check_4",
+          "text": "The shortfall reflected limited capacity.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "emotions": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "emotion_1",
+          "text": "Angry",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "emotion_2",
+          "text": "Disappointed",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "emotion_3",
+          "text": "Sympathetic",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "emotion_4",
+          "text": "Concerned",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "pro_group_intent": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "intent_1",
+          "text": "The member intended to help the group.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "intent_2",
+          "text": "The member cared about the group outcome.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "intent_3",
+          "text": "The member acted for the group's benefit.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "realism": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "realism_1",
+          "text": "The scenario was realistic.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "realism_2",
+          "text": "The scenario was easy to imagine.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "realism_3",
+          "text": "The information was understandable.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The low-effort versus low-ability negative-reaction difference is larger under traditional than reversed assumptions.",
+    "reversed_hypothesis_text": "The low-effort versus low-ability negative-reaction difference is not larger under traditional than reversed assumptions.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

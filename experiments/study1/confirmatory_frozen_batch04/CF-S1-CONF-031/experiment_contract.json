@@ -1,0 +1,183 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-031",
+    "source_study_id": "JPSP_8_2",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 312-315; Journal=JPSP, Essay=8, Study=2",
+    "source_article": "Schroeder et al. (2017), Functional intimacy",
+    "source_article_url": "https://doi.org/10.1037/pspi0000104",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed reason generation.",
+      "Deleted the stray airport-security lead-in from dermatologist arms.",
+      "Standardized item order across contexts without changing item meaning.",
+      "Locked social-distance items 5-8 as primary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "5642b98ce6d5546626ddb7f2a66b692c0c04755317eb709bc35d8943b4e7f2f9"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "social_distance",
+    "primary_estimand": "mean high-functional-intimacy minus low-functional-intimacy, averaged across airport and dermatology contexts"
+  },
+  "population": {
+    "source_population": "Adult participants",
+    "simulation_target": "Adult imagining a routine airport-security or dermatology encounter",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as the person receiving the professional service. Respond for yourself and do not analyze the experiment.",
+    "common_scenario": "Imagine the routine professional encounter described below.",
+    "arms": {
+      "airport_high": {
+        "label": "Airport High",
+        "stimulus": "At airport security, an officer conducts a hands-on pat-down of your body."
+      },
+      "airport_low": {
+        "label": "Airport Low",
+        "stimulus": "At airport security, an officer searches your carry-on bag without touching your body."
+      },
+      "dermatology_high": {
+        "label": "Dermatology High",
+        "stimulus": "At a dermatology visit, the dermatologist conducts a full-body skin examination."
+      },
+      "dermatology_low": {
+        "label": "Dermatology Low",
+        "stimulus": "At a dermatology visit, the dermatologist examines a mole on your hand."
+      }
+    },
+    "response_instruction": "Rate every item from 1 (strongly disagree) to 7 (strongly agree) and return only integer item responses."
+  },
+  "outcomes": {
+    "social_distance": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "distance_1",
+          "text": "I would prefer not to smile at the professional.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "distance_2",
+          "text": "I would prefer not to ask the professional's name.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "distance_3",
+          "text": "I would prefer to avoid eye contact with the professional.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "distance_4",
+          "text": "I would prefer not to self-disclose to the professional.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "perceived_intimacy": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "intimacy_1",
+          "text": "The interaction would feel intimate.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "intimacy_2",
+          "text": "The professional would be physically close to me.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "intimacy_3",
+          "text": "The professional would enter my personal space.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "intimacy_4",
+          "text": "The interaction would involve personal contact.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "High functional intimacy increases preferred social distance after averaging across contexts.",
+    "reversed_hypothesis_text": "High functional intimacy does not increase preferred social distance after averaging across contexts.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

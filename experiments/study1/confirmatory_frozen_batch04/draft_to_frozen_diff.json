@@ -1,0 +1,181 @@
+{
+  "diff_id": "CF-S1-CONF-B04-DRAFT-TO-FROZEN-20260929-01",
+  "contracts": 8,
+  "allowed_change_paths": [
+    "identity.contract_version",
+    "source.normalized_material_sha256",
+    "execution.contract_status"
+  ],
+  "all_material_hashes_unchanged": true,
+  "all_changes_allowed": true,
+  "rows": [
+    {
+      "contract_id": "CF-S1-CONF-025",
+      "source_draft_contract_sha256": "f1b653bf39f7d5c6bacb0d6c51e3afae0be42fbbdb7100d242419f77f0d45222",
+      "frozen_contract_sha256": "2f957946de80edfe9bc7e63c7f7ed17bba325286b29948b1b070e3225e89f1c5",
+      "material_hash_unchanged": true,
+      "allowed_changes_only": true,
+      "changed_fields": {
+        "identity.contract_version": {
+          "before": "0.1.0",
+          "after": "1.0.0"
+        },
+        "source.normalized_material_sha256": {
+          "before": null,
+          "after": "4b1e525b3501ca5cec70a0a44eee9772b2cabdde7dd584af4f21a3b4d710a0f0"
+        },
+        "execution.contract_status": {
+          "before": "draft",
+          "after": "frozen"
+        }
+      }
+    },
+    {
+      "contract_id": "CF-S1-CONF-026",
+      "source_draft_contract_sha256": "3d0ec89fd8a5b0b2953a455f9139803b9c24163de659afc78cd4399ccbb188f3",
+      "frozen_contract_sha256": "08607c611558d2f8902ff8416439bd966c03ebb5ee0a1ac0ec6351b0609500c9",
+      "material_hash_unchanged": true,
+      "allowed_changes_only": true,
+      "changed_fields": {
+        "identity.contract_version": {
+          "before": "0.1.0",
+          "after": "1.0.0"
+        },
+        "source.normalized_material_sha256": {
+          "before": null,
+          "after": "e72d44fc172429b4023508a81a2374afbf0a71446b993c64e0c420c9afb8546f"
+        },
+        "execution.contract_status": {
+          "before": "draft",
+          "after": "frozen"
+        }
+      }
+    },
+    {
+      "contract_id": "CF-S1-CONF-027",
+      "source_draft_contract_sha256": "f18e31af895228c57fd8f8ef95728733beb6ab3c1223bde8fa1ef1227885e581",
+      "frozen_contract_sha256": "55bf1411ff54a42e02ee7979787aeaab5f27c20878648c0f5e228278d7aa75e7",
+      "material_hash_unchanged": true,
+      "allowed_changes_only": true,
+      "changed_fields": {
+        "identity.contract_version": {
+          "before": "0.1.0",
+          "after": "1.0.0"
+        },
+        "source.normalized_material_sha256": {
+          "before": null,
+          "after": "a2e9c3cb01b382b359dfedb9259eee7950a9c460da666460cd0f62a78a4a5f82"
+        },
+        "execution.contract_status": {
+          "before": "draft",
+          "after": "frozen"
+        }
+      }
+    },
+    {
+      "contract_id": "CF-S1-CONF-028",
+      "source_draft_contract_sha256": "96728a77a875fc2bbacc560ef39b5bc5cef54466b2d98a4f2b2fe115a49c69a0",
+      "frozen_contract_sha256": "a731f54d067b2b69e2e5c09a4c2a7ca27ff407bda699fa62352c127191ae1fdd",
+      "material_hash_unchanged": true,
+      "allowed_changes_only": true,
+      "changed_fields": {
+        "identity.contract_version": {
+          "before": "0.1.0",
+          "after": "1.0.0"
+        },
+        "source.normalized_material_sha256": {
+          "before": null,
+          "after": "810b8a43c8a7b30d03dfabf7aa98e90ce105e3ad84732dbe5aa17c0ae2fa32aa"
+        },
+        "execution.contract_status": {
+          "before": "draft",
+          "after": "frozen"
+        }
+      }
+    },
+    {
+      "contract_id": "CF-S1-CONF-029",
+      "source_draft_contract_sha256": "620126e7ddbd32930f9cc9f533c079f34e6e462d701cff4612c5945d0df5a141",
+      "frozen_contract_sha256": "ba53e8d23c9c6a75fc78806d4534675eb97514a337212f15d3f48a95c61ad466",
+      "material_hash_unchanged": true,
+      "allowed_changes_only": true,
+      "changed_fields": {
+        "identity.contract_version": {
+          "before": "0.1.0",
+          "after": "1.0.0"
+        },
+        "source.normalized_material_sha256": {
+          "before": null,
+          "after": "a0938baf63d8aaff158a3dde7a153bfa0d9b3ea7a25ac0f35d8adede3bf9019d"
+        },
+        "execution.contract_status": {
+          "before": "draft",
+          "after": "frozen"
+        }
+      }
+    },
+    {
+      "contract_id": "CF-S1-CONF-030",
+      "source_draft_contract_sha256": "19c519e6edd1ddfd4c6b3aefb05634065d80a219dc25b79024c15afad505cbac",
+      "frozen_contract_sha256": "812621718197b656d49e4df5f15c3578e5634043829a317fdf122e930b62afb5",
+      "material_hash_unchanged": true,
+      "allowed_changes_only": true,
+      "changed_fields": {
+        "identity.contract_version": {
+          "before": "0.1.0",
+          "after": "1.0.0"
+        },
+        "source.normalized_material_sha256": {
+          "before": null,
+          "after": "ce2c958dc0ec498b0eaec5e1dfa9f2a3c35f1738084f32d0de95ff098f0e5fb9"
+        },
+        "execution.contract_status": {
+          "before": "draft",
+          "after": "frozen"
+        }
+      }
+    },
+    {
+      "contract_id": "CF-S1-CONF-031",
+      "source_draft_contract_sha256": "735e6508444beb6fc53440c2f43132269bd983c0be5d41b7f03e7607818febd4",
+      "frozen_contract_sha256": "34e0faf6884d7312b6714dc9f1f9b4ea615ac00ae8d524126fcc19939328f02d",
+      "material_hash_unchanged": true,
+      "allowed_changes_only": true,
+      "changed_fields": {
+        "identity.contract_version": {
+          "before": "0.1.0",
+          "after": "1.0.0"
+        },
+        "source.normalized_material_sha256": {
+          "before": null,
+          "after": "5642b98ce6d5546626ddb7f2a66b692c0c04755317eb709bc35d8943b4e7f2f9"
+        },
+        "execution.contract_status": {
+          "before": "draft",
+          "after": "frozen"
+        }
+      }
+    },
+    {
+      "contract_id": "CF-S1-CONF-032",
+      "source_draft_contract_sha256": "7a63e0d26a0a991846a096490bf9332a2623552d97b16068bf11076fb6fdf90c",
+      "frozen_contract_sha256": "991a821caebc0df64f2456582f84ff9fdb9db836a84c98ab9bbf368f7115d16a",
+      "material_hash_unchanged": true,
+      "allowed_changes_only": true,
+      "changed_fields": {
+        "identity.contract_version": {
+          "before": "0.1.0",
+          "after": "1.0.0"
+        },
+        "source.normalized_material_sha256": {
+          "before": null,
+          "after": "9874824fdffab12edecc31113b1623a44cbef24b58f6dc63a91d071219f5831d"
+        },
+        "execution.contract_status": {
+          "before": "draft",
+          "after": "frozen"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-029",
+    "source_study_id": "JEP_1_6a",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 186-189; Journal=JEP, Essay=1, Study=6a",
+    "source_article": "Silver and Shaw (2022), When and why staying out of it backfires",
+    "source_article_url": "https://doi.org/10.1037/xge0001201",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed reason generation and the hypothesis-revealing archive sentence.",
+      "Encoded audience polarity and the sign transform as deterministic analysis metadata.",
+      "Locked inferred ideology as primary and sincerity, trustworthiness, and honesty as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "a0938baf63d8aaff158a3dde7a153bfa0d9b3ea7a25ac0f35d8adede3bf9019d"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "inferred_ideology",
+    "primary_estimand": "high-incentive minus low-incentive effect on signed concealed opposition, where pro-gun audience ratings use sign +1 and anti-gun audience ratings use sign -1"
+  },
+  "population": {
+    "source_population": "U.S. adult participants",
+    "simulation_target": "U.S. adult inferring a judge's private position after a neutral public statement",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one U.S. adult reading the political scenario. Make your own inference without analyzing the experiment.",
+    "common_scenario": "A judge publicly states neutrality in a gun-policy disagreement. The audience position and judge's reelection incentive are described below.",
+    "arms": {
+      "high_incentive_pro_gun": {
+        "label": "High Incentive Pro Gun",
+        "stimulus": "The audience strongly supports gun rights, and the judge faces a strong reelection incentive to avoid disagreeing with them."
+      },
+      "low_incentive_pro_gun": {
+        "label": "Low Incentive Pro Gun",
+        "stimulus": "The audience strongly supports gun rights, and the judge has little reelection incentive to accommodate them."
+      },
+      "high_incentive_anti_gun": {
+        "label": "High Incentive Anti Gun",
+        "stimulus": "The audience strongly supports gun control, and the judge faces a strong reelection incentive to avoid disagreeing with them."
+      },
+      "low_incentive_anti_gun": {
+        "label": "Low Incentive Anti Gun",
+        "stimulus": "The audience strongly supports gun control, and the judge has little reelection incentive to accommodate them."
+      }
+    },
+    "response_instruction": "Rate item 1 from -3 (strongly anti-gun) to +3 (strongly pro-gun). Rate items 2-4 from 1 to 7. Return only integer responses."
+  },
+  "outcomes": {
+    "inferred_ideology": {
+      "role": "primary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "ideology",
+          "text": "What is the judge's private gun-policy position?",
+          "minimum": -3,
+          "maximum": 3,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "character_evaluation": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "character_1",
+          "text": "The judge is sincere.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "character_2",
+          "text": "The judge is trustworthy.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "character_3",
+          "text": "The judge is honest.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Greater reelection incentive strengthens the signed inference that neutrality conceals opposition to the audience.",
+    "reversed_hypothesis_text": "Greater reelection incentive does not strengthen the signed inference that neutrality conceals opposition to the audience.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

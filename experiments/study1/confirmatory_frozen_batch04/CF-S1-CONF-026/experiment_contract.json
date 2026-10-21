@@ -1,0 +1,190 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-026",
+    "source_study_id": "JAP_2_3",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 78-79; Journal=JAP, Essay=2, Study=3",
+    "source_article": "Hershcovis and Bhatnagar (2017), When fellow customers behave badly",
+    "source_article_url": "https://doi.org/10.1037/apl0000249",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Corrected the archive's automatic source mapping to Hershcovis and Bhatnagar (2017), Study 3.",
+      "Removed reason generation and tip steering.",
+      "Locked employee-support items 3-6 as primary; retained customer treatment, award, and tip as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "e72d44fc172429b4023508a81a2374afbf0a71446b993c64e0c420c9afb8546f"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "employee_support",
+    "primary_estimand": "E(Y|neutral employee response)-E(Y|uncivil employee response)"
+  },
+  "population": {
+    "source_population": "Adult customer-witness participants",
+    "simulation_target": "Customer witnessing another customer's aggression toward an employee",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as the customer who witnessed the encounter. Respond for yourself and do not analyze the experiment.",
+    "common_scenario": "You observe another customer aggressively mistreating a service employee. The employee then responds as described below.",
+    "arms": {
+      "neutral_response": {
+        "label": "Neutral Response",
+        "stimulus": "The employee remains calm and responds neutrally and professionally."
+      },
+      "uncivil_response": {
+        "label": "Uncivil Response",
+        "stimulus": "The employee responds to the aggressive customer in an uncivil and disrespectful manner."
+      }
+    },
+    "response_instruction": "Use integers for all responses. Items 1-6 use 1 (not at all) to 7 (very much); employee-of-the-month uses 1-10; tip uses 0-50 in five-percentage-point increments."
+  },
+  "outcomes": {
+    "employee_support": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "support_1",
+          "text": "Make the employee feel appreciated.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "support_2",
+          "text": "Tell the employee they are doing a good job.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "support_3",
+          "text": "Act friendly toward the employee.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "support_4",
+          "text": "Show personal interest in the employee.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "customer_treatment": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "customer_1",
+          "text": "Treat the aggressive customer warmly.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "customer_2",
+          "text": "Be friendly toward the aggressive customer.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "employee_evaluation": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "employee_of_month",
+          "text": "How deserving is the employee of employee-of-the-month recognition?",
+          "minimum": 1,
+          "maximum": 10,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "tip": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "tip_percent",
+          "text": "What tip percentage would you leave? Use a multiple of 5.",
+          "minimum": 0,
+          "maximum": 50,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "A neutral employee response elicits more employee-directed witness support than an uncivil response.",
+    "reversed_hypothesis_text": "An uncivil employee response elicits at least as much employee-directed witness support as a neutral response.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-030",
+    "source_study_id": "JEP_10_3",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 230-232; Journal=JEP, Essay=10, Study=3",
+    "source_article": "Cooley et al. (2017), The paradox of group mind",
+    "source_article_url": "https://doi.org/10.1037/xge0000293",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed reason generation.",
+      "Repaired introductory grammar only.",
+      "Preserved the individual arm as a benchmark and locked sympathy as primary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "ce2c958dc0ec498b0eaec5e1dfa9f2a3c35f1738084f32d0de95ff098f0e5fb9"
+  },
+  "design": {
+    "type": "three_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "sympathy",
+    "primary_estimand": "E(sympathy|group composition)-E(sympathy|group frame)"
+  },
+  "population": {
+    "source_population": "Adult participants",
+    "simulation_target": "Adult evaluating bankruptcy victims framed as an individual or a collective",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult reading the bankruptcy description. Respond for yourself without analyzing the experiment.",
+    "common_scenario": "A business has gone bankrupt, causing substantial hardship. The affected target is described below.",
+    "arms": {
+      "individual": {
+        "label": "Individual",
+        "stimulus": "One named individual lost their livelihood because of the bankruptcy."
+      },
+      "group_composition": {
+        "label": "Group Composition",
+        "stimulus": "The people who make up the company lost their livelihoods because of the bankruptcy."
+      },
+      "group_frame": {
+        "label": "Group Frame",
+        "stimulus": "The company lost its livelihood because of the bankruptcy."
+      }
+    },
+    "response_instruction": "Rate each item from 0 to 100 and return only integer item responses."
+  },
+  "outcomes": {
+    "sympathy": {
+      "role": "primary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "sympathy",
+          "text": "How much sympathy do you feel for the target?",
+          "minimum": 0,
+          "maximum": 100,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "mind_attribution": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "experience",
+          "text": "How much capacity does the target have to experience feelings?",
+          "minimum": 0,
+          "maximum": 100,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "agency",
+          "text": "How much capacity does the target have to plan and act?",
+          "minimum": 0,
+          "maximum": 100,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The group-composition frame elicits more sympathy than the group frame.",
+    "reversed_hypothesis_text": "The group-composition frame elicits no more sympathy than the group frame.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-028",
+    "source_study_id": "JAP_6_4",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 94-99; Journal=JAP, Essay=6, Study=4",
+    "source_article": "Lu (2024), A creativity stereotype perspective on the bamboo ceiling",
+    "source_article_url": "https://doi.org/10.1037/apl0001135",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed reason generation and archive-added racial-stereotype steering.",
+      "Preserved the six otherwise matched male profiles.",
+      "Locked three leader-likeness items as primary and six trait ratings as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "810b8a43c8a7b30d03dfabf7aa98e90ce105e3ad84732dbe5aa17c0ae2fa32aa"
+  },
+  "design": {
+    "type": "six_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "leader_likeness",
+    "primary_estimand": "mean of five non-East-Asian arms minus East-Asian arm"
+  },
+  "population": {
+    "source_population": "U.S. adult participants evaluating a managerial candidate",
+    "simulation_target": "U.S.-born non-Asian adult with managerial experience evaluating a job candidate",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one U.S.-born non-Asian adult with managerial experience evaluating the candidate on the information provided. Do not use racial stereotypes and do not analyze the experiment.",
+    "common_scenario": "A male, U.S.-born, native-English-speaking candidate with a bachelor's degree and seven years of experience is being evaluated for a leadership role. All qualifications are held constant.",
+    "arms": {
+      "east_asian": {
+        "label": "East Asian",
+        "stimulus": "The candidate's surname is Wang."
+      },
+      "south_asian": {
+        "label": "South Asian",
+        "stimulus": "The candidate's surname is Patel."
+      },
+      "white": {
+        "label": "White",
+        "stimulus": "The candidate's surname is Becker."
+      },
+      "black": {
+        "label": "Black",
+        "stimulus": "The candidate's surname is Washington."
+      },
+      "latino": {
+        "label": "Latino",
+        "stimulus": "The candidate's surname is Hernandez."
+      },
+      "middle_eastern": {
+        "label": "Middle Eastern",
+        "stimulus": "The candidate's surname is Mohamed."
+      }
+    },
+    "response_instruction": "Rate each item from 1 to 6 and return only integer item responses."
+  },
+  "outcomes": {
+    "leader_likeness": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "leader_1",
+          "text": "This candidate looks like a leader.",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "leader_2",
+          "text": "This candidate has leadership qualities.",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "leader_3",
+          "text": "This candidate fits my image of a leader.",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "trait_ratings": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "trait_1",
+          "text": "Creative",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "trait_2",
+          "text": "Assertive",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "trait_3",
+          "text": "Competent",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "trait_4",
+          "text": "Warm",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "trait_5",
+          "text": "Masculine",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "trait_6",
+          "text": "Feminine",
+          "minimum": 1,
+          "maximum": 6,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The average leader-likeness of the five non-East-Asian profiles exceeds that of the East-Asian profile.",
+    "reversed_hypothesis_text": "The East-Asian profile receives leader-likeness at least as high as the average of the five comparison profiles.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

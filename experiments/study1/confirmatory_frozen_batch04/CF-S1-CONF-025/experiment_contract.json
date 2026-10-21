@@ -1,0 +1,247 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-025",
+    "source_study_id": "AMJ_6_2",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 46-49; Journal=AMJ, Essay=6, Study=2",
+    "source_article": "McClean, Kim, and Martinez (2022), Which ideas for change are endorsed?",
+    "source_article_url": "https://doi.org/10.5465/amj.2019.0492",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed reason generation.",
+      "Removed archive-added gender-stereotype and morality steering.",
+      "Separated coworker gender from agentic/communal voice content.",
+      "Locked items 1-5 as primary and items 6-15 as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "4b1e525b3501ca5cec70a0a44eee9772b2cabdde7dd584af4f21a3b4d710a0f0"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "voice_endorsement",
+    "primary_estimand": "[E(Y|female,agentic)-E(Y|female,communal)]-[E(Y|male,agentic)-E(Y|male,communal)]"
+  },
+  "population": {
+    "source_population": "Adult participants in a workplace vignette study",
+    "simulation_target": "Financial-services team member evaluating a coworker's change idea",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one team member at Financial Plan & Co. Evaluate the named coworker's proposal for yourself without using demographic stereotypes or analyzing the experiment.",
+    "common_scenario": "Your team sells financial-services products and provides financial advice. In a team meeting, a coworker proposes a change after receiving reports of declining customer satisfaction.",
+    "arms": {
+      "male_agentic": {
+        "label": "Male Agentic",
+        "stimulus": "The coworker is Eric. Customer satisfaction has declined because jobs are not distributed effectively. The coworker proposes assigning each person to one client or product type so the team can leverage expertise and meet customer needs."
+      },
+      "male_communal": {
+        "label": "Male Communal",
+        "stimulus": "The coworker is Eric. Customer satisfaction has declined because team members do not coordinate and support one another enough. The coworker proposes more collaboration and mutual support so the team can build relationships and meet customer needs."
+      },
+      "female_agentic": {
+        "label": "Female Agentic",
+        "stimulus": "The coworker is Erica. Customer satisfaction has declined because jobs are not distributed effectively. The coworker proposes assigning each person to one client or product type so the team can leverage expertise and meet customer needs."
+      },
+      "female_communal": {
+        "label": "Female Communal",
+        "stimulus": "The coworker is Erica. Customer satisfaction has declined because team members do not coordinate and support one another enough. The coworker proposes more collaboration and mutual support so the team can build relationships and meet customer needs."
+      }
+    },
+    "response_instruction": "Rate every item from 1 (strongly disagree) to 5 (strongly agree) and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "voice_endorsement": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "endorsement_1",
+          "text": "I would take this idea to my supervisor.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "endorsement_2",
+          "text": "I would support these comments when talking with my supervisor.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "endorsement_3",
+          "text": "These comments should be implemented.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "endorsement_4",
+          "text": "I agree with these comments.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "endorsement_5",
+          "text": "These comments are valuable.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "competence": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "competence_1",
+          "text": "The coworker seems very capable of performing the job.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "competence_2",
+          "text": "The coworker is known to be successful at things attempted.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "competence_3",
+          "text": "The coworker has much knowledge about the work that needs to be done.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "competence_4",
+          "text": "The coworker has specialized capabilities that can increase performance.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "competence_5",
+          "text": "The coworker is well qualified.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "benevolence": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "benevolence_1",
+          "text": "The coworker seems very concerned about the team's welfare.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "benevolence_2",
+          "text": "The team's needs and desires are very important to the coworker.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "benevolence_3",
+          "text": "The coworker would not knowingly do anything to hurt the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "benevolence_4",
+          "text": "The coworker really looks out for what is important to the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "benevolence_5",
+          "text": "The coworker will go out of the way to help the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The female agentic-minus-communal endorsement difference exceeds the corresponding male difference.",
+    "reversed_hypothesis_text": "The female agentic-minus-communal endorsement difference does not exceed the corresponding male difference.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}
