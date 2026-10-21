@@ -1,4 +1,4 @@
-# Study 1 Reproducibility
+# Phase 2 Reproducibility
 
 ## Environment
 
