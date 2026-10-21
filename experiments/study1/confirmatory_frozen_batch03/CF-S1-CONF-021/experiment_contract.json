@@ -1,0 +1,175 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-021",
+    "source_study_id": "JEP_2_2b",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 200-201; Journal=JEP, Essay=2, Study=2b",
+    "source_article": "Murray, Krasich, Irving, Nadelhoffer, and De Brigard (2023), Mental control and attributions of blame for negligent wrongdoing",
+    "source_article_url": "https://doi.org/10.1037/xge0001262",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and all reason-generation requests.",
+      "Separated the shared travel-request scenario from the high/low mental-control manipulation.",
+      "Standardized the source 1-7 anchor presentation while preserving every item.",
+      "Locked fault, blame, guilt, and moral responsibility as the primary composite; retained perceived control, focus, and self-projection items as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "c1bc6b1d6f8643af508eff4512ba9c17e0d7f4ae44bbf7409a20630f732a4dea"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "responsibility_blame",
+    "primary_estimand": "E[Y|high_mental_control]-E[Y|low_mental_control]"
+  },
+  "population": {
+    "source_population": "Adults recruited on Prolific",
+    "simulation_target": "Adult observer judging negligent failure to submit a travel request",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one adult observer evaluating Randy in the scenario below. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "Randy must submit an online Travel Request Form by the end of the day to attend a work conference next week. His supervisor wants him to attend, and without the form his employer cannot reimburse travel. Randy forgets the form and remembers too late, so he cannot afford to attend.",
+    "arms": {
+      "high_mental_control": {
+        "label": "High mental control",
+        "stimulus": "While working, Randy leisurely thinks about his daughter's soccer schedule, the dog's upcoming vet visit, and a conversation with his wife. His mind wanders, and he could easily pull himself back to the task, but he forgets the form."
+      },
+      "low_mental_control": {
+        "label": "Low mental control",
+        "stimulus": "While working, Randy repeatedly worries about his daughter's soccer schedule, the dog's upcoming vet visit, and a conversation with his wife. He cannot help fixating; his mind races and he cannot easily pull himself back to the task, so he forgets the form."
+      }
+    },
+    "response_instruction": "Rate all eight items from 1 to 7 using their stated anchors and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "responsibility_blame": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "fault",
+          "text": "How much fault does Randy have for not submitting the travel request form? Use 1 for a little and 7 for a lot.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "supervisor_blame",
+          "text": "How much should Randy's supervisor blame him for not submitting the travel request form? Use 1 for a little and 7 for a lot.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "guilt",
+          "text": "How guilty should Randy feel about not submitting the travel request form? Use 1 for a little and 7 for a lot.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "moral_responsibility",
+          "text": "How morally responsible is Randy for not submitting the travel request form? Use 1 for a little and 7 for a lot.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "control_and_focus": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "perceived_control",
+          "text": "While working, how much control does Randy have over his thoughts? Use 1 for a little and 7 for a lot.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "focus",
+          "text": "While working, how focused was Randy on his thoughts? Use 1 for a little and 7 for a lot.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "own_mental_control",
+          "text": "How much control do you feel you have over your own thoughts? Use 1 for a little and 7 for a lot.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "spontaneous_mind_wandering",
+          "text": "How frequently do you find your own thoughts wandering spontaneously? Use 1 for never and 7 for almost always.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Higher perceived mental control increases responsibility and blame for Randy's negligent omission.",
+    "reversed_hypothesis_text": "Higher perceived mental control decreases responsibility and blame for Randy's negligent omission.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

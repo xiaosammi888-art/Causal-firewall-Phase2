@@ -1,0 +1,235 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-020",
+    "source_study_id": "OBHDP_8_2",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 515-517; Journal=OBHDP, Essay=8, Study=2",
+    "source_article": "Liu, Lu, Zhang, and Cai (2021), Helping the organization but hurting yourself: How employees' unethical pro-organizational behavior predicts work-to-life conflict",
+    "source_article_url": "https://doi.org/10.1016/j.obhdp.2021.05.002",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and all reason-generation requests.",
+      "Combined the archive's sequential emotion and anxiety prompts into one source-item packet without feedback between stages.",
+      "Separated the shared accountant/profit-goal frame from UPB, USB, and control decisions.",
+      "Locked guilt and pride subscales and the deterministic emotional-ambivalence formula; retained state anxiety as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "50dd5c65effb560ea905d59e7b4d0a97c640a6206aef9c6609b61d643685c2dc"
+  },
+  "design": {
+    "type": "three_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "emotional_ambivalence",
+    "primary_estimand": "Two Holm-adjusted contrasts on EA=(G+P)/2-abs(G-P), where G and P are four-item guilt and pride means: E(EA|UPB)-E(EA|USB) and E(EA|UPB)-E(EA|control)"
+  },
+  "population": {
+    "source_population": "Professional accountants recruited through an online accountant network in China",
+    "simulation_target": "Professional accountant imagining personally settling a branch financial statement",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one professional accountant in the branch described below. Put yourself in the accountant's position, respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "You are a core employee and accountant in one branch of a conglomerate. Each year you track two profit goals: meeting the conglomerate's goal gives the branch strategic support and development opportunities; meeting a separate threshold gives core employees, including you, a year-end bonus. You directly control the financial statement.",
+    "arms": {
+      "upb": {
+        "label": "Unethical pro-organizational behavior",
+        "stimulus": "The branch already met the personal-bonus threshold but is 3% short of the conglomerate's goal. To help the branch, you count an unrealized transaction and raise profit by 3% on paper, allowing the branch to meet the conglomerate's goal. Nobody else will discover the transaction."
+      },
+      "usb": {
+        "label": "Unethical pro-self behavior",
+        "stimulus": "The branch already met the conglomerate's goal but is 3% short of the threshold for your personal year-end bonus. To receive the bonus, you count an unrealized transaction and raise profit by 3% on paper, allowing the branch to meet your bonus threshold. Nobody else will discover the transaction."
+      },
+      "control": {
+        "label": "Control",
+        "stimulus": "The branch already met the personal-bonus threshold but is 3% short of the conglomerate's goal. You settle the annual accounts normally, and the branch does not meet the conglomerate's goal."
+      }
+    },
+    "response_instruction": "Rate every feeling from 1 (not at all) to 7 (extremely) and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "emotional_ambivalence": {
+      "role": "primary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "guilty",
+          "text": "To what extent do you feel guilty?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "guilt"
+        },
+        {
+          "item_id": "ashamed",
+          "text": "To what extent do you feel ashamed?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "guilt"
+        },
+        {
+          "item_id": "blameworthy",
+          "text": "To what extent do you feel blameworthy?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "guilt"
+        },
+        {
+          "item_id": "angry_at_self",
+          "text": "To what extent do you feel angry at yourself?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "guilt"
+        },
+        {
+          "item_id": "proud",
+          "text": "To what extent do you feel proud?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "pride"
+        },
+        {
+          "item_id": "self_assured",
+          "text": "To what extent do you feel self-assured?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "pride"
+        },
+        {
+          "item_id": "self_content",
+          "text": "To what extent do you feel self-content?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "pride"
+        },
+        {
+          "item_id": "pleased_with_self",
+          "text": "To what extent do you feel pleased with yourself?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false,
+          "analysis_group": "pride"
+        }
+      ],
+      "aggregation": "subscale_means",
+      "model_may_write_aggregate": false
+    },
+    "state_anxiety": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "anxious",
+          "text": "To what extent do you feel anxious?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "apprehensive",
+          "text": "To what extent do you feel apprehensive?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "worried",
+          "text": "To what extent do you feel worried?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "nervous",
+          "text": "To what extent do you feel nervous?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "irritable",
+          "text": "To what extent do you feel irritable?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "distressed",
+          "text": "To what extent do you feel distressed?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "UPB produces greater emotional ambivalence than USB and control because it simultaneously elicits guilt and pride.",
+    "reversed_hypothesis_text": "UPB produces less emotional ambivalence than USB and control.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

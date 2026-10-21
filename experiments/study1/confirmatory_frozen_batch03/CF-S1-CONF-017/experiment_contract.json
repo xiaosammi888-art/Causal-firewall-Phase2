@@ -1,0 +1,192 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-017",
+    "source_study_id": "JAP_3_1c",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 80-83; Journal=JAP, Essay=3, Study=1c",
+    "source_article": "Mayer, Ong, Sonenshein, and Ashford (2019), The money or the morals? When moral language is more effective for selling social issues",
+    "source_article_url": "https://doi.org/10.1037/apl0000388",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and all reason-generation requests.",
+      "Removed the duplicated wrapper and stray markdown from the economic-language/fit arm.",
+      "Restored the missing item-9 numbering in both no-fit arms without changing item text.",
+      "Separated the shared supervisor/green-technology scenario from the moral/economic language and fit manipulations.",
+      "Locked the six issue-selling-effectiveness items as primary and retained three source checks as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "e9fa67c341a25eccd81673e69ce73d80564e51d9eb10edf39ad77aa41a449cc5"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "issue_selling_effectiveness",
+    "primary_estimand": "[E(Y|moral, fit)-E(Y|economic, fit)]-[E(Y|moral, no_fit)-E(Y|economic, no_fit)]"
+  },
+  "population": {
+    "source_population": "Working adults recruited on MTurk",
+    "simulation_target": "Working adult imagining being a manufacturing supervisor",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one working adult placed in the role of a supervisor at a manufacturing organization. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "One of your employees proposes incorporating a green technology into the manufacturing process and presents the argument described below.",
+    "arms": {
+      "moral_fit": {
+        "label": "Moral language with fit",
+        "stimulus": "The employee says: ‘Ensuring that we do what is best for the natural environment is simply the ethical thing to do. It is our moral responsibility to protect the environment for the livelihood of future generations. Furthermore, using this new green technology is in line with the values of our organization. The change would fit well with the mission of our organization.’"
+      },
+      "economic_fit": {
+        "label": "Economic language with fit",
+        "stimulus": "The employee says: ‘Ensuring that we use environmentally friendly technology is simply the economic thing to do. It makes business sense to use the new green technology since it would be profitable. Furthermore, using this new green technology is in line with the values of our organization. The change would fit well with the mission of our organization.’"
+      },
+      "moral_no_fit": {
+        "label": "Moral language without fit",
+        "stimulus": "The employee says: ‘Ensuring that we do what is best for the natural environment is simply the ethical thing to do. It is our moral responsibility to protect the environment for the livelihood of future generations.’"
+      },
+      "economic_no_fit": {
+        "label": "Economic language without fit",
+        "stimulus": "The employee says: ‘Ensuring that we use environmentally friendly technology is simply the economic thing to do. It makes business sense to use the new green technology since it would be profitable.’"
+      }
+    },
+    "response_instruction": "Rate every item from 1 (strongly disagree) to 7 (strongly agree) and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "issue_selling_effectiveness": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "generated_support",
+          "text": "The employee managed to generate my support for the initiative.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "increased_attention",
+          "text": "The employee managed to increase the attention I gave to the issue.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "persuasive",
+          "text": "I find the employee's arguments persuasive.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "ideas_good",
+          "text": "I think the employee's ideas are good.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "support_forward",
+          "text": "I will support the employee in moving the idea forward.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "investigate_more",
+          "text": "I will spend more time investigating the employee's idea.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "language_and_fit_checks": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "economic_language_check",
+          "text": "The employee argued that using this technology will save the company a lot of money.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "moral_language_check",
+          "text": "The employee argued that using this technology is simply the morally right thing to do.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "fit_check",
+          "text": "The employee's argument fits with the company's values and mission.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The moral-minus-economic advantage in issue-selling effectiveness is larger when the language fits the organization's values and mission.",
+    "reversed_hypothesis_text": "The moral-minus-economic advantage in issue-selling effectiveness is smaller when the language fits the organization's values and mission.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-019",
+    "source_study_id": "JAP_9_6",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 150-153; Journal=JAP, Essay=9, Study=6",
+    "source_article": "Lian, Li, Pan, Du, and Zhao (2023), Are gossipers looked down upon? Observers' moral judgment and status evaluation of negative workplace gossipers",
+    "source_article_url": "https://doi.org/10.1037/apl0001056",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and all reason-generation requests.",
+      "Combined the archive's two sequential response prompts into one source-item packet without feedback between stages.",
+      "Separated the common bar-team scenario from gossip frequency and self-serving/group-serving intention manipulations.",
+      "Locked the five perceived norm-violation items as primary; retained status, volitional capacity, performance, and checks as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "86439b73622a3b7221b53d998173230c04b6956f682942dd2143a446330a9d89"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "perceived_norm_violation",
+    "primary_estimand": "[E(Y|high_frequency, self_serving)-E(Y|low_frequency, self_serving)]-[E(Y|high_frequency, group_serving)-E(Y|low_frequency, group_serving)]"
+  },
+  "population": {
+    "source_population": "U.S. full-time employees recruited on MTurk",
+    "simulation_target": "U.S. full-time employee evaluating a teammate's negative workplace gossip",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one U.S. full-time employee imagining being a member of the bar team described below. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "Coworkers on the same bar shift work as a team and help one another. Dishwashing is generally disliked. At a bus stop, teammate Taylor tells you that Morgan has not helped with dishes once this week and appears to be avoiding the unpleasant task. Taylor's reason and past frequency of making such comments are described below.",
+    "arms": {
+      "high_frequency_self_serving": {
+        "label": "High frequency and self-serving intention",
+        "stimulus": "Taylor had to wash dishes more often, disliked that, and wanted someone else to do the extra work. This was not the first time: whenever a teammate behaved similarly, Taylor always commented in the teammate's absence so someone else would do the extra work."
+      },
+      "high_frequency_group_serving": {
+        "label": "High frequency and group-serving intention",
+        "stimulus": "Other teammates had to wash dishes more often. Taylor wanted to warn the team so they would not be exploited. This was not the first time: whenever a teammate behaved similarly, Taylor always commented in the teammate's absence to protect other teammates."
+      },
+      "low_frequency_self_serving": {
+        "label": "Low frequency and self-serving intention",
+        "stimulus": "Taylor had to wash dishes more often, disliked that, and wanted someone else to do the extra work. This was the first and only time: in similar situations Taylor otherwise never commented in the teammate's absence."
+      },
+      "low_frequency_group_serving": {
+        "label": "Low frequency and group-serving intention",
+        "stimulus": "Other teammates had to wash dishes more often. Taylor wanted to warn the team so they would not be exploited. This was the first and only time: in similar situations Taylor otherwise never commented in the teammate's absence."
+      }
+    },
+    "response_instruction": "Rate every item from 1 to 5 using its stated anchors and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "perceived_norm_violation": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "not_acceptable",
+          "text": "Taylor's behavior is not acceptable in the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "not_appropriate",
+          "text": "Taylor's behavior is not appropriate in the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "not_expected",
+          "text": "Taylor's behavior should not be expected in the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "should_not_occur",
+          "text": "Taylor's behavior should not have occurred in the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "violates_standards",
+          "text": "Taylor's behavior violates the shared behavioral standards of the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "status": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "prominent",
+          "text": "I regard Taylor as a prominent member of the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "respected",
+          "text": "I regard Taylor as a respected member of the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "prestigious",
+          "text": "I regard Taylor as a prestigious member of the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "high_status",
+          "text": "I regard Taylor as a high-status member of the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "volitional_capacity": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "own_will",
+          "text": "To what extent is Taylor's behavior the product of Taylor's own will?",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "free_to_act",
+          "text": "To what extent does Taylor feel free to do what Taylor wants in the team?",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "own_volition",
+          "text": "To what extent is Taylor's behavior a product of Taylor's own volition?",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "expected_performance": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "team_performance",
+          "text": "How do you expect Taylor to perform in the team? Use 1 for poor and 5 for excellent.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "member_performance",
+          "text": "How do you expect Taylor to perform as a team member? Use 1 for poor and 5 for excellent.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "manipulation_checks": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "frequency_check",
+          "text": "How often does Taylor comment on a fellow teammate when that teammate is not around? Use 1 for rarely and 5 for always.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "intention_check",
+          "text": "Was Taylor's intention to serve Taylor or the team? Use 1 for serving Taylor and 5 for serving the team.",
+          "minimum": 1,
+          "maximum": 5,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The high-minus-low gossip-frequency effect on perceived norm violation is larger under self-serving than group-serving intention.",
+    "reversed_hypothesis_text": "The high-minus-low gossip-frequency effect on perceived norm violation is smaller under self-serving than group-serving intention.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

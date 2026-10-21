@@ -1,0 +1,184 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-018",
+    "source_study_id": "JAP_7_3",
+    "contract_version": "1.0.0",
+    "domain": "management"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 116-119; Journal=JAP, Essay=7, Study=3",
+    "source_article": "Wellman, Mayer, Ong, and DeRue (2016), When are do-gooders treated badly? Legitimate power, role expectations, and reactions to moral objection in organizations",
+    "source_article_url": "https://doi.org/10.1037/apl0000094",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and all reason-generation requests.",
+      "Deleted the archive-added instructions not to worry about moral issues or use high moral standards.",
+      "Standardized spelling, duplicated words, and chat-label artifacts without changing experimental content.",
+      "Separated the shared team/business-case frame from speaker power and compliance/moral-objection manipulations.",
+      "Marked the three bipolar warmth items for deterministic reversal outside the model; retained five sanction items as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "c995254ccd9426d360b2e122a26f3c7cbe5e32b1aa1d76f37bf42612bcbc5ab3"
+  },
+  "design": {
+    "type": "factorial_between_subjects_2x2",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "warmth",
+    "primary_estimand": "[E(Y|moral_objection, high_power)-E(Y|compliance, high_power)]-[E(Y|moral_objection, low_power)-E(Y|compliance, low_power)], after reverse-scoring so higher values mean greater warmth"
+  },
+  "population": {
+    "source_population": "Students in a large Midwestern university subject pool",
+    "simulation_target": "Student evaluating a teammate's final chat contribution",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one student participant who is a member of the team described below. Evaluate the final speaker for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "You are completing a business case with three other participants. A designated team leader has high formal authority and at least 20 direct reports in a student group. The case concerns East Oak, a home-furnishings company considering handmade rugs. Forced or bonded child labor is common in rug production, although the supplier assures East Oak that no child labor will be used. The team is using Porter's Five Forces to decide whether entering the market makes financial sense; the best team report earns each member $50. In the group chat, the leader assigns forces, members identify their assigned forces, and everyone begins working. The final speaker then posts the messages shown below.",
+    "arms": {
+      "compliance_low_power": {
+        "label": "Compliance with low legitimate power",
+        "stimulus": "The final speaker is MEMBER 1, an ordinary team member: ‘I am putting the finishing touches on now. Based on my part, it seems that for financial reasons this company should not enter the market. What do you think?’"
+      },
+      "compliance_high_power": {
+        "label": "Compliance with high legitimate power",
+        "stimulus": "The final speaker is the designated LEADER: ‘I am putting the finishing touches on now. Based on my part, it seems that for financial reasons this company should not enter the market. What do you think?’"
+      },
+      "moral_objection_low_power": {
+        "label": "Moral objection with low legitimate power",
+        "stimulus": "The final speaker is MEMBER 1, an ordinary team member: ‘I thought about it and I do not think I am going to finish my part. I know this is a study, but I can still do what I want, right? I do not think it is right to recommend that this company start making rugs when it seems like child labor would be used for sure. Experimenters, if you are reading this, I am not going to do something that I am not 100% comfortable doing. Sorry. What do you think?’"
+      },
+      "moral_objection_high_power": {
+        "label": "Moral objection with high legitimate power",
+        "stimulus": "The final speaker is the designated LEADER: ‘I thought about it and I do not think I am going to finish my part. I know this is a study, but I can still do what I want, right? I do not think it is right to recommend that this company start making rugs when it seems like child labor would be used for sure. Experimenters, if you are reading this, I am not going to do something that I am not 100% comfortable doing. Sorry. What do you think?’"
+      }
+    },
+    "response_instruction": "Rate all eight items from 1 to 7 using their stated anchors and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "warmth": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "warm_cold",
+          "text": "Rate the final speaker from 1 (warm) to 7 (cold).",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": true
+        },
+        {
+          "item_id": "pleasant_unpleasant",
+          "text": "Rate the final speaker from 1 (pleasant) to 7 (unpleasant).",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": true
+        },
+        {
+          "item_id": "nice_mean",
+          "text": "Rate the final speaker from 1 (nice) to 7 (mean).",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": true
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "anticipated_sanctions": {
+      "role": "secondary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "bully",
+          "text": "If I worked with the final speaker, I might bully this person.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "insult",
+          "text": "If I worked with the final speaker, I might insult or put down this person.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "negative_rumors",
+          "text": "If I worked with the final speaker, I might spread negative rumors about this person.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "unfriendly",
+          "text": "If I worked with the final speaker, I might intentionally be unfriendly toward this person.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "silence_ethics",
+          "text": "If I worked with the final speaker, I might pressure this person not to speak up about ethical concerns in the future.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "The warmth penalty for moral objection is attenuated when the objector has high rather than low legitimate power.",
+    "reversed_hypothesis_text": "The warmth penalty for moral objection is amplified when the objector has high rather than low legitimate power.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

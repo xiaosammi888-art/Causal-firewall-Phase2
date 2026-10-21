@@ -1,0 +1,232 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-024",
+    "source_study_id": "JPSP_9_3",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 407-410; Journal=JPSP, Essay=9, Study=3",
+    "source_article": "Ames and Mason (2015), Tandem anchoring: Informational and politeness effects of range offers in social exchange",
+    "source_article_url": "https://doi.org/10.1037/pspi0000016",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and all reason-generation requests.",
+      "Corrected the source-verifiable typo 'to pend restaurant' to 'top-end restaurant'.",
+      "Corrected 'least amount of salary' to the source-consistent 'least price per person'.",
+      "Separated the shared catering-negotiation frame from the four opening-offer formats.",
+      "Required nonnegative numeric dollar responses without an arbitrary upper bound; retained nine relational-impression items as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "07587908d02d4547b23d09d210ea0cb254cca7c10dcbd73982bfc92107be7d1f"
+  },
+  "design": {
+    "type": "four_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "counteroffer",
+    "primary_estimand": "E[Y|100_to_120_bolstering_range]-E[Y|100_point_offer]"
+  },
+  "population": {
+    "source_population": "MBA students in negotiation courses at a U.S. graduate business school",
+    "simulation_target": "MBA student responding to a caterer's opening offer in a fundraising-event negotiation",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one MBA student leading a nonprofit fundraising dinner and negotiating with a caterer. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "You are arranging catering for a nonprofit fundraising dinner with several hundred guests. The event must be elegant and high quality, but you want to minimize cost. The menu is fixed and only price is negotiable. You expect the per-person cost to be near a meal and drinks at a top-end restaurant in a major city. The caterer has reviewed the menu.",
+    "arms": {
+      "point_offer": {
+        "label": "$100 point offer",
+        "stimulus": "The caterer says: ‘We could cater this event for $100 per person.’"
+      },
+      "backdown_range": {
+        "label": "$80-$100 backdown range",
+        "stimulus": "The caterer says: ‘We could cater this event for $80 to $100 per person.’"
+      },
+      "large_width_bracketing_range": {
+        "label": "$80-$120 large-width bracketing range",
+        "stimulus": "The caterer says: ‘We could cater this event for $80 to $120 per person.’"
+      },
+      "bolstering_range": {
+        "label": "$100-$120 bolstering range",
+        "stimulus": "The caterer says: ‘We could cater this event for $100 to $120 per person.’"
+      }
+    },
+    "response_instruction": "Return three nonnegative numeric dollar amounts and nine integer impression ratings from 1 (strongly disagree) to 7 (strongly agree). Return only the required JSON structure without currency symbols, ranges, explanations, or reasons."
+  },
+  "outcomes": {
+    "counteroffer": {
+      "role": "primary",
+      "type": "bounded_number",
+      "items": [
+        {
+          "item_id": "counteroffer_dollars",
+          "text": "If you had to respond with a single price, what offer in dollars per person would you give the caterer?",
+          "minimum": 0,
+          "maximum": null,
+          "integer_only": false,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "reservation_price": {
+      "role": "secondary",
+      "type": "bounded_number",
+      "items": [
+        {
+          "item_id": "reservation_price_dollars",
+          "text": "What is the least price in dollars per person that you think the caterer would agree to?",
+          "minimum": 0,
+          "maximum": null,
+          "integer_only": false,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "anticipated_final_price": {
+      "role": "secondary",
+      "type": "bounded_number",
+      "items": [
+        {
+          "item_id": "anticipated_final_price_dollars",
+          "text": "What final price in dollars per person would you and the caterer most likely agree on if you reached an agreement?",
+          "minimum": 0,
+          "maximum": null,
+          "integer_only": false,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "relational_impressions": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "stubborn",
+          "text": "The caterer is stubborn.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "assertive",
+          "text": "The caterer is assertive.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "reasonable",
+          "text": "The caterer is reasonable.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "obnoxious",
+          "text": "The caterer is obnoxious or annoying.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "flexible",
+          "text": "The caterer is flexible.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "confident",
+          "text": "The caterer is confident.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "aggressive",
+          "text": "The caterer is aggressive.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "weak",
+          "text": "The caterer is weak or a pushover.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "playing_games",
+          "text": "The caterer is playing games and not being straightforward.",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "A $100-$120 bolstering range produces a higher counteroffer than a $100 point offer.",
+    "reversed_hypothesis_text": "A $100-$120 bolstering range produces a lower counteroffer than a $100 point offer.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

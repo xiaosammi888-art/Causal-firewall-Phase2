@@ -1,0 +1,151 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-023",
+    "source_study_id": "JPSP_4_7",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 334-335; Journal=JPSP, Essay=4, Study=7",
+    "source_article": "Kim, Campbell, Shepherd, and Kay (2020), Understanding contemporary forms of exploitation: Attributions of passion serve to legitimize the poor treatment of workers",
+    "source_article_url": "https://doi.org/10.1037/pspi0000190",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and all reason-generation requests.",
+      "Separated the shared doctoral-student description from the exploited-versus-neutral advisor treatment.",
+      "Standardized the archive's inconsistent scale label to the source 1-9 response range.",
+      "Locked the two perceived-passion items as primary; retained friendliness, competence, and liking as secondary controls."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "8110298a7cfd2bfd6ee77d4060fd8b941d0b135fef3489b27bc1265fb91b0078"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "perceived_passion",
+    "primary_estimand": "E[Y|exploited]-E[Y|neutral]"
+  },
+  "population": {
+    "source_population": "U.S. residents recruited on MTurk",
+    "simulation_target": "U.S. adult evaluating a psychology doctoral student",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one U.S. adult participant evaluating David, the doctoral student described below. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "David is 25, single, and lives in Madison, Wisconsin. He is a slightly above-average, hardworking doctoral student in psychology at the state university. A small fellowship covers tuition and modest living expenses. David usually does good work and works with his advisor, Dr. Williams, on several research projects.",
+    "arms": {
+      "exploited": {
+        "label": "Exploited doctoral student",
+        "stimulus": "Dr. Williams is very hard on David, gives unreasonable deadlines that often require 15-hour workdays, can be verbally abusive when dissatisfied, and often assigns menial tasks unrelated to David's training."
+      },
+      "neutral": {
+        "label": "Neutral doctoral student",
+        "stimulus": "No additional information is provided about Dr. Williams's treatment of David."
+      }
+    },
+    "response_instruction": "Rate every item from 1 (not at all) to 9 (extremely) and return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "perceived_passion": {
+      "role": "primary",
+      "type": "composite_mean",
+      "items": [
+        {
+          "item_id": "passionate_psychology",
+          "text": "Given what you read, how passionate is David about psychology?",
+          "minimum": 1,
+          "maximum": 9,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "passionate_career",
+          "text": "To what extent is David passionate about a career in psychology?",
+          "minimum": 1,
+          "maximum": 9,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "mean",
+      "model_may_write_aggregate": false
+    },
+    "target_controls": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "friendly",
+          "text": "To what extent is David friendly at work?",
+          "minimum": 1,
+          "maximum": 9,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "competent",
+          "text": "To what extent is David a competent PhD student?",
+          "minimum": 1,
+          "maximum": 9,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "liking",
+          "text": "How much do you like David?",
+          "minimum": 1,
+          "maximum": 9,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "An exploited doctoral student is perceived as more passionate than an otherwise identical neutral target.",
+    "reversed_hypothesis_text": "An exploited doctoral student is perceived as less passionate than an otherwise identical neutral target.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}

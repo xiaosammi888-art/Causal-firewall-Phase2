@@ -1,0 +1,190 @@
+{
+  "identity": {
+    "study_id": "CF-S1-CONF-022",
+    "source_study_id": "JEP_5_3b",
+    "contract_version": "1.0.0",
+    "domain": "psychology"
+  },
+  "source": {
+    "archive": "Cui, Li, and Zhou OSF replication archive",
+    "archive_url": "https://osf.io/j6wmn/",
+    "prompt_locator": "prompt.xlsx rows 245-246; Journal=JEP, Essay=5, Study=3b",
+    "source_article": "Choshen-Hillel, Shaw, and Caruso (2020), Lying to appear honest",
+    "source_article_url": "https://doi.org/10.1037/xge0000737",
+    "adapted_in_archive": false,
+    "material_policy": "source_faithful_experimental_content_with_standardized_simulation_wrapper",
+    "authorized_normalizations": [
+      "Removed the archive's generic LLM wrapper and all reason-generation requests.",
+      "Separated the shared coin-flip/bonus setting from whether true outcomes were revealed.",
+      "Removed the contradictory phrase 'when this was revealed' from honesty items in the truth-not-revealed arm and supplied condition-consistent item wording.",
+      "Locked the Jim-versus-Dan honesty difference-in-differences as primary; retained goodness ratings, Mark ratings, and the bonus-rule check as secondary."
+    ],
+    "omitted_source_measures": [],
+    "normalized_material_sha256": "012519e9359f59a4d9500f3d8655a26d8238bed1c9d8f9035a3b4e22c14b3d70"
+  },
+  "design": {
+    "type": "two_arm_between_subjects",
+    "assignment_unit": "synthetic_participant_instance",
+    "context_policy": "fresh_context",
+    "persona_replay_across_arms": true,
+    "primary_outcome": "honesty_ratings",
+    "primary_estimand": "[E(H_jim-H_dan|truth_revealed)]-[E(H_jim-H_dan|truth_not_revealed)]"
+  },
+  "population": {
+    "source_population": "U.S. adults recruited on MTurk",
+    "simulation_target": "U.S. adult observer rating coin-flip reporters",
+    "claims_population_representativeness": false,
+    "required_persona_fields": [
+      "participant_id",
+      "adult"
+    ]
+  },
+  "materials": {
+    "participant_role": "Act as one U.S. adult observer evaluating Jim, Dan, and Mark in the study below. Respond for yourself, do not predict the average person, and do not analyze the experiment.",
+    "common_scenario": "In a lab experiment, 500 participants privately flipped a coin eight times and reported their number of heads. They received a flat fee plus $0.25 for every reported head.",
+    "arms": {
+      "truth_revealed": {
+        "label": "True outcomes revealed",
+        "stimulus": "Jim truly flipped eight heads and reported eight. Dan truly flipped eight heads but reported seven. Mark truly flipped four heads and reported four."
+      },
+      "truth_not_revealed": {
+        "label": "True outcomes not revealed",
+        "stimulus": "Jim reported eight heads. Dan reported seven heads. Mark reported four heads. Their true outcomes are not disclosed."
+      }
+    },
+    "response_instruction": "Rate goodness and honesty from 1 (not at all) to 7 (extremely); answer the bonus-rule check with 1 for yes and 2 for no. Return only integer item responses in the required JSON structure."
+  },
+  "outcomes": {
+    "honesty_ratings": {
+      "role": "primary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "jim_honest",
+          "text": "How honest does Jim appear?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "truth_revealed": "How honest was Jim, given that he reported eight heads and his revealed true outcome was eight heads?",
+            "truth_not_revealed": "Based only on his report of eight heads, how honest does Jim appear?"
+          },
+          "analysis_group": "truthful_extreme"
+        },
+        {
+          "item_id": "dan_honest",
+          "text": "How honest does Dan appear?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "truth_revealed": "How honest was Dan, given that he reported seven heads and his revealed true outcome was eight heads?",
+            "truth_not_revealed": "Based only on his report of seven heads, how honest does Dan appear?"
+          },
+          "analysis_group": "underreported_extreme"
+        },
+        {
+          "item_id": "mark_honest",
+          "text": "How honest does Mark appear?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false,
+          "text_by_arm": {
+            "truth_revealed": "How honest was Mark, given that he reported four heads and his revealed true outcome was four heads?",
+            "truth_not_revealed": "Based only on his report of four heads, how honest does Mark appear?"
+          },
+          "analysis_group": "truthful_standard"
+        }
+      ],
+      "aggregation": "paired_item_contrast",
+      "model_may_write_aggregate": false
+    },
+    "good_person_ratings": {
+      "role": "secondary",
+      "type": "item_vector",
+      "items": [
+        {
+          "item_id": "jim_good",
+          "text": "How much do you think Jim is a good person?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "dan_good",
+          "text": "How much do you think Dan is a good person?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        },
+        {
+          "item_id": "mark_good",
+          "text": "How much do you think Mark is a good person?",
+          "minimum": 1,
+          "maximum": 7,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    },
+    "bonus_rule_check": {
+      "role": "secondary",
+      "type": "bounded_integer",
+      "items": [
+        {
+          "item_id": "more_heads_more_bonus",
+          "text": "Did participants who reported more heads receive a larger bonus? Use 1 for yes and 2 for no.",
+          "minimum": 1,
+          "maximum": 2,
+          "integer_only": true,
+          "reverse_scored": false
+        }
+      ],
+      "aggregation": "identity",
+      "model_may_write_aggregate": false
+    }
+  },
+  "research_restricted": {
+    "aligned_hypothesis_text": "Revealing true outcomes increases the honesty advantage of truthful extreme reporting over underreporting, relative to the truth-not-revealed condition.",
+    "reversed_hypothesis_text": "Revealing true outcomes decreases the honesty advantage of truthful extreme reporting over underreporting, relative to the truth-not-revealed condition.",
+    "human_benchmark_status": "EMBARGOED_NOT_IN_CONTRACT",
+    "other_arm_visibility": "deny"
+  },
+  "participant_packet": {
+    "ordered_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "required_fields": [
+      "participant_role",
+      "persona_state",
+      "common_scenario",
+      "current_stimulus",
+      "outcome_items",
+      "response_schema"
+    ],
+    "forbidden_information_classes": [
+      "HYPOTHESIS_CUE",
+      "HUMAN_BENCHMARK",
+      "OTHER_ARM",
+      "DERIVED_STUDY_SUMMARY"
+    ]
+  },
+  "execution": {
+    "contract_status": "frozen",
+    "paid_calls_authorized": false,
+    "content_retry_policy": "none",
+    "invalid_output_policy": "retain_as_protocol_failure"
+  }
+}
