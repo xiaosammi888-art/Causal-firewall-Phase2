@@ -1,6 +1,4 @@
-# Study 1 Manuscript Results Package
-
-This package translates the sealed Study 1 confirmatory result into manuscript-ready English prose, publication tables, and a claim-level audit crosswalk. It introduces no new confirmatory analysis.
+# Phase 2 Manuscript Results Package
 
 ## Contents
 
@@ -10,8 +8,6 @@ This package translates the sealed Study 1 confirmatory result into manuscript-r
 - `TABLE_3_EXPERIMENT_LEVEL_RESULTS.csv`: all 30 experiment estimates and replication labels.
 - `TABLE_4_COMPONENT_REPLICATION_RESULTS.csv`: all 33 component replication results.
 - `MANUSCRIPT_AUDIT_CROSSWALK.csv`: claim-level mapping from every reported number or judgment to a JSON pointer in a frozen source.
-- `MANUSCRIPT_AUDIT_CHECKLIST.md`: pre-submission verification checklist.
-- `STUDY1_MANUSCRIPT_RESULTS_PACKAGE.docx`: formatted Word version of the manuscript-ready text and tables.
 
 ## Frozen authority
 
