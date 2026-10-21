@@ -1,0 +1,10 @@
+
+[project]
+name = "causal-firewall-study1"
+version = "1.0.0"
+description = "Public offline reproducibility package for Causal Firewall Study 1"
+requires-python = ">=3.10"
+dependencies = ["numpy==2.3.5"]
+
+[tool.unittest]
+start-directory = "tests"
